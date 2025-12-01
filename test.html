@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>智能超链接识别 - 测试页面</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+					Roboto, sans-serif;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				padding: 40px 20px;
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 900px;
+				margin: 0 auto;
+				background: white;
+				border-radius: 16px;
+				padding: 40px;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+			}
+
+			h1 {
+				color: #667eea;
+				margin-bottom: 10px;
+				font-size: 32px;
+			}
+
+			.subtitle {
+				color: #666;
+				margin-bottom: 30px;
+				font-size: 16px;
+			}
+
+			.section {
+				margin-bottom: 40px;
+				padding: 25px;
+				background: #f8f9fa;
+				border-radius: 12px;
+				border-left: 4px solid #667eea;
+			}
+
+			.section h2 {
+				color: #333;
+				margin-bottom: 15px;
+				font-size: 20px;
+			}
+
+			.test-content {
+				background: white;
+				padding: 20px;
+				border-radius: 8px;
+				line-height: 1.8;
+				font-size: 15px;
+				color: #555;
+			}
+
+			.test-content p {
+				margin-bottom: 12px;
+			}
+
+			.label {
+				display: inline-block;
+				padding: 4px 12px;
+				background: #667eea;
+				color: white;
+				border-radius: 4px;
+				font-size: 12px;
+				font-weight: 600;
+				margin-bottom: 10px;
+			}
+
+			.label.success {
+				background: #4caf50;
+			}
+
+			.label.warning {
+				background: #ff9800;
+			}
+
+			.label.error {
+				background: #f44336;
+			}
+
+			pre {
+				background: #2d2d2d;
+				color: #f8f8f2;
+				padding: 15px;
+				border-radius: 8px;
+				overflow-x: auto;
+				font-size: 13px;
+				line-height: 1.6;
+			}
+
+			code {
+				background: #2d2d2d;
+				color: #f8f8f2;
+				padding: 2px 6px;
+				border-radius: 4px;
+				font-size: 13px;
+			}
+
+			.note {
+				background: #fff3cd;
+				border-left: 4px solid #ffc107;
+				padding: 15px;
+				margin-top: 15px;
+				border-radius: 4px;
+				font-size: 14px;
+				color: #856404;
+			}
+
+			.dynamic-content {
+				margin-top: 20px;
+				padding: 15px;
+				background: #e8f5e9;
+				border-radius: 8px;
+				display: none;
+			}
+
+			button {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				border: none;
+				padding: 12px 30px;
+				border-radius: 8px;
+				font-size: 15px;
+				font-weight: 600;
+				cursor: pointer;
+				transition: all 0.3s;
+			}
+
+			button:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>✍️ 智能超链接识别 - 测试页面</h1>
+			<p class="subtitle">Smart Text-to-Link Converter Test Page</p>
+
+			<!-- 测试 1: 基本 URL -->
+			<div class="section">
+				<span class="label success">测试 1</span>
+				<h2>基本 URL 转换</h2>
+				<div class="test-content">
+					<p>访问我们的网站 www.google.com 获取更多信息。</p>
+					<p>完整 URL：https://www.github.com 也应该被转换。</p>
+					<p>不带协议的域名：example.com 和 test.org 都应该工作。</p>
+					<p>带路径的 URL：www.example.com/path/to/page 也能识别。</p>
+				</div>
+				<div class="note">
+					💡 以上所有文本 URL 都应该自动变成可点击的超链接。
+				</div>
+			</div>
+
+			<!-- 测试 2: 邮箱地址 -->
+			<div class="section">
+				<span class="label success">测试 2</span>
+				<h2>邮箱地址转换</h2>
+				<div class="test-content">
+					<p>联系我们：contact@example.com</p>
+					<p>技术支持：support@company.co.uk</p>
+					<p>个人邮箱：john.doe@gmail.com</p>
+				</div>
+				<div class="note">💡 邮箱地址应该转换为 mailto: 链接。</div>
+			</div>
+
+			<!-- 测试 3: 混合内容 -->
+			<div class="section">
+				<span class="label success">测试 3</span>
+				<h2>混合内容</h2>
+				<div class="test-content">
+					<p>
+						访问 www.example.com 或发送邮件到 info@example.com
+						了解更多。
+					</p>
+					<p>
+						查看我们的 GitHub 项目：https://github.com/user/project
+						或访问官网 www.project.com
+					</p>
+					<p>本地开发服务器：localhost:3000 和 127.0.0.1:8080</p>
+				</div>
+			</div>
+
+			<!-- 测试 4: 不应该转换的内容 -->
+			<div class="section">
+				<span class="label warning">测试 4</span>
+				<h2>排除规则测试（这些不应该被转换）</h2>
+				<div class="test-content">
+					<p><strong>代码块中的 URL：</strong></p>
+					<pre>
+const url = "www.example.com";
+console.log("Visit https://github.com");</pre
+					>
+
+					<p>
+						<strong>行内代码：</strong> 使用
+						<code>www.example.com</code> 作为示例。
+					</p>
+
+					<p>
+						<strong>已有链接：</strong>
+						<a href="https://www.google.com">www.google.com</a>
+					</p>
+				</div>
+				<div class="note">
+					⚠️ 以上内容中的 URL 不应该被转换，以保持原有格式。
+				</div>
+			</div>
+
+			<!-- 测试 5: 特殊格式 -->
+			<div class="section">
+				<span class="label success">测试 5</span>
+				<h2>特殊格式 URL</h2>
+				<div class="test-content">
+					<p>FTP 服务器：ftp://files.example.com</p>
+					<p>带端口的 URL：www.example.com:8080/path</p>
+					<p>带查询参数：example.com/search?q=test&page=1</p>
+					<p>带锚点：www.example.com/page#section</p>
+					<p>子域名：api.v2.example.com</p>
+				</div>
+			</div>
+
+			<!-- 测试 6: 动态内容 -->
+			<div class="section">
+				<span class="label">测试 6</span>
+				<h2>动态内容测试</h2>
+				<div class="test-content">
+					<p>
+						点击下面的按钮加载动态内容，测试插件是否能处理动态添加的文本。
+					</p>
+					<button onclick="loadDynamicContent()">
+						🔄 加载动态内容
+					</button>
+					<div id="dynamicContent" class="dynamic-content"></div>
+				</div>
+				<div class="note">
+					💡 动态加载的内容中的 URL 也应该被自动转换。
+				</div>
+			</div>
+
+			<!-- 测试 7: 边界情况 -->
+			<div class="section">
+				<span class="label warning">测试 7</span>
+				<h2>边界情况</h2>
+				<div class="test-content">
+					<p>
+						句子中的 URL：请访问www.example.com了解详情。（无空格）
+					</p>
+					<p>括号中的 URL：(www.example.com) 和 [https://test.com]</p>
+					<p>引号中的 URL："www.example.com" 和 'https://test.com'</p>
+					<p>
+						多个连续 URL：www.google.com www.github.com
+						www.stackoverflow.com
+					</p>
+				</div>
+			</div>
+
+			<!-- 测试结果说明 -->
+			<div
+				class="section"
+				style="border-left-color: #4caf50; background: #e8f5e9"
+			>
+				<h2>✅ 测试说明</h2>
+				<div class="test-content" style="background: white">
+					<p><strong>如何验证插件是否正常工作：</strong></p>
+					<ol style="margin-left: 20px; line-height: 2">
+						<li>
+							检查带
+							<span class="label success">测试</span>
+							标签的部分，URL 应该有下划线且可点击
+						</li>
+						<li>
+							检查带
+							<span class="label warning">测试</span>
+							标签的部分，确保排除规则生效
+						</li>
+						<li>点击转换后的链接，确认能正常跳转</li>
+						<li>测试动态内容加载功能</li>
+						<li>检查浏览器控制台，确保没有错误信息</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function loadDynamicContent() {
+				const content = document.getElementById('dynamicContent')
+				content.style.display = 'block'
+				content.innerHTML = `
+                <p><strong>动态加载的内容：</strong></p>
+                <p>新的链接：www.dynamic-example.com</p>
+                <p>新的邮箱：dynamic@example.com</p>
+                <p>完整 URL：https://github.com/dynamic/repo</p>
+                <p>✅ 如果以上链接可以点击，说明动态内容处理正常！</p>
+            `
+			}
+
+			// 页面加载完成提示
+			window.addEventListener('load', function () {
+				console.log('✍️ 智能超链接识别测试页面已加载')
+				console.log('📝 请检查页面中的 URL 是否已转换为可点击链接')
+			})
+		</script>
+	</body>
+</html>

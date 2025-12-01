@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>智能超链接识别</title>
+		<link rel="stylesheet" href="popup.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>✍️ 智能超链接识别</h1>
+				<p class="subtitle">Smart Text-to-Link Converter</p>
+			</div>
+
+			<div class="content">
+				<div class="toggle-section">
+					<label class="switch">
+						<input type="checkbox" id="enableToggle" />
+						<span class="slider"></span>
+					</label>
+					<span class="toggle-label" id="statusText">启用</span>
+				</div>
+
+				<div class="info">
+					<p>🔗 自动将纯文本 URL 转换为可点击链接</p>
+					<p>⚡ 支持动态内容实时处理</p>
+				</div>
+
+				<div class="stats" id="stats">
+					<p>当前页面状态: <span id="pageStatus">活动中</span></p>
+				</div>
+			</div>
+
+			<div class="footer">
+				<button id="optionsBtn" class="btn">⚙️ 设置</button>
+				<button id="refreshBtn" class="btn">🔄 刷新页面</button>
+			</div>
+		</div>
+
+		<script src="popup.js"></script>
+	</body>
+</html>

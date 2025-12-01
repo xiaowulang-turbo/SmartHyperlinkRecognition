@@ -1,0 +1,33 @@
+{
+	"name": "smart-hyperlink-recognition",
+	"version": "1.0.0",
+	"description": "智能超链接识别 - 自动将网页中的纯文本 URL 转换为可点击的超链接",
+	"author": "Smart Text-to-Link Converter Team",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yourusername/SmartHyperlinkRecognition.git"
+	},
+	"keywords": [
+		"chrome-extension",
+		"url-converter",
+		"hyperlink",
+		"text-to-link",
+		"browser-extension",
+		"link-recognition"
+	],
+	"scripts": {
+		"test": "echo \"Open test.html in Chrome to test the extension\"",
+		"pack": "echo \"Use Chrome Extensions page to pack the extension\"",
+		"lint": "echo \"No linter configured yet\""
+	},
+	"devDependencies": {},
+	"dependencies": {},
+	"engines": {
+		"chrome": ">=88.0.0"
+	},
+	"homepage": "https://github.com/yourusername/SmartHyperlinkRecognition#readme",
+	"bugs": {
+		"url": "https://github.com/yourusername/SmartHyperlinkRecognition/issues"
+	}
+}
