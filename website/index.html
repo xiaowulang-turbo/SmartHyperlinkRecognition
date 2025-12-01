@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="智能超链接识别 - 自动将网页中的纯文本 URL 转换为可点击的超链接"
+		/>
+		<meta name="keywords" content="Chrome扩展,超链接,URL转换,浏览器插件" />
+		<title>智能超链接识别 - Smart Text-to-Link Converter</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<!-- 导航栏 -->
+		<nav class="navbar">
+			<div class="container">
+				<div class="nav-brand">
+					<span class="logo">✍️</span>
+					<span class="brand-name">智能超链接识别</span>
+				</div>
+				<ul class="nav-menu">
+					<li><a href="#home">首页</a></li>
+					<li><a href="#features">功能</a></li>
+					<li><a href="#demo">演示</a></li>
+					<li><a href="#download">下载</a></li>
+					<li><a href="#docs">文档</a></li>
+					<li>
+						<a
+							href="https://github.com/yourusername/SmartHyperlinkRecognition"
+							target="_blank"
+						>
+							<i class="fab fa-github"></i> GitHub
+						</a>
+					</li>
+				</ul>
+				<button class="mobile-menu-toggle">
+					<i class="fas fa-bars"></i>
+				</button>
+			</div>
+		</nav>
+
+		<!-- 英雄区域 -->
+		<section id="home" class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<div class="hero-text">
+						<h1 class="hero-title">
+							<span class="gradient-text">智能超链接识别</span>
+						</h1>
+						<p class="hero-subtitle">
+							Smart Text-to-Link Converter
+						</p>
+						<p class="hero-description">
+							自动将网页中的纯文本 URL 转换为可点击的超链接<br />
+							让您的浏览体验更加顺畅，告别复制粘贴！
+						</p>
+						<div class="hero-buttons">
+							<a href="#download" class="btn btn-primary">
+								<i class="fas fa-download"></i> 立即下载
+							</a>
+							<a href="#demo" class="btn btn-secondary">
+								<i class="fas fa-play"></i> 查看演示
+							</a>
+						</div>
+						<div class="hero-stats">
+							<div class="stat-item">
+								<div class="stat-number">1.0.0</div>
+								<div class="stat-label">当前版本</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-number">免费</div>
+								<div class="stat-label">开源项目</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-number">MIT</div>
+								<div class="stat-label">许可证</div>
+							</div>
+						</div>
+					</div>
+					<div class="hero-image">
+						<div class="browser-mockup">
+							<div class="browser-header">
+								<div class="browser-dots">
+									<span></span><span></span><span></span>
+								</div>
+								<div class="browser-url">
+									chrome://extensions
+								</div>
+							</div>
+							<div class="browser-content">
+								<div class="extension-card">
+									<div class="extension-icon">✍️</div>
+									<div class="extension-info">
+										<h3>智能超链接识别</h3>
+										<p>自动转换纯文本 URL 为可点击链接</p>
+										<div class="extension-status">
+											<span class="status-badge active"
+												>已启用</span
+											>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hero-wave">
+				<svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+					<path
+						d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+					></path>
+				</svg>
+			</div>
+		</section>
+
+		<!-- 功能特性 -->
+		<section id="features" class="features">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">核心功能</h2>
+					<p class="section-subtitle">
+						强大而智能的链接识别与转换能力
+					</p>
+				</div>
+				<div class="features-grid">
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="fas fa-link"></i>
+						</div>
+						<h3>智能识别</h3>
+						<p>
+							自动识别网页中的
+							URL、邮箱地址等文本链接，支持多种格式
+						</p>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="fas fa-bolt"></i>
+						</div>
+						<h3>实时转换</h3>
+						<p>
+							不仅处理页面加载时的内容，还能实时处理动态加载的新内容
+						</p>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="fas fa-brain"></i>
+						</div>
+						<h3>智能排除</h3>
+						<p>
+							自动跳过代码块、已有链接等特殊区域，避免破坏页面结构
+						</p>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="fas fa-cog"></i>
+						</div>
+						<h3>高度可配置</h3>
+						<p>
+							支持自定义排除规则、黑名单、链接打开方式等多项配置
+						</p>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="fas fa-shield-alt"></i>
+						</div>
+						<h3>安全隐私</h3>
+						<p>
+							所有操作在本地完成，不收集任何数据，保护您的隐私安全
+						</p>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="fas fa-rocket"></i>
+						</div>
+						<h3>高性能</h3>
+						<p>
+							经过优化的算法，对页面性能影响极小，流畅的使用体验
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 演示区域 -->
+		<section id="demo" class="demo">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">实时演示</h2>
+					<p class="section-subtitle">看看插件是如何工作的</p>
+				</div>
+				<div class="demo-container">
+					<div class="demo-before">
+						<h3><i class="fas fa-times-circle"></i> 转换前</h3>
+						<div class="demo-content">
+							<p>访问我们的网站 www.example.com 获取更多信息</p>
+							<p>或发送邮件到 contact@example.com</p>
+							<p>查看项目 https://github.com/example/project</p>
+						</div>
+					</div>
+					<div class="demo-arrow">
+						<i class="fas fa-arrow-right"></i>
+					</div>
+					<div class="demo-after">
+						<h3><i class="fas fa-check-circle"></i> 转换后</h3>
+						<div class="demo-content">
+							<p>
+								访问我们的网站
+								<a href="http://www.example.com" target="_blank"
+									>www.example.com</a
+								>
+								获取更多信息
+							</p>
+							<p>
+								或发送邮件到
+								<a href="mailto:contact@example.com"
+									>contact@example.com</a
+								>
+							</p>
+							<p>
+								查看项目
+								<a
+									href="https://github.com/example/project"
+									target="_blank"
+									>https://github.com/example/project</a
+								>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 使用场景 -->
+		<section class="use-cases">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">使用场景</h2>
+					<p class="section-subtitle">适用于各种网页浏览场景</p>
+				</div>
+				<div class="use-cases-grid">
+					<div class="use-case-card">
+						<div class="use-case-icon">💬</div>
+						<h3>论坛和社区</h3>
+						<p>
+							在
+							Reddit、知乎等社区，用户分享的纯文本链接自动可点击
+						</p>
+					</div>
+					<div class="use-case-card">
+						<div class="use-case-icon">📚</div>
+						<h3>技术文档</h3>
+						<p>阅读技术文档时，文档中的 URL 引用自动变成超链接</p>
+					</div>
+					<div class="use-case-card">
+						<div class="use-case-icon">💼</div>
+						<h3>工作协作</h3>
+						<p>在线协作工具中的链接分享更加便捷高效</p>
+					</div>
+					<div class="use-case-card">
+						<div class="use-case-icon">📧</div>
+						<h3>邮件和联系</h3>
+						<p>网页上的邮箱地址自动变成 mailto 链接</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 下载安装 -->
+		<section id="download" class="download">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">下载安装</h2>
+					<p class="section-subtitle">快速开始使用智能超链接识别</p>
+				</div>
+				<div class="download-options">
+					<div class="download-card primary">
+						<div class="download-icon">
+							<i class="fab fa-chrome"></i>
+						</div>
+						<h3>Chrome Web Store</h3>
+						<p>推荐方式，一键安装，自动更新</p>
+						<a href="#" class="btn btn-primary">
+							<i class="fas fa-download"></i> 从商店安装
+						</a>
+						<span class="coming-soon">即将上架</span>
+					</div>
+					<div class="download-card">
+						<div class="download-icon">
+							<i class="fab fa-github"></i>
+						</div>
+						<h3>GitHub Release</h3>
+						<p>下载最新版本，手动安装</p>
+						<a
+							href="https://github.com/yourusername/SmartHyperlinkRecognition/releases"
+							class="btn btn-secondary"
+							target="_blank"
+						>
+							<i class="fab fa-github"></i> 前往 GitHub
+						</a>
+					</div>
+				</div>
+				<div class="install-steps">
+					<h3>安装步骤</h3>
+					<div class="steps-grid">
+						<div class="step">
+							<div class="step-number">1</div>
+							<h4>下载扩展</h4>
+							<p>从 Chrome Web Store 或 GitHub 下载</p>
+						</div>
+						<div class="step">
+							<div class="step-number">2</div>
+							<h4>加载扩展</h4>
+							<p>打开 chrome://extensions 加载</p>
+						</div>
+						<div class="step">
+							<div class="step-number">3</div>
+							<h4>开始使用</h4>
+							<p>访问任何网页，自动转换链接</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 文档资源 -->
+		<section id="docs" class="docs">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">文档资源</h2>
+					<p class="section-subtitle">详细的使用指南和开发文档</p>
+				</div>
+				<div class="docs-grid">
+					<a href="../QUICKSTART.md" class="doc-card">
+						<div class="doc-icon">🚀</div>
+						<h3>快速开始</h3>
+						<p>5 分钟快速上手指南</p>
+					</a>
+					<a href="../INSTALL.md" class="doc-card">
+						<div class="doc-icon">📦</div>
+						<h3>安装指南</h3>
+						<p>详细的安装步骤说明</p>
+					</a>
+					<a href="../README.md" class="doc-card">
+						<div class="doc-icon">📖</div>
+						<h3>完整文档</h3>
+						<p>项目完整说明文档</p>
+					</a>
+					<a href="../DEVELOPMENT.md" class="doc-card">
+						<div class="doc-icon">🔧</div>
+						<h3>开发指南</h3>
+						<p>开发者技术文档</p>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- FAQ -->
+		<section class="faq">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">常见问题</h2>
+					<p class="section-subtitle">FAQ</p>
+				</div>
+				<div class="faq-list">
+					<div class="faq-item">
+						<div class="faq-question">
+							<h3>插件是否免费？</h3>
+							<i class="fas fa-chevron-down"></i>
+						</div>
+						<div class="faq-answer">
+							<p>
+								是的，本插件完全免费且开源，采用 MIT
+								许可证。您可以自由使用、修改和分发。
+							</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<div class="faq-question">
+							<h3>插件会收集我的数据吗？</h3>
+							<i class="fas fa-chevron-down"></i>
+						</div>
+						<div class="faq-answer">
+							<p>
+								不会。所有操作都在本地完成，不会收集、存储或传输任何用户数据，完全保护您的隐私。
+							</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<div class="faq-question">
+							<h3>插件会影响浏览速度吗？</h3>
+							<i class="fas fa-chevron-down"></i>
+						</div>
+						<div class="faq-answer">
+							<p>
+								不会。插件经过性能优化，使用高效的算法，对页面加载和浏览速度的影响微乎其微。
+							</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<div class="faq-question">
+							<h3>如何禁用特定网站的转换？</h3>
+							<i class="fas fa-chevron-down"></i>
+						</div>
+						<div class="faq-answer">
+							<p>
+								在插件设置页面中，可以添加网站到黑名单。黑名单中的网站将不会进行链接转换。
+							</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<div class="faq-question">
+							<h3>支持哪些浏览器？</h3>
+							<i class="fas fa-chevron-down"></i>
+						</div>
+						<div class="faq-answer">
+							<p>
+								目前支持 Chrome 88 及以上版本。未来计划支持
+								Edge、Firefox 等其他浏览器。
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 页脚 -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-section">
+						<h3>✍️ 智能超链接识别</h3>
+						<p>让网页浏览更加便捷</p>
+						<div class="social-links">
+							<a
+								href="https://github.com/yourusername/SmartHyperlinkRecognition"
+								target="_blank"
+							>
+								<i class="fab fa-github"></i>
+							</a>
+							<a href="#" target="_blank">
+								<i class="fab fa-twitter"></i>
+							</a>
+						</div>
+					</div>
+					<div class="footer-section">
+						<h4>快速链接</h4>
+						<ul>
+							<li><a href="#home">首页</a></li>
+							<li><a href="#features">功能</a></li>
+							<li><a href="#download">下载</a></li>
+							<li><a href="#docs">文档</a></li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4>资源</h4>
+						<ul>
+							<li><a href="../README.md">项目文档</a></li>
+							<li><a href="../CHANGELOG.md">更新日志</a></li>
+							<li>
+								<a
+									href="https://github.com/yourusername/SmartHyperlinkRecognition/issues"
+									>问题反馈</a
+								>
+							</li>
+							<li><a href="../LICENSE">开源许可</a></li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4>关于</h4>
+						<ul>
+							<li>
+								<a
+									href="https://github.com/yourusername/SmartHyperlinkRecognition"
+									>GitHub 仓库</a
+								>
+							</li>
+							<li><a href="#">贡献指南</a></li>
+							<li><a href="#">行为准则</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p>
+						&copy; 2024 Smart Text-to-Link Converter. All rights
+						reserved.
+					</p>
+					<p>
+						Released under the <a href="../LICENSE">MIT License</a>
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<script src="js/main.js"></script>
+	</body>
+</html>
