@@ -31,6 +31,12 @@
 -   **🔒 安全与性能:** 转换过程快速高效，所有操作都在本地完成，不会对您的浏览速
     度造成明显影响，且不收集任何数据。
 
+## 🌐 官网
+
+访问我们的官网了解更多信息：[待部署]
+
+官网源码位于 `website/` 目录。
+
 ## 📥 安装指南 (Installation)
 
 ### 选项 1: 通过 Chrome Web Store (推荐)
@@ -53,7 +59,7 @@
 
 4. 点击 **"加载已解压的扩展程序"** 按钮
 
-5. 选择项目文件夹即可完成安装
+5. 选择项目中的 `extension` 文件夹即可完成安装
 
 ## 🔧 使用方法 (Usage)
 
@@ -118,21 +124,33 @@
 
 ```
 SmartHyperlinkRecognition/
-├── manifest.json          # 插件配置文件
-├── background.js          # 后台服务脚本
-├── content.js            # 内容脚本（核心转换逻辑）
-├── popup.html            # 弹出窗口界面
-├── popup.css             # 弹出窗口样式
-├── popup.js              # 弹出窗口逻辑
-├── options.html          # 设置页面界面
-├── options.css           # 设置页面样式
-├── options.js            # 设置页面逻辑
-├── welcome.html          # 欢迎页面
-├── icons/                # 图标文件夹
-│   ├── icon16.png
-│   ├── icon48.png
-│   └── icon128.png
-└── README.md             # 项目说明文档
+├── extension/            # Chrome 扩展程序
+│   ├── manifest.json    # 插件配置文件
+│   ├── background.js    # 后台服务脚本
+│   ├── content.js       # 内容脚本（核心转换逻辑）
+│   ├── popup.html       # 弹出窗口界面
+│   ├── popup.css        # 弹出窗口样式
+│   ├── popup.js         # 弹出窗口逻辑
+│   ├── options.html     # 设置页面界面
+│   ├── options.css      # 设置页面样式
+│   ├── options.js       # 设置页面逻辑
+│   ├── welcome.html     # 欢迎页面
+│   └── icons/           # 图标文件夹
+│       ├── icon16.png
+│       ├── icon48.png
+│       └── icon128.png
+├── website/             # 项目官网
+│   ├── index.html       # 官网首页
+│   ├── css/
+│   │   └── style.css    # 官网样式
+│   ├── js/
+│   │   └── main.js      # 官网脚本
+│   └── images/          # 官网图片
+└── docs/                # 文档文件
+    ├── README.md
+    ├── INSTALL.md
+    ├── QUICKSTART.md
+    └── ...
 ```
 
 ### 贡献流程
