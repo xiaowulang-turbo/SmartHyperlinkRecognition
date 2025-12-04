@@ -183,11 +183,11 @@ function showNotification(message) {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
         color: white;
         padding: 15px 25px;
         border-radius: 50px;
-        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
         z-index: 10000;
         animation: slideIn 0.3s ease;
     `

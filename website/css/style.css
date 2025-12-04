@@ -6,15 +6,15 @@
 }
 
 :root {
-	--primary-color: #667eea;
-	--secondary-color: #764ba2;
-	--gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	--primary-color: #2563eb;
+	--secondary-color: #1e40af;
+	--gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
 	--text-dark: #333;
 	--text-light: #666;
 	--bg-light: #f8f9fa;
 	--white: #ffffff;
 	--shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-	--shadow-hover: 0 15px 50px rgba(102, 126, 234, 0.3);
+	--shadow-hover: 0 15px 50px rgba(37, 99, 235, 0.3);
 }
 
 html {

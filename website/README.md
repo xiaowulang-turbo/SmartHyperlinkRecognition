@@ -85,9 +85,9 @@ vercel
 
 ```css
 :root {
-	--primary-color: #667eea;
-	--secondary-color: #764ba2;
-	--gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	--primary-color: #2563eb;
+	--secondary-color: #1e40af;
+	--gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
 }
 ```
 
