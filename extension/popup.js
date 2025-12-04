@@ -25,15 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			chrome.storage.sync.set({ config: config }, function () {
 				updateStatusText(enabled)
 
-				// 通知当前标签页
+				// 刷新当前标签页以应用更改
 				chrome.tabs.query(
 					{ active: true, currentWindow: true },
 					function (tabs) {
 						if (tabs[0]) {
-							chrome.tabs.sendMessage(tabs[0].id, {
-								action: 'toggleEnabled',
-								enabled: enabled,
-							})
+							chrome.tabs.reload(tabs[0].id)
 						}
 					}
 				)
