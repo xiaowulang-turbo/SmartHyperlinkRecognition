@@ -22,14 +22,20 @@
 			<div class="container">
 				<div class="nav-brand">
 					<img src="images/icon512.png" alt="Logo" class="logo-img" />
-					<span class="brand-name">智能超链接识别</span>
+					<span class="brand-name" data-i18n="nav.brand"
+						>智能超链接识别</span
+					>
 				</div>
 				<ul class="nav-menu">
-					<li><a href="#home">首页</a></li>
-					<li><a href="#features">功能</a></li>
-					<li><a href="#demo">演示</a></li>
-					<li><a href="#download">下载</a></li>
-					<li><a href="#docs">文档</a></li>
+					<li><a href="#home" data-i18n="nav.home">首页</a></li>
+					<li>
+						<a href="#features" data-i18n="nav.features">功能</a>
+					</li>
+					<li><a href="#demo" data-i18n="nav.demo">演示</a></li>
+					<li>
+						<a href="#download" data-i18n="nav.download">下载</a>
+					</li>
+					<li><a href="#docs" data-i18n="nav.docs">文档</a></li>
 					<li>
 						<a
 							href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
@@ -42,6 +48,15 @@
 						<button class="theme-toggle" title="切换主题">
 							<i class="fas fa-moon"></i>
 							<i class="fas fa-sun"></i>
+						</button>
+					</li>
+					<li>
+						<button
+							class="lang-toggle"
+							onclick="i18n.toggle()"
+							title="切换到 English"
+						>
+							中
 						</button>
 					</li>
 				</ul>
@@ -57,35 +72,59 @@
 				<div class="hero-content">
 					<div class="hero-text">
 						<h1 class="hero-title">
-							<span class="gradient-text">智能超链接识别</span>
+							<span class="gradient-text" data-i18n="hero.title"
+								>智能超链接识别</span
+							>
 						</h1>
-						<p class="hero-subtitle">
+						<p class="hero-subtitle" data-i18n="hero.subtitle">
 							Smart Text-to-Link Converter
 						</p>
-						<p class="hero-description">
+						<p
+							class="hero-description"
+							data-i18n="hero.description"
+						>
 							自动将网页中的纯文本 URL 转换为可点击的超链接<br />
 							让您的浏览体验更加顺畅，告别复制粘贴！
 						</p>
 						<div class="hero-buttons">
 							<a href="#download" class="btn btn-primary">
-								<i class="fas fa-download"></i> 立即下载
+								<i class="fas fa-download"></i>
+								<span data-i18n="hero.download">立即下载</span>
 							</a>
 							<a href="#demo" class="btn btn-secondary">
-								<i class="fas fa-play"></i> 查看演示
+								<i class="fas fa-play"></i>
+								<span data-i18n="hero.demo">查看演示</span>
 							</a>
 						</div>
 						<div class="hero-stats">
 							<div class="stat-item">
 								<div class="stat-number">1.0.0</div>
-								<div class="stat-label">当前版本</div>
+								<div
+									class="stat-label"
+									data-i18n="hero.version"
+								>
+									当前版本
+								</div>
 							</div>
 							<div class="stat-item">
-								<div class="stat-number">免费</div>
-								<div class="stat-label">开源项目</div>
+								<div class="stat-number" data-i18n="hero.free">
+									免费
+								</div>
+								<div
+									class="stat-label"
+									data-i18n="hero.opensource"
+								>
+									开源项目
+								</div>
 							</div>
 							<div class="stat-item">
 								<div class="stat-number">MIT</div>
-								<div class="stat-label">许可证</div>
+								<div
+									class="stat-label"
+									data-i18n="hero.license"
+								>
+									许可证
+								</div>
 							</div>
 						</div>
 					</div>
@@ -108,10 +147,16 @@
 										/>
 									</div>
 									<div class="extension-info">
-										<h3>智能超链接识别</h3>
-										<p>自动转换纯文本 URL 为可点击链接</p>
+										<h3 data-i18n="hero.extension.name">
+											智能超链接识别
+										</h3>
+										<p data-i18n="hero.extension.desc">
+											自动转换纯文本 URL 为可点击链接
+										</p>
 										<div class="extension-status">
-											<span class="status-badge active"
+											<span
+												class="status-badge active"
+												data-i18n="hero.extension.enabled"
 												>已启用</span
 											>
 										</div>
@@ -128,8 +173,10 @@
 		<section id="features" class="features">
 			<div class="container">
 				<div class="section-header">
-					<h2 class="section-title">核心功能</h2>
-					<p class="section-subtitle">
+					<h2 class="section-title" data-i18n="features.title">
+						核心功能
+					</h2>
+					<p class="section-subtitle" data-i18n="features.subtitle">
 						强大而智能的链接识别与转换能力
 					</p>
 				</div>
@@ -138,8 +185,8 @@
 						<div class="feature-icon">
 							<i class="fas fa-link"></i>
 						</div>
-						<h3>智能识别</h3>
-						<p>
+						<h3 data-i18n="features.smart.title">智能识别</h3>
+						<p data-i18n="features.smart.desc">
 							自动识别网页中的
 							URL、邮箱地址等文本链接，支持多种格式
 						</p>
@@ -148,8 +195,8 @@
 						<div class="feature-icon">
 							<i class="fas fa-bolt"></i>
 						</div>
-						<h3>实时转换</h3>
-						<p>
+						<h3 data-i18n="features.realtime.title">实时转换</h3>
+						<p data-i18n="features.realtime.desc">
 							不仅处理页面加载时的内容，还能实时处理动态加载的新内容
 						</p>
 					</div>
@@ -157,8 +204,8 @@
 						<div class="feature-icon">
 							<i class="fas fa-brain"></i>
 						</div>
-						<h3>智能排除</h3>
-						<p>
+						<h3 data-i18n="features.exclude.title">智能排除</h3>
+						<p data-i18n="features.exclude.desc">
 							自动跳过代码块、已有链接等特殊区域，避免破坏页面结构
 						</p>
 					</div>
@@ -166,8 +213,8 @@
 						<div class="feature-icon">
 							<i class="fas fa-cog"></i>
 						</div>
-						<h3>高度可配置</h3>
-						<p>
+						<h3 data-i18n="features.config.title">高度可配置</h3>
+						<p data-i18n="features.config.desc">
 							支持自定义排除规则、黑名单、链接打开方式等多项配置
 						</p>
 					</div>
@@ -175,8 +222,8 @@
 						<div class="feature-icon">
 							<i class="fas fa-shield-alt"></i>
 						</div>
-						<h3>安全隐私</h3>
-						<p>
+						<h3 data-i18n="features.privacy.title">安全隐私</h3>
+						<p data-i18n="features.privacy.desc">
 							所有操作在本地完成，不收集任何数据，保护您的隐私安全
 						</p>
 					</div>
@@ -184,8 +231,8 @@
 						<div class="feature-icon">
 							<i class="fas fa-rocket"></i>
 						</div>
-						<h3>高性能</h3>
-						<p>
+						<h3 data-i18n="features.performance.title">高性能</h3>
+						<p data-i18n="features.performance.desc">
 							经过优化的算法，对页面性能影响极小，流畅的使用体验
 						</p>
 					</div>
@@ -197,38 +244,54 @@
 		<section id="demo" class="demo">
 			<div class="container">
 				<div class="section-header">
-					<h2 class="section-title">实时演示</h2>
-					<p class="section-subtitle">看看插件是如何工作的</p>
+					<h2 class="section-title" data-i18n="demo.title">
+						实时演示
+					</h2>
+					<p class="section-subtitle" data-i18n="demo.subtitle">
+						看看插件是如何工作的
+					</p>
 				</div>
 				<div class="demo-container">
 					<div class="demo-before">
-						<h3><i class="fas fa-times-circle"></i> 转换前</h3>
+						<h3>
+							<i class="fas fa-times-circle"></i>
+							<span data-i18n="demo.before">转换前</span>
+						</h3>
 						<div class="demo-content">
-							<p>访问我们的网站 www.example.com 获取更多信息</p>
-							<p>或发送邮件到 contact@example.com</p>
-							<p>查看项目 https://github.com/example/project</p>
+							<p data-i18n="demo.text1">
+								访问我们的网站 www.example.com 获取更多信息
+							</p>
+							<p data-i18n="demo.text2">
+								或发送邮件到 contact@example.com
+							</p>
+							<p data-i18n="demo.text3">
+								查看项目 https://github.com/example/project
+							</p>
 						</div>
 					</div>
 					<div class="demo-arrow">
 						<i class="fas fa-arrow-right"></i>
 					</div>
 					<div class="demo-after">
-						<h3><i class="fas fa-check-circle"></i> 转换后</h3>
+						<h3>
+							<i class="fas fa-check-circle"></i>
+							<span data-i18n="demo.after">转换后</span>
+						</h3>
 						<div class="demo-content">
-							<p>
+							<p data-i18n="demo.after.text1">
 								访问我们的网站
 								<a href="http://www.example.com" target="_blank"
 									>www.example.com</a
 								>
 								获取更多信息
 							</p>
-							<p>
+							<p data-i18n="demo.after.text2">
 								或发送邮件到
 								<a href="mailto:contact@example.com"
 									>contact@example.com</a
 								>
 							</p>
-							<p>
+							<p data-i18n="demo.after.text3">
 								查看项目
 								<a
 									href="https://github.com/example/project"
@@ -246,32 +309,42 @@
 		<section class="use-cases">
 			<div class="container">
 				<div class="section-header">
-					<h2 class="section-title">使用场景</h2>
-					<p class="section-subtitle">适用于各种网页浏览场景</p>
+					<h2 class="section-title" data-i18n="usecases.title">
+						使用场景
+					</h2>
+					<p class="section-subtitle" data-i18n="usecases.subtitle">
+						适用于各种网页浏览场景
+					</p>
 				</div>
 				<div class="use-cases-grid">
 					<div class="use-case-card">
 						<div class="use-case-icon">💬</div>
-						<h3>论坛和社区</h3>
-						<p>
+						<h3 data-i18n="usecases.forum.title">论坛和社区</h3>
+						<p data-i18n="usecases.forum.desc">
 							在
 							Reddit、知乎等社区，用户分享的纯文本链接自动可点击
 						</p>
 					</div>
 					<div class="use-case-card">
 						<div class="use-case-icon">📚</div>
-						<h3>技术文档</h3>
-						<p>阅读技术文档时，文档中的 URL 引用自动变成超链接</p>
+						<h3 data-i18n="usecases.docs.title">技术文档</h3>
+						<p data-i18n="usecases.docs.desc">
+							阅读技术文档时，文档中的 URL 引用自动变成超链接
+						</p>
 					</div>
 					<div class="use-case-card">
 						<div class="use-case-icon">💼</div>
-						<h3>工作协作</h3>
-						<p>在线协作工具中的链接分享更加便捷高效</p>
+						<h3 data-i18n="usecases.work.title">工作协作</h3>
+						<p data-i18n="usecases.work.desc">
+							在线协作工具中的链接分享更加便捷高效
+						</p>
 					</div>
 					<div class="use-case-card">
 						<div class="use-case-icon">📧</div>
-						<h3>邮件和联系</h3>
-						<p>网页上的邮箱地址自动变成 mailto 链接</p>
+						<h3 data-i18n="usecases.email.title">邮件和联系</h3>
+						<p data-i18n="usecases.email.desc">
+							网页上的邮箱地址自动变成 mailto 链接
+						</p>
 					</div>
 				</div>
 			</div>
@@ -281,53 +354,81 @@
 		<section id="download" class="download">
 			<div class="container">
 				<div class="section-header">
-					<h2 class="section-title">下载安装</h2>
-					<p class="section-subtitle">快速开始使用智能超链接识别</p>
+					<h2 class="section-title" data-i18n="download.title">
+						下载安装
+					</h2>
+					<p class="section-subtitle" data-i18n="download.subtitle">
+						快速开始使用智能超链接识别
+					</p>
 				</div>
 				<div class="download-options">
 					<div class="download-card primary">
 						<div class="download-icon">
 							<i class="fab fa-chrome"></i>
 						</div>
-						<h3>Chrome Web Store</h3>
-						<p>推荐方式，一键安装，自动更新</p>
+						<h3 data-i18n="download.chrome.title">
+							Chrome Web Store
+						</h3>
+						<p data-i18n="download.chrome.desc">
+							推荐方式，一键安装，自动更新
+						</p>
 						<a href="#" class="btn btn-primary">
-							<i class="fas fa-download"></i> 从商店安装
+							<i class="fas fa-download"></i>
+							<span data-i18n="download.chrome.btn"
+								>从商店安装</span
+							>
 						</a>
-						<span class="coming-soon">即将上架</span>
+						<span
+							class="coming-soon"
+							data-i18n="download.chrome.soon"
+							>即将上架</span
+						>
 					</div>
 					<div class="download-card">
 						<div class="download-icon">
 							<i class="fab fa-github"></i>
 						</div>
-						<h3>GitHub Release</h3>
-						<p>下载最新版本，手动安装</p>
+						<h3 data-i18n="download.github.title">
+							GitHub Release
+						</h3>
+						<p data-i18n="download.github.desc">
+							下载最新版本，手动安装
+						</p>
 						<a
 							href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/releases"
 							class="btn btn-secondary"
 							target="_blank"
 						>
-							<i class="fab fa-github"></i> 前往 GitHub
+							<i class="fab fa-github"></i>
+							<span data-i18n="download.github.btn"
+								>前往 GitHub</span
+							>
 						</a>
 					</div>
 				</div>
 				<div class="install-steps">
-					<h3>安装步骤</h3>
+					<h3 data-i18n="download.steps.title">安装步骤</h3>
 					<div class="steps-grid">
 						<div class="step">
 							<div class="step-number">1</div>
-							<h4>下载扩展</h4>
-							<p>从 Chrome Web Store 或 GitHub 下载</p>
+							<h4 data-i18n="download.step1.title">下载扩展</h4>
+							<p data-i18n="download.step1.desc">
+								从 Chrome Web Store 或 GitHub 下载
+							</p>
 						</div>
 						<div class="step">
 							<div class="step-number">2</div>
-							<h4>加载扩展</h4>
-							<p>打开 chrome://extensions 加载</p>
+							<h4 data-i18n="download.step2.title">加载扩展</h4>
+							<p data-i18n="download.step2.desc">
+								打开 chrome://extensions 加载
+							</p>
 						</div>
 						<div class="step">
 							<div class="step-number">3</div>
-							<h4>开始使用</h4>
-							<p>访问任何网页，自动转换链接</p>
+							<h4 data-i18n="download.step3.title">开始使用</h4>
+							<p data-i18n="download.step3.desc">
+								访问任何网页，自动转换链接
+							</p>
 						</div>
 					</div>
 				</div>
@@ -338,29 +439,35 @@
 		<section id="docs" class="docs">
 			<div class="container">
 				<div class="section-header">
-					<h2 class="section-title">文档资源</h2>
-					<p class="section-subtitle">详细的使用指南和开发文档</p>
+					<h2 class="section-title" data-i18n="docs.title">
+						文档资源
+					</h2>
+					<p class="section-subtitle" data-i18n="docs.subtitle">
+						详细的使用指南和开发文档
+					</p>
 				</div>
 				<div class="docs-grid">
 					<a href="../QUICKSTART.md" class="doc-card">
 						<div class="doc-icon">🚀</div>
-						<h3>快速开始</h3>
-						<p>5 分钟快速上手指南</p>
+						<h3 data-i18n="docs.quickstart.title">快速开始</h3>
+						<p data-i18n="docs.quickstart.desc">
+							5 分钟快速上手指南
+						</p>
 					</a>
 					<a href="../INSTALL.md" class="doc-card">
 						<div class="doc-icon">📦</div>
-						<h3>安装指南</h3>
-						<p>详细的安装步骤说明</p>
+						<h3 data-i18n="docs.install.title">安装指南</h3>
+						<p data-i18n="docs.install.desc">详细的安装步骤说明</p>
 					</a>
 					<a href="../README.md" class="doc-card">
 						<div class="doc-icon">📖</div>
-						<h3>完整文档</h3>
-						<p>项目完整说明文档</p>
+						<h3 data-i18n="docs.full.title">完整文档</h3>
+						<p data-i18n="docs.full.desc">项目完整说明文档</p>
 					</a>
 					<a href="../DEVELOPMENT.md" class="doc-card">
 						<div class="doc-icon">🔧</div>
-						<h3>开发指南</h3>
-						<p>开发者技术文档</p>
+						<h3 data-i18n="docs.dev.title">开发指南</h3>
+						<p data-i18n="docs.dev.desc">开发者技术文档</p>
 					</a>
 				</div>
 			</div>
@@ -370,17 +477,19 @@
 		<section class="faq">
 			<div class="container">
 				<div class="section-header">
-					<h2 class="section-title">常见问题</h2>
-					<p class="section-subtitle">FAQ</p>
+					<h2 class="section-title" data-i18n="faq.title">
+						常见问题
+					</h2>
+					<p class="section-subtitle" data-i18n="faq.subtitle">FAQ</p>
 				</div>
 				<div class="faq-list">
 					<div class="faq-item">
 						<div class="faq-question">
-							<h3>插件是否免费？</h3>
+							<h3 data-i18n="faq.q1">插件是否免费？</h3>
 							<i class="fas fa-chevron-down"></i>
 						</div>
 						<div class="faq-answer">
-							<p>
+							<p data-i18n="faq.a1">
 								是的，本插件完全免费且开源，采用 MIT
 								许可证。您可以自由使用、修改和分发。
 							</p>
@@ -388,44 +497,44 @@
 					</div>
 					<div class="faq-item">
 						<div class="faq-question">
-							<h3>插件会收集我的数据吗？</h3>
+							<h3 data-i18n="faq.q2">插件会收集我的数据吗？</h3>
 							<i class="fas fa-chevron-down"></i>
 						</div>
 						<div class="faq-answer">
-							<p>
+							<p data-i18n="faq.a2">
 								不会。所有操作都在本地完成，不会收集、存储或传输任何用户数据，完全保护您的隐私。
 							</p>
 						</div>
 					</div>
 					<div class="faq-item">
 						<div class="faq-question">
-							<h3>插件会影响浏览速度吗？</h3>
+							<h3 data-i18n="faq.q3">插件会影响浏览速度吗？</h3>
 							<i class="fas fa-chevron-down"></i>
 						</div>
 						<div class="faq-answer">
-							<p>
+							<p data-i18n="faq.a3">
 								不会。插件经过性能优化，使用高效的算法，对页面加载和浏览速度的影响微乎其微。
 							</p>
 						</div>
 					</div>
 					<div class="faq-item">
 						<div class="faq-question">
-							<h3>如何禁用特定网站的转换？</h3>
+							<h3 data-i18n="faq.q4">如何禁用特定网站的转换？</h3>
 							<i class="fas fa-chevron-down"></i>
 						</div>
 						<div class="faq-answer">
-							<p>
+							<p data-i18n="faq.a4">
 								在插件设置页面中，可以添加网站到黑名单。黑名单中的网站将不会进行链接转换。
 							</p>
 						</div>
 					</div>
 					<div class="faq-item">
 						<div class="faq-question">
-							<h3>支持哪些浏览器？</h3>
+							<h3 data-i18n="faq.q5">支持哪些浏览器？</h3>
 							<i class="fas fa-chevron-down"></i>
 						</div>
 						<div class="faq-answer">
-							<p>
+							<p data-i18n="faq.a5">
 								目前支持 Chrome 88 及以上版本。未来计划支持
 								Edge、Firefox 等其他浏览器。
 							</p>
@@ -446,9 +555,9 @@
 								alt="Logo"
 								class="footer-logo"
 							/>
-							智能超链接识别
+							<span data-i18n="nav.brand">智能超链接识别</span>
 						</h3>
-						<p>让网页浏览更加便捷</p>
+						<p data-i18n="footer.tagline">让网页浏览更加便捷</p>
 						<div class="social-links">
 							<a
 								href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
@@ -462,54 +571,92 @@
 						</div>
 					</div>
 					<div class="footer-section">
-						<h4>快速链接</h4>
+						<h4 data-i18n="footer.quicklinks">快速链接</h4>
 						<ul>
-							<li><a href="#home">首页</a></li>
-							<li><a href="#features">功能</a></li>
-							<li><a href="#download">下载</a></li>
-							<li><a href="#docs">文档</a></li>
+							<li>
+								<a href="#home" data-i18n="nav.home">首页</a>
+							</li>
+							<li>
+								<a href="#features" data-i18n="nav.features"
+									>功能</a
+								>
+							</li>
+							<li>
+								<a href="#download" data-i18n="nav.download"
+									>下载</a
+								>
+							</li>
+							<li>
+								<a href="#docs" data-i18n="nav.docs">文档</a>
+							</li>
 						</ul>
 					</div>
 					<div class="footer-section">
-						<h4>资源</h4>
+						<h4 data-i18n="footer.resources">资源</h4>
 						<ul>
-							<li><a href="../README.md">项目文档</a></li>
-							<li><a href="../CHANGELOG.md">更新日志</a></li>
+							<li>
+								<a href="../README.md" data-i18n="footer.docs"
+									>项目文档</a
+								>
+							</li>
+							<li>
+								<a
+									href="../CHANGELOG.md"
+									data-i18n="footer.changelog"
+									>更新日志</a
+								>
+							</li>
 							<li>
 								<a
 									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/issues"
+									data-i18n="footer.issues"
 									>问题反馈</a
 								>
 							</li>
-							<li><a href="../LICENSE">开源许可</a></li>
+							<li>
+								<a href="../LICENSE" data-i18n="footer.license"
+									>开源许可</a
+								>
+							</li>
 						</ul>
 					</div>
 					<div class="footer-section">
-						<h4>关于</h4>
+						<h4 data-i18n="footer.about">关于</h4>
 						<ul>
 							<li>
 								<a
 									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
+									data-i18n="footer.github"
 									>GitHub 仓库</a
 								>
 							</li>
-							<li><a href="#">贡献指南</a></li>
-							<li><a href="#">行为准则</a></li>
+							<li>
+								<a href="#" data-i18n="footer.contribute"
+									>贡献指南</a
+								>
+							</li>
+							<li>
+								<a href="#" data-i18n="footer.conduct"
+									>行为准则</a
+								>
+							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="footer-bottom">
-					<p>
+					<p data-i18n="footer.copyright">
 						&copy; 2024 Smart Text-to-Link Converter. All rights
 						reserved.
 					</p>
 					<p>
-						Released under the <a href="../LICENSE">MIT License</a>
+						<span data-i18n="footer.mit">Released under the</span>
+						<a href="../LICENSE">MIT License</a>
 					</p>
 				</div>
 			</div>
 		</footer>
 
+		<script src="js/i18n.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 </html>

@@ -874,6 +874,25 @@ body {
 	transform: rotate(15deg);
 }
 
+/* 语言切换按钮 */
+.lang-toggle {
+	background: var(--bg-light);
+	border: 1px solid var(--text-light);
+	cursor: pointer;
+	padding: 6px 12px;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--text-dark);
+	transition: all 0.3s;
+	min-width: 36px;
+}
+
+.lang-toggle:hover {
+	background: var(--primary-color);
+	border-color: var(--primary-color);
+	color: #fff;
+}
 .theme-toggle .fa-sun {
 	display: none;
 }
@@ -907,6 +926,17 @@ body {
 
 [data-theme='dark'] .theme-toggle:hover {
 	background: #3f3f46;
+}
+
+/* 暗黑主题 - 语言切换按钮 */
+[data-theme='dark'] .lang-toggle {
+	background: #3f3f46;
+	border-color: #52525b;
+}
+
+[data-theme='dark'] .lang-toggle:hover {
+	background: var(--primary-color);
+	border-color: var(--primary-color);
 }
 
 /* 暗黑主题 - 导航栏 */
@@ -1033,6 +1063,16 @@ body {
 
 	html:not([data-theme='light']) .theme-toggle:hover {
 		background: #3f3f46;
+	}
+
+	html:not([data-theme='light']) .lang-toggle {
+		background: #3f3f46;
+		border-color: #52525b;
+	}
+
+	html:not([data-theme='light']) .lang-toggle:hover {
+		background: var(--primary-color);
+		border-color: var(--primary-color);
 	}
 
 	html:not([data-theme='light']) .navbar {
