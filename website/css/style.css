@@ -853,3 +853,118 @@ body {
 		grid-template-columns: 1fr;
 	}
 }
+
+/* 暗黑主题适配 */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--text-dark: #e4e4e7;
+		--text-light: #a1a1aa;
+		--bg-light: #27272a;
+		--white: #18181b;
+		--shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+		--shadow-hover: 0 15px 50px rgba(37, 99, 235, 0.4);
+	}
+
+	body {
+		background: #18181b;
+	}
+
+	/* 导航栏 */
+	.navbar {
+		background: rgba(24, 24, 27, 0.95);
+		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+	}
+
+	/* 浏览器模拟 */
+	.browser-mockup {
+		background: #27272a;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+	}
+
+	.browser-header {
+		background: #3f3f46;
+	}
+
+	.browser-dots span {
+		background: #52525b;
+	}
+
+	.browser-url {
+		background: #27272a;
+		color: var(--text-light);
+	}
+
+	.browser-content {
+		background: #27272a;
+	}
+
+	.extension-card {
+		background: #3f3f46;
+	}
+
+	.status-badge.active {
+		background: #166534;
+		color: #4ade80;
+	}
+
+	/* 功能卡片 */
+	.feature-card:hover {
+		background: #3f3f46;
+	}
+
+	/* 演示区域 */
+	.demo-before,
+	.demo-after {
+		background: #27272a;
+	}
+
+	.demo-content {
+		background: #3f3f46;
+	}
+
+	/* 使用场景卡片 */
+	.use-case-card:hover {
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+	}
+
+	/* 下载卡片 */
+	.download-card {
+		background: #27272a;
+	}
+
+	.download-card:hover {
+		box-shadow: 0 15px 50px rgba(37, 99, 235, 0.3);
+	}
+
+	.install-steps {
+		background: #27272a;
+	}
+
+	/* 文档卡片 */
+	.doc-card {
+		background: #27272a;
+	}
+
+	.doc-card:hover {
+		background: #3f3f46;
+	}
+
+	/* FAQ */
+	.faq-item {
+		background: #27272a;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+	}
+
+	.faq-question:hover {
+		background: #3f3f46;
+	}
+
+	/* 页脚 */
+	.footer {
+		background: #0f0f10;
+	}
+
+	.footer-bottom {
+		border-top-color: rgba(255, 255, 255, 0.05);
+	}
+}
