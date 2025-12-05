@@ -1,6 +1,12 @@
 // 智能超链接识别官网 - 主脚本
 
+// 主题切换 - 尽早执行以避免闪烁
+initTheme()
+
 document.addEventListener('DOMContentLoaded', function () {
+	// 主题切换按钮
+	initThemeToggle()
+
 	// 导航栏滚动效果
 	initNavbarScroll()
 
@@ -16,6 +22,41 @@ document.addEventListener('DOMContentLoaded', function () {
 	// 动画效果
 	initAnimations()
 })
+
+// 初始化主题（页面加载时立即执行）
+function initTheme() {
+	const savedTheme = localStorage.getItem('theme')
+	if (savedTheme) {
+		document.documentElement.setAttribute('data-theme', savedTheme)
+	}
+	// 如果没有保存的主题，则跟随系统（CSS 媒体查询会自动处理）
+}
+
+// 初始化主题切换按钮
+function initThemeToggle() {
+	const themeToggle = document.querySelector('.theme-toggle')
+	if (!themeToggle) return
+
+	themeToggle.addEventListener('click', () => {
+		const currentTheme = document.documentElement.getAttribute('data-theme')
+		const prefersDark = window.matchMedia(
+			'(prefers-color-scheme: dark)'
+		).matches
+
+		let newTheme
+		if (currentTheme === 'dark') {
+			newTheme = 'light'
+		} else if (currentTheme === 'light') {
+			newTheme = 'dark'
+		} else {
+			// 当前跟随系统，切换到相反主题
+			newTheme = prefersDark ? 'light' : 'dark'
+		}
+
+		document.documentElement.setAttribute('data-theme', newTheme)
+		localStorage.setItem('theme', newTheme)
+	})
+}
 
 // 导航栏滚动效果
 function initNavbarScroll() {

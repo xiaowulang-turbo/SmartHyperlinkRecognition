@@ -854,9 +854,163 @@ body {
 	}
 }
 
-/* 暗黑主题适配 */
+/* 主题切换按钮 */
+.theme-toggle {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s;
+	color: var(--text-dark);
+	width: 18px;
+}
+
+.theme-toggle:hover {
+	background: var(--bg-light);
+	transform: rotate(15deg);
+}
+
+.theme-toggle .fa-sun {
+	display: none;
+}
+
+.theme-toggle .fa-moon {
+	display: block;
+}
+
+/* 暗黑主题样式 */
+[data-theme='dark'] {
+	--text-dark: #e4e4e7;
+	--text-light: #a1a1aa;
+	--bg-light: #27272a;
+	--white: #18181b;
+	--shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+	--shadow-hover: 0 15px 50px rgba(37, 99, 235, 0.4);
+}
+
+[data-theme='dark'] body {
+	background: #18181b;
+}
+
+/* 暗黑主题 - 主题按钮图标切换 */
+[data-theme='dark'] .theme-toggle .fa-sun {
+	display: block;
+}
+
+[data-theme='dark'] .theme-toggle .fa-moon {
+	display: none;
+}
+
+[data-theme='dark'] .theme-toggle:hover {
+	background: #3f3f46;
+}
+
+/* 暗黑主题 - 导航栏 */
+[data-theme='dark'] .navbar {
+	background: rgba(24, 24, 27, 0.95);
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 暗黑主题 - 浏览器模拟 */
+[data-theme='dark'] .browser-mockup {
+	background: #27272a;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] .browser-header {
+	background: #3f3f46;
+}
+
+[data-theme='dark'] .browser-dots span {
+	background: #52525b;
+}
+
+[data-theme='dark'] .browser-url {
+	background: #27272a;
+	color: var(--text-light);
+}
+
+[data-theme='dark'] .browser-content {
+	background: #27272a;
+}
+
+[data-theme='dark'] .extension-card {
+	background: #3f3f46;
+}
+
+[data-theme='dark'] .status-badge.active {
+	background: #166534;
+	color: #4ade80;
+}
+
+/* 暗黑主题 - 功能卡片 */
+[data-theme='dark'] .feature-card:hover {
+	background: #3f3f46;
+}
+
+/* 暗黑主题 - 演示区域 */
+[data-theme='dark'] .demo-before,
+[data-theme='dark'] .demo-after {
+	background: #27272a;
+}
+
+[data-theme='dark'] .demo-content {
+	background: #3f3f46;
+}
+
+/* 暗黑主题 - 使用场景卡片 */
+[data-theme='dark'] .use-case-card:hover {
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* 暗黑主题 - 下载卡片 */
+[data-theme='dark'] .download-card {
+	background: #27272a;
+}
+
+[data-theme='dark'] .download-card:hover {
+	box-shadow: 0 15px 50px rgba(37, 99, 235, 0.3);
+}
+
+[data-theme='dark'] .install-steps {
+	background: #27272a;
+}
+
+/* 暗黑主题 - 文档卡片 */
+[data-theme='dark'] .doc-card {
+	background: #27272a;
+}
+
+[data-theme='dark'] .doc-card:hover {
+	background: #3f3f46;
+}
+
+/* 暗黑主题 - FAQ */
+[data-theme='dark'] .faq-item {
+	background: #27272a;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .faq-question:hover {
+	background: #3f3f46;
+}
+
+/* 暗黑主题 - 页脚 */
+[data-theme='dark'] .footer {
+	background: #0f0f10;
+}
+
+[data-theme='dark'] .footer-bottom {
+	border-top-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 自动跟随系统主题（当用户未手动设置时） */
 @media (prefers-color-scheme: dark) {
-	:root {
+	html:not([data-theme='light']) {
 		--text-dark: #e4e4e7;
 		--text-light: #a1a1aa;
 		--bg-light: #27272a;
@@ -865,106 +1019,109 @@ body {
 		--shadow-hover: 0 15px 50px rgba(37, 99, 235, 0.4);
 	}
 
-	body {
+	html:not([data-theme='light']) body {
 		background: #18181b;
 	}
 
-	/* 导航栏 */
-	.navbar {
+	html:not([data-theme='light']) .theme-toggle .fa-sun {
+		display: block;
+	}
+
+	html:not([data-theme='light']) .theme-toggle .fa-moon {
+		display: none;
+	}
+
+	html:not([data-theme='light']) .theme-toggle:hover {
+		background: #3f3f46;
+	}
+
+	html:not([data-theme='light']) .navbar {
 		background: rgba(24, 24, 27, 0.95);
 		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 	}
 
-	/* 浏览器模拟 */
-	.browser-mockup {
+	html:not([data-theme='light']) .browser-mockup {
 		background: #27272a;
 		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 	}
 
-	.browser-header {
+	html:not([data-theme='light']) .browser-header {
 		background: #3f3f46;
 	}
 
-	.browser-dots span {
+	html:not([data-theme='light']) .browser-dots span {
 		background: #52525b;
 	}
 
-	.browser-url {
+	html:not([data-theme='light']) .browser-url {
 		background: #27272a;
 		color: var(--text-light);
 	}
 
-	.browser-content {
+	html:not([data-theme='light']) .browser-content {
 		background: #27272a;
 	}
 
-	.extension-card {
+	html:not([data-theme='light']) .extension-card {
 		background: #3f3f46;
 	}
 
-	.status-badge.active {
+	html:not([data-theme='light']) .status-badge.active {
 		background: #166534;
 		color: #4ade80;
 	}
 
-	/* 功能卡片 */
-	.feature-card:hover {
+	html:not([data-theme='light']) .feature-card:hover {
 		background: #3f3f46;
 	}
 
-	/* 演示区域 */
-	.demo-before,
-	.demo-after {
+	html:not([data-theme='light']) .demo-before,
+	html:not([data-theme='light']) .demo-after {
 		background: #27272a;
 	}
 
-	.demo-content {
+	html:not([data-theme='light']) .demo-content {
 		background: #3f3f46;
 	}
 
-	/* 使用场景卡片 */
-	.use-case-card:hover {
+	html:not([data-theme='light']) .use-case-card:hover {
 		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 	}
 
-	/* 下载卡片 */
-	.download-card {
+	html:not([data-theme='light']) .download-card {
 		background: #27272a;
 	}
 
-	.download-card:hover {
+	html:not([data-theme='light']) .download-card:hover {
 		box-shadow: 0 15px 50px rgba(37, 99, 235, 0.3);
 	}
 
-	.install-steps {
+	html:not([data-theme='light']) .install-steps {
 		background: #27272a;
 	}
 
-	/* 文档卡片 */
-	.doc-card {
+	html:not([data-theme='light']) .doc-card {
 		background: #27272a;
 	}
 
-	.doc-card:hover {
+	html:not([data-theme='light']) .doc-card:hover {
 		background: #3f3f46;
 	}
 
-	/* FAQ */
-	.faq-item {
+	html:not([data-theme='light']) .faq-item {
 		background: #27272a;
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 	}
 
-	.faq-question:hover {
+	html:not([data-theme='light']) .faq-question:hover {
 		background: #3f3f46;
 	}
 
-	/* 页脚 */
-	.footer {
+	html:not([data-theme='light']) .footer {
 		background: #0f0f10;
 	}
 
-	.footer-bottom {
+	html:not([data-theme='light']) .footer-bottom {
 		border-top-color: rgba(255, 255, 255, 0.05);
 	}
 }
