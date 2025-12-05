@@ -1,7 +1,7 @@
 # ✍️ 智能超链接识别 (Smart Text-to-Link Converter)
 
-[![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome)](https://github.com/yourusername/SmartHyperlinkRecognition)
-[![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://github.com/yourusername/SmartHyperlinkRecognition/releases)
+[![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition)
+[![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/releases)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ## ✨ 简介 (Introduction)
@@ -33,7 +33,8 @@
 
 ## 🌐 官网
 
-访问我们的官网了解更多信息：[待部署]
+访问我们的官网了解更多信息
+：[https://smart-hyperlink-recognition.vercel.app/](https://smart-hyperlink-recognition.vercel.app/)
 
 官网源码位于 `website/` 目录。
 
@@ -50,7 +51,7 @@
 1. 克隆或下载本仓库：
 
     ```bash
-    git clone https://github.com/yourusername/SmartHyperlinkRecognition.git
+    git clone https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition.git
     ```
 
 2. 在 Chrome 浏览器中打开 `chrome://extensions`
@@ -106,7 +107,7 @@
 1. **克隆仓库:**
 
     ```bash
-    git clone https://github.com/yourusername/SmartHyperlinkRecognition.git
+    git clone https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition.git
     cd SmartHyperlinkRecognition
     ```
 
@@ -217,9 +218,9 @@ SOFTWARE.
 ## 📞 联系方式 (Contact)
 
 -   **项目主页:**
-    [GitHub Repository](https://github.com/yourusername/SmartHyperlinkRecognition)
+    [GitHub Repository](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition)
 -   **问题反馈:**
-    [GitHub Issues](https://github.com/yourusername/SmartHyperlinkRecognition/issues)
+    [GitHub Issues](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/issues)
 -   **功能建议:** 欢迎通过 Issues 提出您的想法
 
 ---

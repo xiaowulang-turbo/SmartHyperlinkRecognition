@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/yourusername/SmartHyperlinkRecognition.git"
+		"url": "https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition.git"
 	},
 	"keywords": [
 		"chrome-extension",
@@ -26,8 +26,8 @@
 	"engines": {
 		"chrome": ">=88.0.0"
 	},
-	"homepage": "https://github.com/yourusername/SmartHyperlinkRecognition#readme",
+	"homepage": "https://smart-hyperlink-recognition.vercel.app/",
 	"bugs": {
-		"url": "https://github.com/yourusername/SmartHyperlinkRecognition/issues"
+		"url": "https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/issues"
 	}
 }
