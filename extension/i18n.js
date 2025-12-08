@@ -59,11 +59,6 @@ const i18n = {
 			'options.excludedTags.hint':
 				'💡 默认排除：SCRIPT, STYLE, NOSCRIPT, TEXTAREA, PRE, CODE, A',
 
-			// 统计
-			'options.stats.title': '📊 统计信息',
-			'options.stats.converted': '总转换次数',
-			'options.stats.version': '当前版本',
-
 			// 关于
 			'options.about.title': 'ℹ️ 关于',
 			'options.about.desc': '是一款高效的 Chrome 浏览器扩展程序。',
@@ -141,11 +136,6 @@ const i18n = {
 			'options.excludedTags.placeholder': 'SCRIPT, STYLE, PRE, CODE, A',
 			'options.excludedTags.hint':
 				'💡 Default excluded: SCRIPT, STYLE, NOSCRIPT, TEXTAREA, PRE, CODE, A',
-
-			// 统计
-			'options.stats.title': '📊 Statistics',
-			'options.stats.converted': 'Total Conversions',
-			'options.stats.version': 'Current Version',
 
 			// 关于
 			'options.about.title': 'ℹ️ About',
