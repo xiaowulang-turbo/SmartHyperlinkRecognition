@@ -1,10 +1,10 @@
 {
 	"manifest_version": 3,
-	"name": "智能超链接识别",
-	"name_en": "Smart Text-to-Link Converter",
+	"name": "__MSG_extName__",
 	"version": "1.0.0",
-	"description": "自动将网页中的纯文本 URL 转换为可点击的超链接",
-	"description_en": "Automatically converts plain text URLs in web pages into clickable hyperlinks",
+	"description": "__MSG_extDescription__",
+	"default_locale": "zh_CN",
+	"homepage_url": "https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition",
 	"icons": {
 		"16": "icons/icon16.png",
 		"48": "icons/icon48.png",
@@ -19,7 +19,7 @@
 			"48": "icons/icon48.png",
 			"128": "icons/icon128.png"
 		},
-		"default_title": "智能超链接识别"
+		"default_title": "__MSG_extName__"
 	},
 	"content_scripts": [
 		{

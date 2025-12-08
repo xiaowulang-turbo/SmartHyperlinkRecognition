@@ -1,0 +1,10 @@
+{
+	"extName": {
+		"message": "智能超链接识别",
+		"description": "扩展名称"
+	},
+	"extDescription": {
+		"message": "自动将网页中的纯文本 URL 转换为可点击的超链接",
+		"description": "扩展描述"
+	}
+}

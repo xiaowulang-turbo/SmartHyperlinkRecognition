@@ -1,0 +1,10 @@
+{
+	"extName": {
+		"message": "Smart Text-to-Link Converter",
+		"description": "Extension name"
+	},
+	"extDescription": {
+		"message": "Automatically converts plain text URLs in web pages into clickable hyperlinks",
+		"description": "Extension description"
+	}
+}
