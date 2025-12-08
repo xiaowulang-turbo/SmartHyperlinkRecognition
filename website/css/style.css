@@ -1005,8 +1005,42 @@ body {
 	box-shadow: 0 15px 50px rgba(37, 99, 235, 0.3);
 }
 
+[data-theme='dark'] .download-card .download-icon {
+	color: #60a5fa;
+}
+
+[data-theme='dark'] .download-card h3 {
+	color: #f4f4f5;
+}
+
+[data-theme='dark'] .download-card p {
+	color: #a1a1aa;
+}
+
+[data-theme='dark'] .download-card .coming-soon {
+	background: rgba(96, 165, 250, 0.2);
+	color: #60a5fa;
+}
+
 [data-theme='dark'] .install-steps {
 	background: #27272a;
+}
+
+[data-theme='dark'] .install-steps h3 {
+	color: #f4f4f5;
+}
+
+[data-theme='dark'] .step h4 {
+	color: #e4e4e7;
+}
+
+[data-theme='dark'] .step p {
+	color: #a1a1aa;
+}
+
+/* 暗黑主题 - 波浪背景 */
+[data-theme='dark'] .hero-wave path {
+	fill: #18181b;
 }
 
 /* 暗黑主题 - 文档卡片 */
@@ -1170,8 +1204,41 @@ body {
 		box-shadow: 0 15px 50px rgba(37, 99, 235, 0.3);
 	}
 
+	html:not([data-theme='light']) .download-card .download-icon {
+		color: #60a5fa;
+	}
+
+	html:not([data-theme='light']) .download-card h3 {
+		color: #f4f4f5;
+	}
+
+	html:not([data-theme='light']) .download-card p {
+		color: #a1a1aa;
+	}
+
+	html:not([data-theme='light']) .download-card .coming-soon {
+		background: rgba(96, 165, 250, 0.2);
+		color: #60a5fa;
+	}
+
 	html:not([data-theme='light']) .install-steps {
 		background: #27272a;
+	}
+
+	html:not([data-theme='light']) .install-steps h3 {
+		color: #f4f4f5;
+	}
+
+	html:not([data-theme='light']) .step h4 {
+		color: #e4e4e7;
+	}
+
+	html:not([data-theme='light']) .step p {
+		color: #a1a1aa;
+	}
+
+	html:not([data-theme='light']) .hero-wave path {
+		fill: #18181b;
 	}
 
 	html:not([data-theme='light']) .doc-card {
