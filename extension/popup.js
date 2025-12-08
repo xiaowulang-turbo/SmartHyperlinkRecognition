@@ -1,11 +1,27 @@
 // 智能超链接识别 - 弹出窗口脚本
 
+// 初始化主题（立即执行，避免闪烁）
+;(function () {
+	chrome.storage.sync.get(['config'], function (result) {
+		const config = result.config || {}
+		// 默认跟随系统（auto），不设置 data-theme 属性
+		const theme = config.theme
+		if (theme === 'dark') {
+			document.documentElement.setAttribute('data-theme', 'dark')
+		} else if (theme === 'light') {
+			document.documentElement.setAttribute('data-theme', 'light')
+		}
+		// theme 为 undefined 或 'auto' 时不设置属性，跟随系统
+	})
+})()
+
 document.addEventListener('DOMContentLoaded', function () {
 	const enableToggle = document.getElementById('enableToggle')
 	const statusText = document.getElementById('statusText')
 	const pageStatus = document.getElementById('pageStatus')
 	const optionsBtn = document.getElementById('optionsBtn')
 	const refreshBtn = document.getElementById('refreshBtn')
+	const themeToggle = document.getElementById('themeToggle')
 
 	// 加载当前配置
 	chrome.storage.sync.get(['config'], function (result) {
@@ -70,4 +86,23 @@ document.addEventListener('DOMContentLoaded', function () {
 			pageStatus.style.color = '#F44336'
 		}
 	}
+
+	// 主题切换
+	themeToggle.addEventListener('click', function () {
+		chrome.storage.sync.get(['config'], function (result) {
+			const config = result.config || {}
+			const currentTheme =
+				document.documentElement.getAttribute('data-theme')
+			const isDark =
+				currentTheme === 'dark' ||
+				(!currentTheme &&
+					window.matchMedia('(prefers-color-scheme: dark)').matches)
+
+			const newTheme = isDark ? 'light' : 'dark'
+			document.documentElement.setAttribute('data-theme', newTheme)
+			config.theme = newTheme
+
+			chrome.storage.sync.set({ config: config })
+		})
+	})
 })

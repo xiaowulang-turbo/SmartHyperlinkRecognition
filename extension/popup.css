@@ -158,3 +158,152 @@ input:checked + .slider:before {
 .btn:active {
 	transform: translateY(0);
 }
+
+/* 主题切换按钮 */
+.theme-toggle {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	background: rgba(255, 255, 255, 0.2);
+	border: none;
+	border-radius: 50%;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s;
+	font-size: 16px;
+}
+
+.theme-toggle:hover {
+	background: rgba(255, 255, 255, 0.3);
+	transform: rotate(15deg);
+}
+
+.header {
+	position: relative;
+}
+
+.theme-toggle .icon-sun {
+	display: none;
+}
+
+.theme-toggle .icon-moon {
+	display: block;
+}
+
+/* 暗黑主题样式 */
+[data-theme='dark'] body {
+	background: #18181b;
+	color: #e4e4e7;
+}
+
+[data-theme='dark'] .container {
+	background: #27272a;
+}
+
+[data-theme='dark'] .content {
+	background: #27272a;
+}
+
+[data-theme='dark'] .toggle-section {
+	background: #3f3f46;
+}
+
+[data-theme='dark'] .toggle-label {
+	color: #e4e4e7;
+}
+
+[data-theme='dark'] .info p {
+	color: #a1a1aa;
+}
+
+[data-theme='dark'] .stats {
+	background: #1a3a2a;
+	border-left-color: #4caf50;
+}
+
+[data-theme='dark'] .stats p {
+	color: #4ade80;
+}
+
+[data-theme='dark'] .footer {
+	background: #3f3f46;
+	border-top-color: #52525b;
+}
+
+[data-theme='dark'] .theme-toggle {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .theme-toggle:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .theme-toggle .icon-sun {
+	display: block;
+}
+
+[data-theme='dark'] .theme-toggle .icon-moon {
+	display: none;
+}
+
+/* 自动跟随系统主题 */
+@media (prefers-color-scheme: dark) {
+	html:not([data-theme='light']) body {
+		background: #18181b;
+		color: #e4e4e7;
+	}
+
+	html:not([data-theme='light']) .container {
+		background: #27272a;
+	}
+
+	html:not([data-theme='light']) .content {
+		background: #27272a;
+	}
+
+	html:not([data-theme='light']) .toggle-section {
+		background: #3f3f46;
+	}
+
+	html:not([data-theme='light']) .toggle-label {
+		color: #e4e4e7;
+	}
+
+	html:not([data-theme='light']) .info p {
+		color: #a1a1aa;
+	}
+
+	html:not([data-theme='light']) .stats {
+		background: #1a3a2a;
+		border-left-color: #4caf50;
+	}
+
+	html:not([data-theme='light']) .stats p {
+		color: #4ade80;
+	}
+
+	html:not([data-theme='light']) .footer {
+		background: #3f3f46;
+		border-top-color: #52525b;
+	}
+
+	html:not([data-theme='light']) .theme-toggle {
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+	html:not([data-theme='light']) .theme-toggle:hover {
+		background: rgba(0, 0, 0, 0.4);
+	}
+
+	html:not([data-theme='light']) .theme-toggle .icon-sun {
+		display: block;
+	}
+
+	html:not([data-theme='light']) .theme-toggle .icon-moon {
+		display: none;
+	}
+}

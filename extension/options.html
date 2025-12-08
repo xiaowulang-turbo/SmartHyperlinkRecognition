@@ -9,6 +9,10 @@
 	<body>
 		<div class="container">
 			<header>
+				<button class="theme-toggle" id="themeToggle" title="切换主题">
+					<span class="icon-moon">🌙</span>
+					<span class="icon-sun">☀️</span>
+				</button>
 				<h1>⚙️ 智能超链接识别 - 设置</h1>
 				<p class="subtitle">Smart Text-to-Link Converter Settings</p>
 			</header>
@@ -23,6 +27,45 @@
 						</label>
 						<p class="option-desc">
 							启用后，点击转换的链接将在新标签页中打开
+						</p>
+					</div>
+				</section>
+
+				<section class="section">
+					<h2>🎨 外观设置</h2>
+					<div class="option-item">
+						<label class="option-label-inline">主题模式</label>
+						<div class="theme-options">
+							<label class="radio-label">
+								<input
+									type="radio"
+									name="theme"
+									value="auto"
+									id="themeAuto"
+								/>
+								<span>💻 跟随系统</span>
+							</label>
+							<label class="radio-label">
+								<input
+									type="radio"
+									name="theme"
+									value="light"
+									id="themeLight"
+								/>
+								<span>☀️ 浅色模式</span>
+							</label>
+							<label class="radio-label">
+								<input
+									type="radio"
+									name="theme"
+									value="dark"
+									id="themeDark"
+								/>
+								<span>🌙 深色模式</span>
+							</label>
+						</div>
+						<p class="option-desc">
+							选择插件界面的主题模式，“跟随系统”将自动适配您的操作系统设置
 						</p>
 					</div>
 				</section>
