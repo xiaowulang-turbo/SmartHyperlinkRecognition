@@ -226,11 +226,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// 初始化
 	loadConfig()
-
-	// 加载统计信息
-	chrome.storage.local.get(['stats'], function (result) {
-		const stats = result.stats || { totalConverted: 0 }
-		document.getElementById('totalConverted').textContent =
-			stats.totalConverted || 0
-	})
 })
