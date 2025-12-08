@@ -3,38 +3,62 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>设置 - 智能超链接识别</title>
+		<title data-i18n="options.title">设置 - 智能超链接识别</title>
 		<link rel="stylesheet" href="options.css" />
 	</head>
 	<body>
 		<div class="container">
 			<header>
-				<button class="theme-toggle" id="themeToggle" title="切换主题">
+				<button
+					class="theme-toggle"
+					id="themeToggle"
+					data-i18n-title="common.switchTheme"
+					title="切换主题"
+				>
 					<span class="icon-moon">🌙</span>
 					<span class="icon-sun">☀️</span>
 				</button>
-				<h1>⚙️ 智能超链接识别 - 设置</h1>
-				<p class="subtitle">Smart Text-to-Link Converter Settings</p>
+				<button
+					class="lang-toggle"
+					id="langToggle"
+					data-i18n-title="common.switchLang"
+					title="切换语言"
+				>
+					EN
+				</button>
+				<h1 data-i18n="options.title">⚙️ 智能超链接识别 - 设置</h1>
+				<p class="subtitle" data-i18n="options.subtitle">
+					Smart Text-to-Link Converter Settings
+				</p>
 			</header>
 
 			<main>
 				<section class="section">
-					<h2>🔧 基本设置</h2>
+					<h2 data-i18n="options.basic.title">🔧 基本设置</h2>
 					<div class="option-item">
 						<label class="option-label">
 							<input type="checkbox" id="openInNewTab" />
-							<span>在新标签页中打开链接</span>
+							<span data-i18n="options.basic.newTab"
+								>在新标签页中打开链接</span
+							>
 						</label>
-						<p class="option-desc">
+						<p
+							class="option-desc"
+							data-i18n="options.basic.newTab.desc"
+						>
 							启用后，点击转换的链接将在新标签页中打开
 						</p>
 					</div>
 				</section>
 
 				<section class="section">
-					<h2>🎨 外观设置</h2>
+					<h2 data-i18n="options.appearance.title">🎨 外观设置</h2>
 					<div class="option-item">
-						<label class="option-label-inline">主题模式</label>
+						<label
+							class="option-label-inline"
+							data-i18n="options.appearance.theme"
+							>主题模式</label
+						>
 						<div class="theme-options">
 							<label class="radio-label">
 								<input
@@ -43,7 +67,9 @@
 									value="auto"
 									id="themeAuto"
 								/>
-								<span>💻 跟随系统</span>
+								<span data-i18n="options.appearance.theme.auto"
+									>💻 跟随系统</span
+								>
 							</label>
 							<label class="radio-label">
 								<input
@@ -52,7 +78,9 @@
 									value="light"
 									id="themeLight"
 								/>
-								<span>☀️ 浅色模式</span>
+								<span data-i18n="options.appearance.theme.light"
+									>☀️ 浅色模式</span
+								>
 							</label>
 							<label class="radio-label">
 								<input
@@ -61,85 +89,174 @@
 									value="dark"
 									id="themeDark"
 								/>
-								<span>🌙 深色模式</span>
+								<span data-i18n="options.appearance.theme.dark"
+									>🌙 深色模式</span
+								>
 							</label>
 						</div>
-						<p class="option-desc">
+						<p
+							class="option-desc"
+							data-i18n="options.appearance.theme.desc"
+						>
 							选择插件界面的主题模式，“跟随系统”将自动适配您的操作系统设置
+						</p>
+					</div>
+					<div class="option-item">
+						<label
+							class="option-label-inline"
+							data-i18n="options.appearance.lang"
+							>界面语言</label
+						>
+						<div class="theme-options">
+							<label class="radio-label">
+								<input
+									type="radio"
+									name="lang"
+									value="auto"
+									id="langAuto"
+								/>
+								<span data-i18n="options.appearance.lang.auto"
+									>🌐 自动检测</span
+								>
+							</label>
+							<label class="radio-label">
+								<input
+									type="radio"
+									name="lang"
+									value="zh-CN"
+									id="langZh"
+								/>
+								<span data-i18n="options.appearance.lang.zh"
+									>🇨🇳 简体中文</span
+								>
+							</label>
+							<label class="radio-label">
+								<input
+									type="radio"
+									name="lang"
+									value="en"
+									id="langEn"
+								/>
+								<span data-i18n="options.appearance.lang.en"
+									>🇺🇸 English</span
+								>
+							</label>
+						</div>
+						<p
+							class="option-desc"
+							data-i18n="options.appearance.lang.desc"
+						>
+							选择插件界面语言，“自动检测”将根据浏览器语言自动选择
 						</p>
 					</div>
 				</section>
 
 				<section class="section">
-					<h2>🚫 网站黑名单</h2>
-					<p class="section-desc">
+					<h2 data-i18n="options.blacklist.title">🚫 网站黑名单</h2>
+					<p class="section-desc" data-i18n="options.blacklist.desc">
 						在以下网站上禁用插件功能（每行一个域名）
 					</p>
 					<textarea
 						id="blacklist"
 						rows="6"
+						data-i18n-placeholder="options.blacklist.placeholder"
 						placeholder="例如：&#10;github.com&#10;stackoverflow.com&#10;example.com"
 					></textarea>
-					<p class="hint">
+					<p class="hint" data-i18n="options.blacklist.hint">
 						💡 提示：只需输入域名，不需要 http:// 或 https://
 					</p>
 				</section>
 
 				<section class="section">
-					<h2>🏷️ 排除的 HTML 标签</h2>
-					<p class="section-desc">
+					<h2 data-i18n="options.excludedTags.title">
+						🏷️ 排除的 HTML 标签
+					</h2>
+					<p
+						class="section-desc"
+						data-i18n="options.excludedTags.desc"
+					>
 						以下标签内的文本不会被转换（用逗号分隔）
 					</p>
 					<input
 						type="text"
 						id="excludedTags"
+						data-i18n-placeholder="options.excludedTags.placeholder"
 						placeholder="SCRIPT, STYLE, PRE, CODE, A"
 					/>
-					<p class="hint">
+					<p class="hint" data-i18n="options.excludedTags.hint">
 						💡 默认排除：SCRIPT, STYLE, NOSCRIPT, TEXTAREA, PRE,
 						CODE, A
 					</p>
 				</section>
 
 				<section class="section">
-					<h2>📊 统计信息</h2>
+					<h2 data-i18n="options.stats.title">📊 统计信息</h2>
 					<div class="stats-grid">
 						<div class="stat-card">
 							<div class="stat-value" id="totalConverted">0</div>
-							<div class="stat-label">总转换次数</div>
+							<div
+								class="stat-label"
+								data-i18n="options.stats.converted"
+							>
+								总转换次数
+							</div>
 						</div>
 						<div class="stat-card">
 							<div class="stat-value">1.0.0</div>
-							<div class="stat-label">当前版本</div>
+							<div
+								class="stat-label"
+								data-i18n="options.stats.version"
+							>
+								当前版本
+							</div>
 						</div>
 					</div>
 				</section>
 
 				<section class="section">
-					<h2>ℹ️ 关于</h2>
+					<h2 data-i18n="options.about.title">ℹ️ 关于</h2>
 					<div class="about-content">
 						<p>
-							<strong>智能超链接识别</strong> 是一款高效的 Chrome
-							浏览器扩展程序。
+							<strong data-i18n="options.about.name"
+								>智能超链接识别</strong
+							>
+							<span data-i18n="options.about.desc"
+								>是一款高效的 Chrome 浏览器扩展程序。</span
+							>
 						</p>
-						<p>✨ 自动将网页中的纯文本 URL 转换为可点击的超链接</p>
-						<p>⚡ 支持动态内容实时处理</p>
-						<p>🔒 所有操作在本地完成，不收集任何数据</p>
+						<p data-i18n="options.about.feature1">
+							✨ 自动将网页中的纯文本 URL 转换为可点击的超链接
+						</p>
+						<p data-i18n="options.about.feature2">
+							⚡ 支持动态内容实时处理
+						</p>
+						<p data-i18n="options.about.feature3">
+							🔒 所有操作在本地完成，不收集任何数据
+						</p>
 					</div>
 				</section>
 			</main>
 
 			<footer>
-				<button id="saveBtn" class="btn btn-primary">
+				<button
+					id="saveBtn"
+					class="btn btn-primary"
+					data-i18n="options.btn.save"
+				>
 					💾 保存设置
 				</button>
-				<button id="resetBtn" class="btn btn-secondary">
+				<button
+					id="resetBtn"
+					class="btn btn-secondary"
+					data-i18n="options.btn.reset"
+				>
 					🔄 恢复默认
 				</button>
 				<div id="saveStatus" class="save-status"></div>
 			</footer>
 		</div>
 
+		<script src="i18n.js"></script>
 		<script src="options.js"></script>
 	</body>
 </html>

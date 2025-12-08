@@ -16,6 +16,9 @@
 })()
 
 document.addEventListener('DOMContentLoaded', function () {
+	// 初始化国际化
+	i18n.init()
+
 	const openInNewTab = document.getElementById('openInNewTab')
 	const blacklist = document.getElementById('blacklist')
 	const excludedTags = document.getElementById('excludedTags')
@@ -23,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	const resetBtn = document.getElementById('resetBtn')
 	const saveStatus = document.getElementById('saveStatus')
 	const themeToggle = document.getElementById('themeToggle')
+	const langToggle = document.getElementById('langToggle')
 	const themeRadios = document.querySelectorAll('input[name="theme"]')
+	const langRadios = document.querySelectorAll('input[name="lang"]')
 
 	// 默认配置
 	const defaultConfig = {
@@ -40,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		],
 		blacklist: [],
 		theme: 'auto',
+		lang: 'auto',
 	}
 
 	// 加载配置
@@ -62,6 +68,20 @@ document.addEventListener('DOMContentLoaded', function () {
 				themeRadio.checked = true
 			}
 			applyTheme(theme)
+
+			// 加载语言设置
+			const lang = config.lang || 'auto'
+			let langRadio
+			if (lang === 'auto') {
+				langRadio = document.getElementById('langAuto')
+			} else if (lang === 'zh-CN') {
+				langRadio = document.getElementById('langZh')
+			} else if (lang === 'en') {
+				langRadio = document.getElementById('langEn')
+			}
+			if (langRadio) {
+				langRadio.checked = true
+			}
 		})
 	}
 
@@ -91,6 +111,11 @@ document.addEventListener('DOMContentLoaded', function () {
 			document.querySelector('input[name="theme"]:checked')?.value ||
 			'auto'
 
+		// 获取选中的语言
+		const selectedLang =
+			document.querySelector('input[name="lang"]:checked')?.value ||
+			'auto'
+
 		chrome.storage.sync.get(['config'], function (result) {
 			const config = result.config || {}
 
@@ -101,19 +126,20 @@ document.addEventListener('DOMContentLoaded', function () {
 					? excludedTagsArray
 					: defaultConfig.excludedTags
 			config.theme = selectedTheme
+			config.lang = selectedLang
 
 			chrome.storage.sync.set({ config: config }, function () {
-				showStatus('✅ 设置已保存！', 'success')
+				showStatus(i18n.t('options.status.saved'), 'success')
 			})
 		})
 	}
 
 	// 重置为默认配置
 	function resetConfig() {
-		if (confirm('确定要恢复默认设置吗？')) {
+		if (confirm(i18n.t('options.confirm.reset'))) {
 			chrome.storage.sync.set({ config: defaultConfig }, function () {
 				loadConfig()
-				showStatus('🔄 已恢复默认设置', 'success')
+				showStatus(i18n.t('options.status.reset'), 'success')
 			})
 		}
 	}
@@ -172,6 +198,30 @@ document.addEventListener('DOMContentLoaded', function () {
 				chrome.storage.sync.set({ config: config })
 			})
 		})
+	})
+
+	// 语言单选按钮事件
+	langRadios.forEach(function (radio) {
+		radio.addEventListener('change', function () {
+			const lang = this.value
+			i18n.setLang(lang)
+		})
+	})
+
+	// 语言切换按钮事件
+	langToggle.addEventListener('click', function () {
+		i18n.toggle()
+		// 更新单选按钮状态
+		const currentLang = i18n.currentLang
+		let langRadio
+		if (currentLang === 'zh-CN') {
+			langRadio = document.getElementById('langZh')
+		} else if (currentLang === 'en') {
+			langRadio = document.getElementById('langEn')
+		}
+		if (langRadio) {
+			langRadio.checked = true
+		}
 	})
 
 	// 初始化

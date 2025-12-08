@@ -3,18 +3,33 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>智能超链接识别</title>
+		<title data-i18n="popup.title">智能超链接识别</title>
 		<link rel="stylesheet" href="popup.css" />
 	</head>
 	<body>
 		<div class="container">
 			<div class="header">
-				<button class="theme-toggle" id="themeToggle" title="切换主题">
+				<button
+					class="theme-toggle"
+					id="themeToggle"
+					data-i18n-title="common.switchTheme"
+					title="切换主题"
+				>
 					<span class="icon-moon">🌙</span>
 					<span class="icon-sun">☀️</span>
 				</button>
-				<h1>✍️ 智能超链接识别</h1>
-				<p class="subtitle">Smart Text-to-Link Converter</p>
+				<button
+					class="lang-toggle"
+					id="langToggle"
+					data-i18n-title="common.switchLang"
+					title="切换语言"
+				>
+					EN
+				</button>
+				<h1 data-i18n="popup.title">✍️ 智能超链接识别</h1>
+				<p class="subtitle" data-i18n="popup.subtitle">
+					Smart Text-to-Link Converter
+				</p>
 			</div>
 
 			<div class="content">
@@ -27,21 +42,43 @@
 				</div>
 
 				<div class="info">
-					<p>🔗 自动将纯文本 URL 转换为可点击链接</p>
-					<p>⚡ 支持动态内容实时处理</p>
+					<p data-i18n="popup.info.convert">
+						🔗 自动将纯文本 URL 转换为可点击链接
+					</p>
+					<p data-i18n="popup.info.dynamic">
+						⚡ 支持动态内容实时处理
+					</p>
 				</div>
 
 				<div class="stats" id="stats">
-					<p>当前页面状态: <span id="pageStatus">活动中</span></p>
+					<p>
+						<span data-i18n="popup.page.status">当前页面状态:</span>
+						<span id="pageStatus" data-i18n="popup.page.active"
+							>活动中</span
+						>
+					</p>
 				</div>
 			</div>
 
 			<div class="footer">
-				<button id="optionsBtn" class="btn">⚙️ 设置</button>
-				<button id="refreshBtn" class="btn">🔄 刷新页面</button>
+				<button
+					id="optionsBtn"
+					class="btn"
+					data-i18n="popup.btn.settings"
+				>
+					⚙️ 设置
+				</button>
+				<button
+					id="refreshBtn"
+					class="btn"
+					data-i18n="popup.btn.refresh"
+				>
+					🔄 刷新页面
+				</button>
 			</div>
 		</div>
 
+		<script src="i18n.js"></script>
 		<script src="popup.js"></script>
 	</body>
 </html>

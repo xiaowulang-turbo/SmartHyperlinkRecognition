@@ -16,12 +16,16 @@
 })()
 
 document.addEventListener('DOMContentLoaded', function () {
+	// 初始化国际化
+	i18n.init()
+
 	const enableToggle = document.getElementById('enableToggle')
 	const statusText = document.getElementById('statusText')
 	const pageStatus = document.getElementById('pageStatus')
 	const optionsBtn = document.getElementById('optionsBtn')
 	const refreshBtn = document.getElementById('refreshBtn')
 	const themeToggle = document.getElementById('themeToggle')
+	const langToggle = document.getElementById('langToggle')
 
 	// 加载当前配置
 	chrome.storage.sync.get(['config'], function (result) {
@@ -75,14 +79,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	// 更新状态文本
 	function updateStatusText(enabled) {
 		if (enabled) {
-			statusText.textContent = '已启用'
+			statusText.textContent = i18n.t('popup.status.enabled')
 			statusText.style.color = '#4CAF50'
-			pageStatus.textContent = '活动中'
+			pageStatus.textContent = i18n.t('popup.page.active')
 			pageStatus.style.color = '#4CAF50'
 		} else {
-			statusText.textContent = '已禁用'
+			statusText.textContent = i18n.t('popup.status.disabled')
 			statusText.style.color = '#F44336'
-			pageStatus.textContent = '已暂停'
+			pageStatus.textContent = i18n.t('popup.page.paused')
 			pageStatus.style.color = '#F44336'
 		}
 	}
@@ -104,5 +108,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			chrome.storage.sync.set({ config: config })
 		})
+	})
+
+	// 语言切换
+	langToggle.addEventListener('click', function () {
+		i18n.toggle()
+		// 重新应用状态文本
+		updateStatusText(enableToggle.checked)
 	})
 })

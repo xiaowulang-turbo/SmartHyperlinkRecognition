@@ -234,10 +234,10 @@ footer {
 }
 
 /* 主题切换按钮 */
-.theme-toggle {
+.theme-toggle,
+.lang-toggle {
 	position: absolute;
 	top: 20px;
-	right: 20px;
 	background: rgba(255, 255, 255, 0.2);
 	border: none;
 	border-radius: 50%;
@@ -249,11 +249,30 @@ footer {
 	justify-content: center;
 	transition: all 0.3s;
 	font-size: 20px;
+	color: white;
+	font-weight: bold;
+}
+
+.theme-toggle {
+	right: 20px;
+}
+
+.lang-toggle {
+	right: 74px;
+	font-size: 14px;
+}
+
+.theme-toggle:hover,
+.lang-toggle:hover {
+	background: rgba(255, 255, 255, 0.3);
 }
 
 .theme-toggle:hover {
-	background: rgba(255, 255, 255, 0.3);
 	transform: rotate(15deg);
+}
+
+.lang-toggle:hover {
+	transform: scale(1.1);
 }
 
 .theme-toggle .icon-sun {
@@ -400,11 +419,13 @@ footer {
 	color: #f87171;
 }
 
-[data-theme='dark'] .theme-toggle {
+[data-theme='dark'] .theme-toggle,
+[data-theme='dark'] .lang-toggle {
 	background: rgba(0, 0, 0, 0.3);
 }
 
-[data-theme='dark'] .theme-toggle:hover {
+[data-theme='dark'] .theme-toggle:hover,
+[data-theme='dark'] .lang-toggle:hover {
 	background: rgba(0, 0, 0, 0.4);
 }
 
@@ -524,11 +545,13 @@ footer {
 		color: #f87171;
 	}
 
-	html:not([data-theme='light']) .theme-toggle {
+	html:not([data-theme='light']) .theme-toggle,
+	html:not([data-theme='light']) .lang-toggle {
 		background: rgba(0, 0, 0, 0.3);
 	}
 
-	html:not([data-theme='light']) .theme-toggle:hover {
+	html:not([data-theme='light']) .theme-toggle:hover,
+	html:not([data-theme='light']) .lang-toggle:hover {
 		background: rgba(0, 0, 0, 0.4);
 	}
 
