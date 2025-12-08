@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="智能超链接识别 - 隐私政策" />
+		<link rel="icon" href="./favicon.ico" type="image/x-icon" />
+		<title data-i18n="privacy.page.title">隐私政策 - 智能超链接识别</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<style>
+			/* 隐私政策页面专用样式 */
+			.privacy-page {
+				padding-top: 100px;
+				min-height: calc(100vh - 200px);
+			}
+
+			.privacy-content {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 2rem;
+			}
+
+			.privacy-header {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+
+			.privacy-header h1 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+				background: linear-gradient(135deg, #2563eb, #1e40af);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			.privacy-header .last-updated {
+				color: var(--text-secondary);
+				font-size: 0.9rem;
+			}
+
+			.privacy-section {
+				margin-bottom: 2.5rem;
+			}
+
+			.privacy-section h2 {
+				font-size: 1.5rem;
+				color: var(--text-primary);
+				margin-bottom: 1rem;
+				padding-bottom: 0.5rem;
+				border-bottom: 2px solid var(--primary-color);
+				display: inline-block;
+			}
+
+			.privacy-section p,
+			.privacy-section li {
+				color: var(--text-secondary);
+				line-height: 1.8;
+				margin-bottom: 1rem;
+			}
+
+			.privacy-section ul {
+				padding-left: 1.5rem;
+				margin-bottom: 1rem;
+			}
+
+			.privacy-section li {
+				margin-bottom: 0.5rem;
+			}
+
+			.highlight-box {
+				background: var(--bg-secondary);
+				border-left: 4px solid var(--primary-color);
+				padding: 1rem 1.5rem;
+				border-radius: 0 8px 8px 0;
+				margin: 1.5rem 0;
+			}
+
+			.highlight-box p {
+				margin: 0;
+				color: var(--text-primary);
+			}
+
+			.contact-info {
+				background: var(--bg-secondary);
+				padding: 1.5rem;
+				border-radius: 12px;
+				margin-top: 2rem;
+			}
+
+			.contact-info h3 {
+				color: var(--text-primary);
+				margin-bottom: 1rem;
+			}
+
+			.contact-info a {
+				color: var(--primary-color);
+				text-decoration: none;
+			}
+
+			.contact-info a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 导航栏 -->
+		<nav class="navbar">
+			<div class="container">
+				<div class="nav-brand">
+					<a
+						href="index.html"
+						style="
+							display: flex;
+							align-items: center;
+							text-decoration: none;
+							color: inherit;
+						"
+					>
+						<img
+							src="images/icon512.png"
+							alt="Logo"
+							class="logo-img"
+						/>
+						<span class="brand-name" data-i18n="nav.brand"
+							>智能超链接识别</span
+						>
+					</a>
+				</div>
+				<ul class="nav-menu">
+					<li><a href="index.html" data-i18n="nav.home">首页</a></li>
+					<li>
+						<a href="index.html#features" data-i18n="nav.features"
+							>功能</a
+						>
+					</li>
+					<li>
+						<a href="index.html#download" data-i18n="nav.download"
+							>下载</a
+						>
+					</li>
+					<li><a href="test.html" data-i18n="nav.test">测试</a></li>
+					<li>
+						<a
+							href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
+							target="_blank"
+						>
+							<i class="fab fa-github"></i> GitHub
+						</a>
+					</li>
+					<li>
+						<button class="theme-toggle" title="切换主题">
+							<i class="fas fa-moon"></i>
+							<i class="fas fa-sun"></i>
+						</button>
+					</li>
+					<li>
+						<button
+							class="lang-toggle"
+							onclick="i18n.toggle()"
+							title="切换语言"
+						>
+							中
+						</button>
+					</li>
+				</ul>
+				<button class="mobile-menu-toggle">
+					<i class="fas fa-bars"></i>
+				</button>
+			</div>
+		</nav>
+
+		<!-- 隐私政策内容 -->
+		<main class="privacy-page">
+			<div class="container">
+				<div class="privacy-content">
+					<div class="privacy-header">
+						<h1 data-i18n="privacy.title">🔒 隐私政策</h1>
+						<p class="last-updated" data-i18n="privacy.lastUpdated">
+							最后更新：2024年12月
+						</p>
+					</div>
+
+					<div class="highlight-box">
+						<p data-i18n="privacy.summary">
+							<strong>简要说明：</strong
+							>智能超链接识别扩展不会收集、存储或传输任何用户数据。所有功能完全在您的浏览器本地运行。
+						</p>
+					</div>
+
+					<section class="privacy-section">
+						<h2 data-i18n="privacy.intro.title">📋 概述</h2>
+						<p data-i18n="privacy.intro.content">
+							智能超链接识别（"本扩展"）是一款开源的 Chrome
+							浏览器扩展，旨在帮助用户自动将网页中的纯文本 URL
+							转换为可点击的超链接。我们非常重视用户隐私，本隐私政策将详细说明我们如何处理您的信息。
+						</p>
+					</section>
+
+					<section class="privacy-section">
+						<h2 data-i18n="privacy.collect.title">📊 信息收集</h2>
+						<p data-i18n="privacy.collect.content">
+							本扩展不收集任何个人信息或使用数据。具体来说：
+						</p>
+						<ul>
+							<li data-i18n="privacy.collect.item1">
+								不收集您的浏览历史
+							</li>
+							<li data-i18n="privacy.collect.item2">
+								不收集您访问的网站信息
+							</li>
+							<li data-i18n="privacy.collect.item3">
+								不收集任何个人身份信息
+							</li>
+							<li data-i18n="privacy.collect.item4">
+								不收集设备信息或位置数据
+							</li>
+							<li data-i18n="privacy.collect.item5">
+								不使用任何分析或追踪服务
+							</li>
+						</ul>
+					</section>
+
+					<section class="privacy-section">
+						<h2 data-i18n="privacy.storage.title">💾 本地存储</h2>
+						<p data-i18n="privacy.storage.content">
+							本扩展仅在您的浏览器本地存储以下设置信息：
+						</p>
+						<ul>
+							<li data-i18n="privacy.storage.item1">
+								扩展启用/禁用状态
+							</li>
+							<li data-i18n="privacy.storage.item2">
+								用户自定义的排除规则
+							</li>
+							<li data-i18n="privacy.storage.item3">
+								网站黑名单设置
+							</li>
+							<li data-i18n="privacy.storage.item4">
+								界面主题和语言偏好
+							</li>
+						</ul>
+						<p data-i18n="privacy.storage.note">
+							这些数据仅存储在您的本地设备上，不会被传输到任何外部服务器。您可以随时通过浏览器的扩展管理功能清除这些数据。
+						</p>
+					</section>
+
+					<section class="privacy-section">
+						<h2 data-i18n="privacy.permissions.title">
+							🔐 权限说明
+						</h2>
+						<p data-i18n="privacy.permissions.content">
+							本扩展请求以下权限：
+						</p>
+						<ul>
+							<li data-i18n="privacy.permissions.item1">
+								<strong>activeTab</strong
+								>：允许扩展在当前活动标签页上运行，用于检测和转换文本链接
+							</li>
+							<li data-i18n="privacy.permissions.item2">
+								<strong>storage</strong
+								>：允许扩展在本地存储您的设置偏好
+							</li>
+							<li data-i18n="privacy.permissions.item3">
+								<strong>所有网址访问权限</strong
+								>：允许扩展在所有网页上运行链接转换功能
+							</li>
+						</ul>
+						<p data-i18n="privacy.permissions.note">
+							这些权限仅用于实现扩展的核心功能，不会被用于收集或传输任何数据。
+						</p>
+					</section>
+
+					<section class="privacy-section">
+						<h2 data-i18n="privacy.thirdparty.title">
+							🌐 第三方服务
+						</h2>
+						<p data-i18n="privacy.thirdparty.content">
+							本扩展不使用任何第三方分析、广告或追踪服务。扩展的所有功能完全在本地运行，不与任何外部服务器通信。
+						</p>
+					</section>
+
+					<section class="privacy-section">
+						<h2 data-i18n="privacy.opensource.title">
+							📖 开源透明
+						</h2>
+						<p data-i18n="privacy.opensource.content">
+							本扩展是完全开源的，源代码托管在 GitHub
+							上。您可以随时审查我们的代码，验证我们的隐私承诺。
+						</p>
+						<p>
+							<a
+								href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
+								target="_blank"
+							>
+								<i class="fab fa-github"></i>
+								<span data-i18n="privacy.opensource.link"
+									>查看源代码</span
+								>
+							</a>
+						</p>
+					</section>
+
+					<section class="privacy-section">
+						<h2 data-i18n="privacy.changes.title">📝 政策更新</h2>
+						<p data-i18n="privacy.changes.content">
+							如果我们对本隐私政策进行重大更改，我们将在此页面上发布更新后的政策，并更新"最后更新"日期。建议您定期查看本页面以了解任何变化。
+						</p>
+					</section>
+
+					<section class="privacy-section">
+						<h2 data-i18n="privacy.contact.title">📧 联系我们</h2>
+						<div class="contact-info">
+							<p data-i18n="privacy.contact.content">
+								如果您对本隐私政策有任何疑问或建议，请通过以下方式联系我们：
+							</p>
+							<ul>
+								<li>
+									<span data-i18n="privacy.contact.github"
+										>GitHub Issues：</span
+									>
+									<a
+										href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/issues"
+										target="_blank"
+										data-i18n="privacy.contact.githubLink"
+									>
+										提交问题反馈
+									</a>
+								</li>
+								<li>
+									<span data-i18n="privacy.contact.email"
+										>电子邮件：</span
+									>
+									<a href="mailto:xiaowulang.turbo@gmail.com"
+										>xiaowulang.turbo@gmail.com</a
+									>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</div>
+			</div>
+		</main>
+
+		<!-- 页脚 -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-section">
+						<h3>
+							<img
+								src="images/icon512.png"
+								alt="Logo"
+								class="footer-logo"
+							/>
+							<span data-i18n="nav.brand">智能超链接识别</span>
+						</h3>
+						<p data-i18n="footer.tagline">让网页浏览更加便捷</p>
+					</div>
+					<div class="footer-section">
+						<h4 data-i18n="footer.quicklinks">快速链接</h4>
+						<ul>
+							<li>
+								<a href="index.html" data-i18n="nav.home"
+									>首页</a
+								>
+							</li>
+							<li>
+								<a
+									href="index.html#features"
+									data-i18n="nav.features"
+									>功能</a
+								>
+							</li>
+							<li>
+								<a
+									href="index.html#download"
+									data-i18n="nav.download"
+									>下载</a
+								>
+							</li>
+							<li>
+								<a href="test.html" data-i18n="nav.test"
+									>测试</a
+								>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4 data-i18n="footer.resources">资源</h4>
+						<ul>
+							<li>
+								<a href="../README.md" data-i18n="footer.docs"
+									>项目文档</a
+								>
+							</li>
+							<li>
+								<a
+									href="../CHANGELOG.md"
+									data-i18n="footer.changelog"
+									>更新日志</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/issues"
+									data-i18n="footer.issues"
+									>问题反馈</a
+								>
+							</li>
+							<li>
+								<a
+									href="privacy.html"
+									data-i18n="footer.privacy"
+									>隐私政策</a
+								>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4 data-i18n="footer.about">关于</h4>
+						<ul>
+							<li>
+								<a
+									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
+									data-i18n="footer.github"
+									>GitHub 仓库</a
+								>
+							</li>
+							<li>
+								<a href="../LICENSE" data-i18n="footer.license"
+									>开源许可</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p data-i18n="footer.copyright">
+						&copy; 2024 Smart Text-to-Link Converter. All rights
+						reserved.
+					</p>
+					<p>
+						<span data-i18n="footer.mit">基于</span>
+						<a href="../LICENSE">MIT License</a>
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<script src="js/i18n.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

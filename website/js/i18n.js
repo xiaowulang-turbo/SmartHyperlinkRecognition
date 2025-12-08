@@ -136,12 +136,66 @@ const i18n = {
 			'footer.changelog': '更新日志',
 			'footer.issues': '问题反馈',
 			'footer.license': '开源许可',
+			'footer.privacy': '隐私政策',
 			'footer.github': 'GitHub 仓库',
 			'footer.contribute': '贡献指南',
 			'footer.conduct': '行为准则',
 			'footer.copyright':
 				'© 2024 Smart Text-to-Link Converter. 保留所有权利。',
 			'footer.mit': '基于 MIT 许可证发布',
+
+			// 隐私政策页面
+			'privacy.page.title': '隐私政策 - 智能超链接识别',
+			'privacy.title': '🔒 隐私政策',
+			'privacy.lastUpdated': '最后更新：2024年12月',
+			'privacy.summary':
+				'<strong>简要说明：</strong>智能超链接识别扩展不会收集、存储或传输任何用户数据。所有功能完全在您的浏览器本地运行。',
+			'privacy.intro.title': '📋 概述',
+			'privacy.intro.content':
+				'智能超链接识别（"本扩展"）是一款开源的 Chrome 浏览器扩展，旨在帮助用户自动将网页中的纯文本 URL 转换为可点击的超链接。我们非常重视用户隐私，本隐私政策将详细说明我们如何处理您的信息。',
+			'privacy.collect.title': '📊 信息收集',
+			'privacy.collect.content':
+				'本扩展不收集任何个人信息或使用数据。具体来说：',
+			'privacy.collect.item1': '不收集您的浏览历史',
+			'privacy.collect.item2': '不收集您访问的网站信息',
+			'privacy.collect.item3': '不收集任何个人身份信息',
+			'privacy.collect.item4': '不收集设备信息或位置数据',
+			'privacy.collect.item5': '不使用任何分析或追踪服务',
+			'privacy.storage.title': '💾 本地存储',
+			'privacy.storage.content':
+				'本扩展仅在您的浏览器本地存储以下设置信息：',
+			'privacy.storage.item1': '扩展启用/禁用状态',
+			'privacy.storage.item2': '用户自定义的排除规则',
+			'privacy.storage.item3': '网站黑名单设置',
+			'privacy.storage.item4': '界面主题和语言偏好',
+			'privacy.storage.note':
+				'这些数据仅存储在您的本地设备上，不会被传输到任何外部服务器。您可以随时通过浏览器的扩展管理功能清除这些数据。',
+			'privacy.permissions.title': '🔐 权限说明',
+			'privacy.permissions.content': '本扩展请求以下权限：',
+			'privacy.permissions.item1':
+				'<strong>activeTab</strong>：允许扩展在当前活动标签页上运行，用于检测和转换文本链接',
+			'privacy.permissions.item2':
+				'<strong>storage</strong>：允许扩展在本地存储您的设置偏好',
+			'privacy.permissions.item3':
+				'<strong>所有网址访问权限</strong>：允许扩展在所有网页上运行链接转换功能',
+			'privacy.permissions.note':
+				'这些权限仅用于实现扩展的核心功能，不会被用于收集或传输任何数据。',
+			'privacy.thirdparty.title': '🌐 第三方服务',
+			'privacy.thirdparty.content':
+				'本扩展不使用任何第三方分析、广告或追踪服务。扩展的所有功能完全在本地运行，不与任何外部服务器通信。',
+			'privacy.opensource.title': '📖 开源透明',
+			'privacy.opensource.content':
+				'本扩展是完全开源的，源代码托管在 GitHub 上。您可以随时审查我们的代码，验证我们的隐私承诺。',
+			'privacy.opensource.link': '查看源代码',
+			'privacy.changes.title': '📝 政策更新',
+			'privacy.changes.content':
+				'如果我们对本隐私政策进行重大更改，我们将在此页面上发布更新后的政策，并更新"最后更新"日期。建议您定期查看本页面以了解任何变化。',
+			'privacy.contact.title': '📧 联系我们',
+			'privacy.contact.content':
+				'如果您对本隐私政策有任何疑问或建议，请通过以下方式联系我们：',
+			'privacy.contact.github': 'GitHub Issues：',
+			'privacy.contact.githubLink': '提交问题反馈',
+			'privacy.contact.email': '电子邮件：',
 		},
 		en: {
 			// 导航栏
@@ -280,12 +334,72 @@ const i18n = {
 			'footer.changelog': 'Changelog',
 			'footer.issues': 'Report Issues',
 			'footer.license': 'License',
+			'footer.privacy': 'Privacy Policy',
 			'footer.github': 'GitHub Repo',
 			'footer.contribute': 'Contributing',
 			'footer.conduct': 'Code of Conduct',
 			'footer.copyright':
 				'© 2024 Smart Text-to-Link Converter. All rights reserved.',
 			'footer.mit': 'Released under the MIT License',
+
+			// Privacy Policy Page
+			'privacy.page.title':
+				'Privacy Policy - Smart Hyperlink Recognition',
+			'privacy.title': '🔒 Privacy Policy',
+			'privacy.lastUpdated': 'Last Updated: December 2024',
+			'privacy.summary':
+				'<strong>Summary:</strong> The Smart Hyperlink Recognition extension does not collect, store, or transmit any user data. All features run entirely locally in your browser.',
+			'privacy.intro.title': '📋 Overview',
+			'privacy.intro.content':
+				'Smart Hyperlink Recognition ("the Extension") is an open-source Chrome browser extension designed to help users automatically convert plain text URLs into clickable hyperlinks. We take user privacy very seriously, and this privacy policy details how we handle your information.',
+			'privacy.collect.title': '📊 Information Collection',
+			'privacy.collect.content':
+				'This extension does not collect any personal information or usage data. Specifically:',
+			'privacy.collect.item1': 'We do not collect your browsing history',
+			'privacy.collect.item2':
+				'We do not collect information about websites you visit',
+			'privacy.collect.item3':
+				'We do not collect any personally identifiable information',
+			'privacy.collect.item4':
+				'We do not collect device information or location data',
+			'privacy.collect.item5':
+				'We do not use any analytics or tracking services',
+			'privacy.storage.title': '💾 Local Storage',
+			'privacy.storage.content':
+				'This extension only stores the following settings locally in your browser:',
+			'privacy.storage.item1': 'Extension enabled/disabled status',
+			'privacy.storage.item2': 'User-defined exclusion rules',
+			'privacy.storage.item3': 'Website blacklist settings',
+			'privacy.storage.item4': 'Interface theme and language preferences',
+			'privacy.storage.note':
+				"This data is only stored on your local device and is never transmitted to any external servers. You can clear this data at any time through your browser's extension management.",
+			'privacy.permissions.title': '🔐 Permissions',
+			'privacy.permissions.content':
+				'This extension requests the following permissions:',
+			'privacy.permissions.item1':
+				'<strong>activeTab</strong>: Allows the extension to run on the current active tab for detecting and converting text links',
+			'privacy.permissions.item2':
+				'<strong>storage</strong>: Allows the extension to store your settings preferences locally',
+			'privacy.permissions.item3':
+				'<strong>All URLs access</strong>: Allows the extension to run link conversion on all web pages',
+			'privacy.permissions.note':
+				'These permissions are only used to implement core extension functionality and will not be used to collect or transmit any data.',
+			'privacy.thirdparty.title': '🌐 Third-Party Services',
+			'privacy.thirdparty.content':
+				'This extension does not use any third-party analytics, advertising, or tracking services. All extension features run entirely locally and do not communicate with any external servers.',
+			'privacy.opensource.title': '📖 Open Source Transparency',
+			'privacy.opensource.content':
+				'This extension is completely open source, with source code hosted on GitHub. You can review our code at any time to verify our privacy commitments.',
+			'privacy.opensource.link': 'View Source Code',
+			'privacy.changes.title': '📝 Policy Updates',
+			'privacy.changes.content':
+				'If we make significant changes to this privacy policy, we will post the updated policy on this page and update the "Last Updated" date. We recommend checking this page periodically for any changes.',
+			'privacy.contact.title': '📧 Contact Us',
+			'privacy.contact.content':
+				'If you have any questions or suggestions about this privacy policy, please contact us through:',
+			'privacy.contact.github': 'GitHub Issues: ',
+			'privacy.contact.githubLink': 'Submit Feedback',
+			'privacy.contact.email': 'Email: ',
 		},
 	},
 
