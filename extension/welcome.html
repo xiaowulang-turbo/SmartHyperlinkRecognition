@@ -110,6 +110,17 @@
 				border: 2px dashed #ddd;
 			}
 
+			.demo-hint {
+				margin-top: 15px;
+				font-size: 13px;
+				color: #666;
+			}
+
+			.cta-text {
+				margin-bottom: 20px;
+				color: #666;
+			}
+
 			.cta-section {
 				text-align: center;
 				padding: 30px 40px;
@@ -185,7 +196,11 @@
 					color: #60a5fa;
 				}
 
-				.demo-section p {
+				.demo-hint {
+					color: #a1a1aa !important;
+				}
+
+				.cta-text {
 					color: #a1a1aa !important;
 				}
 
@@ -214,16 +229,20 @@
 	<body>
 		<div class="container">
 			<div class="header">
-				<h1>✍️ 欢迎使用</h1>
-				<p>智能超链接识别 (Smart Text-to-Link Converter)</p>
+				<h1 data-i18n="welcome.title">✍️ 欢迎使用</h1>
+				<p data-i18n="welcome.subtitle">
+					智能超链接识别 (Smart Text-to-Link Converter)
+				</p>
 			</div>
 
 			<div class="content">
 				<div class="feature">
 					<div class="feature-icon">🌐</div>
 					<div class="feature-text">
-						<h3>智能文本链接转换</h3>
-						<p>
+						<h3 data-i18n="welcome.feature1.title">
+							智能文本链接转换
+						</h3>
+						<p data-i18n="welcome.feature1.desc">
 							自动识别并转换网页中的纯文本
 							URL，让所有链接都可以直接点击，无需复制粘贴。
 						</p>
@@ -233,8 +252,8 @@
 				<div class="feature">
 					<div class="feature-icon">⚡️</div>
 					<div class="feature-text">
-						<h3>实时动态处理</h3>
-						<p>
+						<h3 data-i18n="welcome.feature2.title">实时动态处理</h3>
+						<p data-i18n="welcome.feature2.desc">
 							不仅处理页面加载时的内容，还能实时处理通过 AJAX 或
 							JavaScript 动态加载的新内容。
 						</p>
@@ -244,51 +263,77 @@
 				<div class="feature">
 					<div class="feature-icon">🎯</div>
 					<div class="feature-text">
-						<h3>智能排除规则</h3>
-						<p>
+						<h3 data-i18n="welcome.feature3.title">智能排除规则</h3>
+						<p data-i18n="welcome.feature3.desc">
 							自动跳过代码块、已有链接等特殊区域，避免破坏页面原有结构和样式。
 						</p>
 					</div>
 				</div>
 
 				<div class="feature">
-					<div class="feature-icon">�️</div>
+					<div class="feature-icon">🛡️</div>
 					<div class="feature-text">
-						<h3>安全与隐私</h3>
-						<p>
+						<h3 data-i18n="welcome.feature4.title">安全与隐私</h3>
+						<p data-i18n="welcome.feature4.desc">
 							所有操作都在本地完成，不收集任何数据，不影响浏览速度。
 						</p>
 					</div>
 				</div>
 
 				<div class="demo-section">
-					<h3>📝 示例演示</h3>
+					<h3 data-i18n="welcome.demo.title">📝 示例演示</h3>
 					<div class="demo-text">
-						访问我们的官网 <a href="https://smart-hyperlink-recognition.vercel.app/" target="_blank" rel="noopener noreferrer">
-							smart-hyperlink-recognition.vercel.app
-						</a> 了解更多功能<br />
-						项目开源地址 <a href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition" target="_blank" rel="noopener noreferrer">https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition</a> 欢迎 Star ⭐
+						<span data-i18n="welcome.demo.text1"
+							>访问我们的官网</span
+						>
+						<a
+							href="https://smart-hyperlink-recognition.vercel.app/"
+							target="_blank"
+							rel="noopener noreferrer"
+							>smart-hyperlink-recognition.vercel.app</a
+						>
+						<span data-i18n="welcome.demo.text2">了解更多功能</span
+						><br />
+						<span data-i18n="welcome.demo.text3">项目开源地址</span>
+						<a
+							href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
+							target="_blank"
+							rel="noopener noreferrer"
+							>https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition</a
+						>
+						<span data-i18n="welcome.demo.text4">欢迎 Star ⭐</span>
 					</div>
-					<p style="margin-top: 15px; font-size: 13px; color: #666">
+					<p class="demo-hint" data-i18n="welcome.demo.hint">
 						💡 以上文本中的 URL 已自动转换为可点击的链接！
 					</p>
 				</div>
 			</div>
 
 			<div class="cta-section">
-				<p style="margin-bottom: 20px; color: #666">
+				<p class="cta-text" data-i18n="welcome.cta.text">
 					插件已安装成功，现在就开始使用吧！
 				</p>
-				<button class="btn" onclick="window.close()">
+				<button
+					class="btn"
+					onclick="window.close()"
+					data-i18n="welcome.cta.start"
+				>
 					🚀 开始使用
 				</button>
 				<button
 					class="btn btn-secondary"
 					onclick="chrome.runtime.openOptionsPage()"
+					data-i18n="welcome.cta.settings"
 				>
 					⚙️ 前往设置
 				</button>
 			</div>
 		</div>
+
+		<script src="i18n.js"></script>
+		<script>
+			// 初始化国际化
+			i18n.init()
+		</script>
 	</body>
 </html>

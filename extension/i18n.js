@@ -75,9 +75,30 @@ const i18n = {
 			'options.status.reset': '🔄 已恢复默认设置',
 			'options.confirm.reset': '确定要恢复默认设置吗？',
 
-			// 通用
+// 通用
 			'common.switchTheme': '切换主题',
 			'common.switchLang': '切换语言',
+
+			// 欢迎页面
+			'welcome.title': '✍️ 欢迎使用',
+			'welcome.subtitle': '智能超链接识别 (Smart Text-to-Link Converter)',
+			'welcome.feature1.title': '智能文本链接转换',
+			'welcome.feature1.desc': '自动识别并转换网页中的纯文本 URL，让所有链接都可以直接点击，无需复制粘贴。',
+			'welcome.feature2.title': '实时动态处理',
+			'welcome.feature2.desc': '不仅处理页面加载时的内容，还能实时处理通过 AJAX 或 JavaScript 动态加载的新内容。',
+			'welcome.feature3.title': '智能排除规则',
+			'welcome.feature3.desc': '自动跳过代码块、已有链接等特殊区域，避免破坏页面原有结构和样式。',
+			'welcome.feature4.title': '安全与隐私',
+			'welcome.feature4.desc': '所有操作都在本地完成，不收集任何数据，不影响浏览速度。',
+			'welcome.demo.title': '📝 示例演示',
+			'welcome.demo.text1': '访问我们的官网',
+			'welcome.demo.text2': '了解更多功能',
+			'welcome.demo.text3': '项目开源地址',
+			'welcome.demo.text4': '欢迎 Star ⭐',
+			'welcome.demo.hint': '💡 以上文本中的 URL 已自动转换为可点击的链接！',
+			'welcome.cta.text': '插件已安装成功，现在就开始使用吧！',
+			'welcome.cta.start': '🚀 开始使用',
+			'welcome.cta.settings': '⚙️ 前往设置',
 		},
 		en: {
 			// Popup 页面
@@ -156,43 +177,77 @@ const i18n = {
 			'options.confirm.reset':
 				'Are you sure you want to reset to default settings?',
 
-			// 通用
+// 通用
 			'common.switchTheme': 'Switch Theme',
 			'common.switchLang': 'Switch Language',
+
+			// 欢迎页面
+			'welcome.title': '✍️ Welcome',
+			'welcome.subtitle': 'Smart Text-to-Link Converter',
+			'welcome.feature1.title': 'Smart Link Conversion',
+			'welcome.feature1.desc': 'Automatically detect and convert plain text URLs into clickable links, no more copy-paste.',
+			'welcome.feature2.title': 'Real-time Processing',
+			'welcome.feature2.desc': 'Not only handles content on page load, but also processes content dynamically loaded via AJAX or JavaScript.',
+			'welcome.feature3.title': 'Smart Exclusion Rules',
+			'welcome.feature3.desc': 'Automatically skips code blocks, existing links and other special areas to avoid breaking page structure.',
+			'welcome.feature4.title': 'Security & Privacy',
+			'welcome.feature4.desc': 'All operations are done locally, no data collection, no impact on browsing speed.',
+			'welcome.demo.title': '📝 Demo',
+			'welcome.demo.text1': 'Visit our website',
+			'welcome.demo.text2': 'to learn more',
+			'welcome.demo.text3': 'Open source at',
+			'welcome.demo.text4': 'Welcome to Star ⭐',
+			'welcome.demo.hint': '💡 The URLs above have been automatically converted to clickable links!',
+			'welcome.cta.text': 'Extension installed successfully, start using it now!',
+			'welcome.cta.start': '🚀 Get Started',
+			'welcome.cta.settings': '⚙️ Settings',
 		},
 	},
 
 	// 当前语言
 	currentLang: 'zh-CN',
 
-	// 初始化
+// 初始化
 	init(callback) {
-		chrome.storage.sync.get(['config'], (result) => {
-			const config = result.config || {}
-			const lang = config.lang
+		// 检查 chrome.storage 是否可用
+		if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
+			chrome.storage.sync.get(['config'], (result) => {
+				const config = result.config || {}
+				const lang = config.lang
 
-			if (lang && lang !== 'auto' && this.translations[lang]) {
-				this.currentLang = lang
-			} else {
-				// 自动检测浏览器语言
-				const browserLang = navigator.language || navigator.userLanguage
-				this.currentLang = browserLang.startsWith('zh') ? 'zh-CN' : 'en'
-			}
+				if (lang && lang !== 'auto' && this.translations[lang]) {
+					this.currentLang = lang
+				} else {
+					// 自动检测浏览器语言
+					const browserLang = navigator.language || navigator.userLanguage
+					this.currentLang = browserLang.startsWith('zh') ? 'zh-CN' : 'en'
+				}
 
-			// 设置 HTML lang 属性
-			document.documentElement.setAttribute(
-				'lang',
-				this.currentLang === 'zh-CN' ? 'zh-CN' : 'en'
-			)
-
-			// 应用翻译
-			this.applyTranslations()
-
-			// 更新切换按钮状态
-			this.updateToggleButton()
-
+				this._applyLangAndTranslations()
+				if (callback) callback()
+			})
+		} else {
+			// 如果 chrome.storage 不可用，直接使用浏览器语言
+			const browserLang = navigator.language || navigator.userLanguage
+			this.currentLang = browserLang.startsWith('zh') ? 'zh-CN' : 'en'
+			this._applyLangAndTranslations()
 			if (callback) callback()
-		})
+		}
+	},
+
+	// 内部方法：应用语言和翻译
+	_applyLangAndTranslations() {
+		// 设置 HTML lang 属性
+		document.documentElement.setAttribute(
+			'lang',
+			this.currentLang === 'zh-CN' ? 'zh-CN' : 'en'
+		)
+
+		// 应用翻译
+		this.applyTranslations()
+
+		// 更新切换按钮状态
+		this.updateToggleButton()
 	},
 
 	// 应用翻译
