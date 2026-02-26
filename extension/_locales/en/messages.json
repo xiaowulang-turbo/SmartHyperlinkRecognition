@@ -1,10 +1,10 @@
 {
 	"extName": {
-		"message": "Smart Text-to-Link Converter",
+		"message": "Smart Linkify – Instant hyperlink conversion",
 		"description": "Extension name"
 	},
 	"extDescription": {
-		"message": "Automatically converts plain text URLs in web pages into clickable hyperlinks",
+		"message": "Instantly convert plain text URLs into clickable hyperlinks on any webpage",
 		"description": "Extension description"
 	}
 }

@@ -1,20 +1,22 @@
 {
-	"name": "smart-hyperlink-recognition",
-	"version": "1.0.0",
-	"description": "智能超链接识别 - 自动将网页中的纯文本 URL 转换为可点击的超链接",
-	"author": "Smart Text-to-Link Converter Team",
+	"name": "smart-linkify",
+	"version": "1.0.2",
+	"description": "Smart Linkify – Instantly convert plain text URLs into clickable hyperlinks on any webpage",
+	"author": "Smart Linkify Team",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition.git"
 	},
 	"keywords": [
+		"linkify",
 		"chrome-extension",
 		"url-converter",
 		"hyperlink",
 		"text-to-link",
 		"browser-extension",
-		"link-recognition"
+		"link-recognition",
+		"auto-link"
 	],
 	"scripts": {
 		"test": "echo \"Open test.html in Chrome to test the extension\"",
