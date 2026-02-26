@@ -21,7 +21,10 @@
 	"scripts": {
 		"test": "echo \"Open test.html in Chrome to test the extension\"",
 		"pack": "echo \"Use Chrome Extensions page to pack the extension\"",
-		"lint": "echo \"No linter configured yet\""
+		"lint": "echo \"No linter configured yet\"",
+		"prepare": "node scripts/install-hooks.js",
+		"sync-version": "node scripts/sync-version.js",
+		"version": "npm run sync-version && git add website/index.html"
 	},
 	"devDependencies": {},
 	"dependencies": {},
