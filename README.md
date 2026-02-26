@@ -42,7 +42,7 @@
 
 ### 选项 1: 通过 Chrome Web Store (推荐)
 
-1. 访问 [Chrome Web Store](https://chrome.google.com/webstore)（待上架）
+1. 访问 [Chrome Web Store](https://chromewebstore.google.com/detail/dcfgdgniapopldemehcepddjcfhakhfl) 安装插件
 2. 点击 **"添加到 Chrome"** 按钮
 3. 在弹出的确认对话框中点击 **"添加扩展程序"**
 
