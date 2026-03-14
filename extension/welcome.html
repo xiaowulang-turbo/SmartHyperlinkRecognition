@@ -313,27 +313,20 @@
 				<p class="cta-text" data-i18n="welcome.cta.text">
 					插件已安装成功，现在就开始使用吧！
 				</p>
-				<button
-					class="btn"
-					onclick="window.close()"
-					data-i18n="welcome.cta.start"
-				>
-					🚀 开始使用
-				</button>
-				<button
-					class="btn btn-secondary"
-					onclick="chrome.runtime.openOptionsPage()"
-					data-i18n="welcome.cta.settings"
-				>
-					⚙️ 前往设置
-				</button>
+			<button class="btn" id="startBtn" data-i18n="welcome.cta.start">
+				🚀 开始使用
+			</button>
+			<button
+				class="btn btn-secondary"
+				id="settingsBtn"
+				data-i18n="welcome.cta.settings"
+			>
+				⚙️ 前往设置
+			</button>
 			</div>
 		</div>
 
-		<script src="i18n.js"></script>
-		<script>
-			// 初始化国际化
-			i18n.init()
-		</script>
-	</body>
+	<script src="i18n.js"></script>
+	<script src="welcome.js"></script>
+</body>
 </html>
