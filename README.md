@@ -1,191 +1,179 @@
-# ✍️ 智能超链接识别 (Smart Text-to-Link Converter)
+# ✍️ Smart Text-to-Link Converter
 
 [![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition)
-[![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.2-blue)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/releases)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-## ✨ 简介 (Introduction)
+> 🌐 [简体中文](README.zh-CN.md) | English
 
-**智能超链接识别 (Smart Text-to-Link Converter)** 是一款高效的 Chrome 浏览器扩展
-程序，其核心功能是**扫描并自动将网页内容中以纯文本形式存在的 URL 字符串（如
-`http://example.com` 或 `www.google.com`）转换为可点击的 HTML 超链接 (`<a>` 标签
-)**。
+## ✨ Introduction
 
-不再需要手动复制粘贴文本链接到地址栏！本插件让您的浏览体验更加顺畅，所有可见的链
-接都将立即变得可点击。
+**Smart Text-to-Link Converter** is an efficient Chrome browser extension that automatically **scans and converts plain text URLs (like `http://example.com` or `www.google.com`) into clickable HTML hyperlinks (`<a>` tags)**.
 
-## 🚀 核心功能 (Features)
+No more copying and pasting text links into the address bar! This extension makes your browsing experience smoother, making all visible links instantly clickable.
 
--   **🔗 文本链接智能转换:** 实时扫描加载的网页内容，自动识别并替换以下格式的文
-    本：
-    -   包含协议的 URL (例如：`https://`, `http://`, `ftp://`)
-    -   不包含协议但常见的域名格式 (例如：`www.example.com`, `example.com/page`)
-    -   邮件地址 (例如：`user@domain.com`)
--   **⚡ 实时动态处理:** 不仅处理页面加载时的内容，还能处理通过 AJAX 或
-    JavaScript 动态加载进来的新内容（例如，在滚动或点击"加载更多"时）。
--   **🧠 智能排除:** 插件设计有智能规则，会跳过已是超链接内部的文本，以及
-    `<pre>`, `<code>`, `<script>`, `<style>` 等标签内的内容，以避免破坏代码展示
-    或页面样式。
--   **🛠️ 高度可配置:** 用户可以在设置中调整识别的正则表达式、排除的 HTML 标签，
-    以及新创建链接的属性（例如：是否默认设置 `target="_blank"` 新窗口打开）。
--   **🔒 安全与性能:** 转换过程快速高效，所有操作都在本地完成，不会对您的浏览速
-    度造成明显影响，且不收集任何数据。
+## 🚀 Features
 
-## 🌐 官网
+-   **🔗 Smart Link Conversion:** Real-time scanning of web page content, automatically recognizing and replacing text in the following formats:
+    -   URLs with protocols (e.g., `https://`, `http://`, `ftp://`)
+    -   Common domain formats without protocols (e.g., `www.example.com`, `example.com/page`)
+    -   Email addresses (e.g., `user@domain.com`)
+-   **⚡ Real-time Dynamic Processing:** Handles not only content loaded during page load but also new content dynamically loaded via AJAX or JavaScript (e.g., when scrolling or clicking "load more").
+-   **🧠 Smart Exclusion:** Designed with intelligent rules that skip text already inside hyperlinks and content within `<pre>`, `<code>`, `<script>`, `<style>` tags to avoid breaking code display or page styling.
+-   **🛠️ Highly Configurable:** Users can adjust recognition regex patterns, excluded HTML tags, and attributes for newly created links (e.g., whether to open in `target="_blank"` by default).
+-   **🔒 Security & Performance:** Fast and efficient conversion process, all operations are performed locally, won't significantly impact browsing speed, and no data is collected.
 
-访问我们的官网了解更多信息
-：[https://smart-hyperlink-recognition.vercel.app/](https://smart-hyperlink-recognition.vercel.app/)
+## 🌐 Official Website
 
-官网源码位于 `website/` 目录。
+Visit our website for more information: [https://smart-hyperlink-recognition.vercel.app/](https://smart-hyperlink-recognition.vercel.app/)
 
-## 📥 安装指南 (Installation)
+Website source code is located in the `website/` directory.
 
-### 选项 1: 通过 Chrome Web Store (推荐)
+## 📥 Installation
 
-1. 访问 [Chrome Web Store](https://chromewebstore.google.com/detail/dcfgdgniapopldemehcepddjcfhakhfl) 安装插件
-2. 点击 **"添加到 Chrome"** 按钮
-3. 在弹出的确认对话框中点击 **"添加扩展程序"**
+### Option 1: Chrome Web Store (Recommended)
 
-### 选项 2: 开发者模式安装 (适用于本地开发)
+1. Visit [Chrome Web Store](https://chromewebstore.google.com/detail/dcfgdgniapopldemehcepddjcfhakhfl) to install the extension
+2. Click the **"Add to Chrome"** button
+3. Click **"Add extension"** in the confirmation dialog
 
-1. 克隆或下载本仓库：
+### Option 2: Developer Mode (For Local Development)
+
+1. Clone or download this repository:
 
     ```bash
     git clone https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition.git
     ```
 
-2. 在 Chrome 浏览器中打开 `chrome://extensions`
+2. Open `chrome://extensions` in Chrome browser
 
-3. 启用右上角的 **"开发者模式"** 开关
+3. Enable the **"Developer mode"** switch in the top right corner
 
-4. 点击 **"加载已解压的扩展程序"** 按钮
+4. Click the **"Load unpacked"** button
 
-5. 选择项目中的 `extension` 文件夹即可完成安装
+5. Select the `extension` folder in the project to complete installation
 
-## 🔧 使用方法 (Usage)
+## 🔧 Usage
 
-安装完成后，插件将自动在您访问的网页上运行。
+After installation, the extension will automatically run on pages you visit.
 
-### 基本使用
+### Basic Usage
 
-1. **自动转换:** 访问任何包含纯文本 URL 的页面。您会发现这些文本（例如
-   ：`google.com`）现在有了下划线，并且可以像正常的超链接一样点击。
+1. **Auto Conversion:** Visit any page containing plain text URLs. You'll notice these texts (e.g., `google.com`) now have underlines and can be clicked like normal hyperlinks.
 
-2. **激活/禁用:** 点击浏览器工具栏上的插件图标 (✍️)，可以快速启用或禁用插件功能
-   ，以应对可能需要关闭转换的特定网站。
+2. **Activate/Disable:** Click the extension icon (✍️) in the browser toolbar to quickly enable or disable the extension functionality for specific websites.
 
-3. **设置调整:** 右键点击插件图标 (✍️)，选择 **"选项"**，您可以：
-    - 调整新链接是否在新标签页打开
-    - 添加网站黑名单（在特定网站禁用插件）
-    - 自定义排除的 HTML 标签
+3. **Settings:** Right-click the extension icon (✍️), select **"Options"**, you can:
+    - Adjust whether new links open in new tabs
+    - Add website blacklist (disable extension on specific sites)
+    - Customize excluded HTML tags
 
-### 示例场景
+### Example Scenario
 
-**转换前：**
+**Before Conversion:**
 
 ```
-访问我们的网站 www.example.com 或发送邮件到 contact@example.com
-更多信息请查看 https://github.com/example/project
+Visit our website www.example.com or email contact@example.com
+For more info see https://github.com/example/project
 ```
 
-**转换后：**
+**After Conversion:**
 
 ```
-访问我们的网站 [www.example.com] 或发送邮件到 [contact@example.com]
-更多信息请查看 [https://github.com/example/project]
+Visit our website [www.example.com] or email [contact@example.com]
+For more info see [https://github.com/example/project]
 ```
 
-（方括号内的文本将变成可点击的超链接）
+(Text in brackets becomes clickable hyperlinks)
 
-## 💻 开发与贡献 (Development & Contributing)
+## 💻 Development & Contributing
 
-欢迎所有形式的贡献！如果您想参与项目开发、报告 Bug 或提出功能建议，请遵循以下步
-骤。
+All forms of contributions are welcome! If you want to participate in project development, report bugs, or suggest features, please follow these steps.
 
-### 本地开发设置
+### Local Development Setup
 
-1. **克隆仓库:**
+1. **Clone the repository:**
 
     ```bash
     git clone https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition.git
     cd SmartHyperlinkRecognition
     ```
 
-2. **在 Chrome 中加载:**
+2. **Load in Chrome:**
 
-    - 打开 `chrome://extensions`
-    - 确保 **"开发者模式"** 启用
-    - 点击 **"加载已解压的扩展程序"**，并选择项目根目录
+    - Open `chrome://extensions`
+    - Ensure **"Developer mode"** is enabled
+    - Click **"Load unpacked"** and select the project root directory
 
-3. **修改代码后刷新:**
-    - 在 `chrome://extensions` 页面点击插件的刷新按钮
-    - 或者重新加载扩展程序
+3. **Refresh after code changes:**
+    - Click the refresh button for the extension on the `chrome://extensions` page
+    - Or reload the extension
 
-### 项目结构
+### Project Structure
 
 ```
 SmartHyperlinkRecognition/
-├── extension/            # Chrome 扩展程序
-│   ├── manifest.json    # 插件配置文件
-│   ├── background.js    # 后台服务脚本
-│   ├── content.js       # 内容脚本（核心转换逻辑）
-│   ├── popup.html       # 弹出窗口界面
-│   ├── popup.css        # 弹出窗口样式
-│   ├── popup.js         # 弹出窗口逻辑
-│   ├── options.html     # 设置页面界面
-│   ├── options.css      # 设置页面样式
-│   ├── options.js       # 设置页面逻辑
-│   ├── welcome.html     # 欢迎页面
-│   └── icons/           # 图标文件夹
+├── extension/            # Chrome Extension
+│   ├── manifest.json    # Extension configuration
+│   ├── background.js    # Background service script
+│   ├── content.js       # Content script (core conversion logic)
+│   ├── popup.html       # Popup UI
+│   ├── popup.css        # Popup styles
+│   ├── popup.js         # Popup logic
+│   ├── options.html     # Options page UI
+│   ├── options.css      # Options page styles
+│   ├── options.js       # Options page logic
+│   ├── welcome.html     # Welcome page
+│   └── icons/           # Icons folder
 │       ├── icon16.png
 │       ├── icon48.png
 │       └── icon128.png
-├── website/             # 项目官网
-│   ├── index.html       # 官网首页
+├── website/             # Project website
+│   ├── index.html       # Homepage
 │   ├── css/
-│   │   └── style.css    # 官网样式
+│   │   └── style.css    # Styles
 │   ├── js/
-│   │   └── main.js      # 官网脚本
-│   └── images/          # 官网图片
-└── docs/                # 文档文件
+│   │   └── main.js      # Scripts
+│   └── images/          # Images
+└── docs/                # Documentation
     ├── README.md
     ├── INSTALL.md
     ├── QUICKSTART.md
     └── ...
 ```
 
-### 贡献流程
+### Contributing Workflow
 
-1. Fork 本仓库
-2. 创建一个新的功能分支 (`git checkout -b feature/FixUrlRegex`)
-3. 提交您的修改 (`git commit -m 'Improve URL matching regex'`)
-4. 推送到分支 (`git push origin feature/FixUrlRegex`)
-5. 创建一个 Pull Request
+1. Fork this repository
+2. Create a new feature branch (`git checkout -b feature/FixUrlRegex`)
+3. Commit your changes (`git commit -m 'Improve URL matching regex'`)
+4. Push to the branch (`git push origin feature/FixUrlRegex`)
+5. Create a Pull Request
 
-### 开发规范
+### Development Guidelines
 
--   遵循 JavaScript ES6+ 标准
--   保持代码简洁易读
--   添加必要的注释
--   测试新功能在不同网站上的表现
+-   Follow JavaScript ES6+ standards
+-   Keep code concise and readable
+-   Add necessary comments
+-   Test new features on different websites
 
-## 🐛 已知问题 (Known Issues)
+## 🐛 Known Issues
 
--   某些使用 Shadow DOM 的网站可能无法正常转换
--   极少数情况下可能与其他扩展程序冲突
+-   Some websites using Shadow DOM may not work properly
+-   Rarely conflicts with other extensions
 
-## 🗺️ 开发路线图 (Roadmap)
+## 🗺️ Roadmap
 
--   [ ] 支持自定义 URL 匹配规则
--   [ ] 添加链接预览功能
--   [ ] 支持更多协议（如 `ftp://`, `file://`）
--   [ ] 添加统计功能（显示转换的链接数量）
--   [ ] 支持国际化（多语言）
--   [ ] 优化性能，减少大型页面的处理时间
+-   [ ] Support custom URL matching rules
+-   [ ] Add link preview feature
+-   [ ] Support more protocols (like `ftp://`, `file://`)
+-   [ ] Add statistics (show number of converted links)
+-   [ ] Support internationalization (multiple languages)
+-   [ ] Optimize performance, reduce processing time for large pages
 
-## 📜 许可 (License)
+## 📜 License
 
-本项目采用 **MIT 许可**。详情请参阅 [LICENSE](LICENSE) 文件。
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) file for details.
 
 ```
 MIT License
@@ -211,21 +199,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## 🙏 致谢 (Acknowledgments)
+## 🙏 Acknowledgments
 
-感谢所有为本项目做出贡献的开发者和用户！
+Thanks to all developers and users who have contributed to this project!
 
-## 📞 联系方式 (Contact)
+## 📞 Contact
 
--   **项目主页:**
-    [GitHub Repository](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition)
--   **问题反馈:**
-    [GitHub Issues](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/issues)
--   **功能建议:** 欢迎通过 Issues 提出您的想法
+-   **Project Homepage:** [GitHub Repository](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition)
+-   **Issue Tracker:** [GitHub Issues](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/issues)
+-   **Feature Requests:** Welcome to share your ideas via Issues
 
 ---
 
 <div align="center">
-  <p>如果这个项目对您有帮助，请给我们一个 ⭐️ Star！</p>
+  <p>If this project helps you, please give us a ⭐️ Star!</p>
   <p>Made with ❤️ by Smart Text-to-Link Converter Team</p>
 </div>
