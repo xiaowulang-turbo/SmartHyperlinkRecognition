@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	const openInNewTab = document.getElementById('openInNewTab')
 	const blacklist = document.getElementById('blacklist')
 	const excludedTags = document.getElementById('excludedTags')
+	const strictMode = document.getElementById('strictMode')
+	const excludeFileExt = document.getElementById('excludeFileExt')
 	const saveBtn = document.getElementById('saveBtn')
 	const resetBtn = document.getElementById('resetBtn')
 	const saveStatus = document.getElementById('saveStatus')
@@ -46,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		blacklist: [],
 		theme: 'auto',
 		lang: 'auto',
+		strictMode: true,
+		excludeFileExt: true,
 	}
 
 	// 加载配置
@@ -58,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			excludedTags.value = (
 				config.excludedTags || defaultConfig.excludedTags
 			).join(', ')
+			strictMode.checked = config.strictMode !== false
+			excludeFileExt.checked = config.excludeFileExt !== false
 
 			// 加载主题设置
 			const theme = config.theme || 'auto'
@@ -127,6 +133,8 @@ document.addEventListener('DOMContentLoaded', function () {
 					: defaultConfig.excludedTags
 			config.theme = selectedTheme
 			config.lang = selectedLang
+			config.strictMode = strictMode.checked
+			config.excludeFileExt = excludeFileExt.checked
 
 			chrome.storage.sync.set({ config: config }, function () {
 				showStatus(i18n.t('options.status.saved'), 'success')

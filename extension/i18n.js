@@ -17,18 +17,18 @@ const i18n = {
 			'popup.btn.settings': '⚙️ 设置',
 			'popup.btn.refresh': '🔄 刷新页面',
 
-			// Options 页面
-			'options.title': '⚙️ 智能超链接识别 - 设置',
-			'options.subtitle': 'Smart Text-to-Link Converter Settings',
+		// Options 页面
+		'options.title': '智能超链接识别 - 设置',
+		'options.subtitle': 'Smart Text-to-Link Converter Settings',
 
-			// 基本设置
-			'options.basic.title': '🔧 基本设置',
+		// 基本设置
+		'options.basic.title': '基本设置',
 			'options.basic.newTab': '在新标签页中打开链接',
 			'options.basic.newTab.desc':
 				'启用后，点击转换的链接将在新标签页中打开',
 
-			// 外观设置
-			'options.appearance.title': '🎨 外观设置',
+		// 外观设置
+		'options.appearance.title': '外观设置',
 			'options.appearance.theme': '主题模式',
 			'options.appearance.theme.auto': '💻 跟随系统',
 			'options.appearance.theme.light': '☀️ 浅色模式',
@@ -59,8 +59,16 @@ const i18n = {
 			'options.excludedTags.hint':
 				'💡 默认排除：SCRIPT, STYLE, NOSCRIPT, TEXTAREA, PRE, CODE, A',
 
-			// 关于
-			'options.about.title': 'ℹ️ 关于',
+			// URL匹配设置
+			'options.urlMatch.title': '🔗 URL 匹配设置',
+			'options.urlMatch.desc': '配置 URL 识别的精确程度',
+			'options.urlMatch.strictMode': '启用精确匹配模式',
+			'options.urlMatch.strictMode.desc': '启用后可减少版本号、统计数据等误匹配',
+			'options.urlMatch.excludeFileExt': '排除文件扩展名',
+			'options.urlMatch.excludeFileExt.desc': '排除 .js, .css, .json 等常见文件扩展名',
+
+		// 关于
+		'options.about.title': '关于',
 			'options.about.desc': '是一款高效的 Chrome 浏览器扩展程序。',
 			'options.about.name': '智能超链接识别',
 			'options.about.feature1':
@@ -116,18 +124,18 @@ const i18n = {
 			'popup.btn.settings': '⚙️ Settings',
 			'popup.btn.refresh': '🔄 Refresh Page',
 
-			// Options 页面
-			'options.title': '⚙️ Smart Hyperlink - Settings',
-			'options.subtitle': 'Smart Text-to-Link Converter Settings',
+		// Options 页面
+		'options.title': 'Smart Hyperlink - Settings',
+		'options.subtitle': 'Smart Text-to-Link Converter Settings',
 
-			// 基本设置
-			'options.basic.title': '🔧 Basic Settings',
+		// 基本设置
+		'options.basic.title': 'Basic Settings',
 			'options.basic.newTab': 'Open links in new tab',
 			'options.basic.newTab.desc':
 				'When enabled, clicking converted links will open in a new tab',
 
-			// 外观设置
-			'options.appearance.title': '🎨 Appearance',
+		// 外观设置
+		'options.appearance.title': 'Appearance',
 			'options.appearance.theme': 'Theme Mode',
 			'options.appearance.theme.auto': '💻 System',
 			'options.appearance.theme.light': '☀️ Light',
@@ -141,8 +149,8 @@ const i18n = {
 			'options.appearance.lang.desc':
 				'Choose interface language. "Auto Detect" will follow browser language',
 
-			// 黑名单
-			'options.blacklist.title': '🚫 Website Blacklist',
+		// 黑名单
+		'options.blacklist.title': 'Website Blacklist',
 			'options.blacklist.desc':
 				'Disable extension on these websites (one domain per line)',
 			'options.blacklist.placeholder':
@@ -150,16 +158,24 @@ const i18n = {
 			'options.blacklist.hint':
 				'💡 Tip: Only enter domain name, no http:// or https://',
 
-			// 排除标签
-			'options.excludedTags.title': '🏷️ Excluded HTML Tags',
+		// 排除标签
+		'options.excludedTags.title': 'Excluded HTML Tags',
 			'options.excludedTags.desc':
 				'Text inside these tags will not be converted (comma separated)',
 			'options.excludedTags.placeholder': 'SCRIPT, STYLE, PRE, CODE, A',
 			'options.excludedTags.hint':
 				'💡 Default excluded: SCRIPT, STYLE, NOSCRIPT, TEXTAREA, PRE, CODE, A',
 
-			// 关于
-			'options.about.title': 'ℹ️ About',
+		// URL匹配设置
+		'options.urlMatch.title': 'URL Match Settings',
+			'options.urlMatch.desc': 'Configure URL recognition accuracy',
+			'options.urlMatch.strictMode': 'Enable strict match mode',
+			'options.urlMatch.strictMode.desc': 'Reduces false positives like version numbers and statistics',
+			'options.urlMatch.excludeFileExt': 'Exclude file extensions',
+			'options.urlMatch.excludeFileExt.desc': 'Exclude common file extensions like .js, .css, .json',
+
+		// 关于
+		'options.about.title': 'About',
 			'options.about.desc': 'is an efficient Chrome browser extension.',
 			'options.about.name': 'Smart Hyperlink Recognition',
 			'options.about.feature1':

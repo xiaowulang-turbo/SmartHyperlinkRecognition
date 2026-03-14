@@ -6,5 +6,26 @@
 	"extDescription": {
 		"message": "Instantly convert plain text URLs into clickable hyperlinks on any webpage",
 		"description": "Extension description"
+	},
+	"options": {
+		"message": "Options"
+	},
+	"options_urlMatch_title": {
+		"message": "🔗 URL Match Settings"
+	},
+	"options_urlMatch_desc": {
+		"message": "Configure URL recognition accuracy"
+	},
+	"options_urlMatch_strictMode": {
+		"message": "Enable strict match mode"
+	},
+	"options_urlMatch_strictMode_desc": {
+		"message": "Reduces false positives like version numbers and statistics"
+	},
+	"options_urlMatch_excludeFileExt": {
+		"message": "Exclude file extensions"
+	},
+	"options_urlMatch_excludeFileExt_desc": {
+		"message": "Exclude common file extensions like .js, .css, .json"
 	}
 }

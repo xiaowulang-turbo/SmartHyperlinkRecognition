@@ -15,10 +15,52 @@
 			'CODE',
 			'A',
 		],
-		urlPattern:
-			/(?:(?:https?|ftp):\/\/)?(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/gi,
+		// 优化后的URL正则：更精确，减少误匹配
+		// 要求：协议头 或 www前缀 或 有效的域名结构（至少一个字母开头）
+		urlPattern: /(?:https?:\/\/|ftp:\/\/|www\.)[a-zA-Z0-9][-a-zA-Z0-9]*(?:\.[a-zA-Z0-9][-a-zA-Z0-9]*)+\.[a-zA-Z]{2,}(?::\d+)?(?:\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?/gi,
 		emailPattern: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g,
 		blacklist: [],
+	}
+
+	// URL验证过滤器 - 排除误匹配
+	const URL_VALIDATORS = {
+		// 排除纯数字IP-like (13804.46)
+		isNumericOnly: (url) => /^\d+(\.\d+)+$/.test(url),
+
+		// 排除版本号模式 (1.2.3.4, 1.0.0.290)
+		isVersionNumber: (url) => /^\d+(\.\d+){2,}$/.test(url),
+
+		// 排除常见文件扩展名（无路径时）
+		isFileExtension: (url) => {
+			const fileExtPattern = /^(?!.*\/)[^\s]+\.(js|css|json|xml|yaml|yml|md|txt|log|min|map|ts|tsx|jsx|vue|py|java|cpp|c|h|go|rs|php|rb)$/i
+			return fileExtPattern.test(url)
+		},
+
+		// 排除纯数字统计值 (如 13804.46/100000 中的 13804.46)
+		isNumericStat: (url) => /^\d+\.\d{1,2}$/.test(url) && parseFloat(url) > 1000,
+	}
+
+	// 验证URL是否有效
+	function isValidUrl(url) {
+		// 如果禁用了严格模式，只进行基本验证
+		if (config.strictMode === false) {
+			return !URL_VALIDATORS.isNumericOnly(url)
+		}
+
+		// 快速排除明显无效的匹配
+		if (URL_VALIDATORS.isNumericOnly(url)) return false
+		if (URL_VALIDATORS.isVersionNumber(url)) return false
+		if (URL_VALIDATORS.isNumericStat(url)) return false
+
+		// 根据配置决定是否排除文件扩展名
+		if (config.excludeFileExt !== false && URL_VALIDATORS.isFileExtension(url)) {
+			return false
+		}
+
+		// 确保至少包含一个字母（排除纯数字IP被误识别）
+		if (!/[a-zA-Z]/.test(url)) return false
+
+		return true
 	}
 
 	// 标记已处理的节点
@@ -122,12 +164,16 @@
 		let match
 		const urlRegex = new RegExp(config.urlPattern.source, 'gi')
 		while ((match = urlRegex.exec(text)) !== null) {
-			matches.push({
-				index: match.index,
-				length: match[0].length,
-				text: match[0],
-				type: 'url',
-			})
+			const matchedText = match[0]
+			// 验证URL有效性，排除误匹配
+			if (isValidUrl(matchedText)) {
+				matches.push({
+					index: match.index,
+					length: match[0].length,
+					text: matchedText,
+					type: 'url',
+				})
+			}
 		}
 
 		const emailRegex = new RegExp(config.emailPattern.source, 'g')

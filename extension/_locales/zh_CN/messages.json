@@ -6,5 +6,26 @@
 	"extDescription": {
 		"message": "自动将网页中的纯文本 URL 转换为可点击的超链接",
 		"description": "扩展描述"
+	},
+	"options": {
+		"message": "选项"
+	},
+	"options_urlMatch_title": {
+		"message": "URL 匹配设置"
+	},
+	"options_urlMatch_desc": {
+		"message": "配置 URL 识别的精确程度"
+	},
+	"options_urlMatch_strictMode": {
+		"message": "启用精确匹配模式"
+	},
+	"options_urlMatch_strictMode_desc": {
+		"message": "启用后可减少版本号、统计数据等误匹配"
+	},
+	"options_urlMatch_excludeFileExt": {
+		"message": "排除文件扩展名"
+	},
+	"options_urlMatch_excludeFileExt_desc": {
+		"message": "排除 .js, .css, .json 等常见文件扩展名"
 	}
 }
