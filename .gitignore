@@ -65,3 +65,4 @@ coverage/
 
 # 其他
 .cache/
+.codebuddy
