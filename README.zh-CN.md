@@ -1,7 +1,7 @@
 # ✍️ 智能超链接识别 (Smart Text-to-Link Converter)
 
 [![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition)
-[![Version](https://img.shields.io/badge/Version-1.0.2-blue)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.4-blue)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/releases)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 > 🌐 简体中文 | [English](README.md)
@@ -141,6 +141,10 @@ SmartHyperlinkRecognition/
     ├── QUICKSTART.md
     └── ...
 ```
+
+### 版本号同步
+
+唯一版本来源为 `package.json` 中的 `version`。使用 `npm version patch|minor|major` 升级时，会执行 `npm run sync-version`，并同步更新 `extension/manifest.json`、`website/index.html` 以及 `README.md` / `README.zh-CN.md` 中的 Version 徽章。若手动修改 `package.json`，请在提交前运行 `npm run sync-version`（pre-commit 钩子也会执行同步）。
 
 ### 贡献流程
 

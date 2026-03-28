@@ -1,7 +1,7 @@
 # ✍️ Smart Text-to-Link Converter
 
 [![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition)
-[![Version](https://img.shields.io/badge/Version-1.0.2-blue)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.4-blue)](https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/releases)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 > 🌐 [简体中文](README.zh-CN.md) | English
@@ -141,6 +141,10 @@ SmartHyperlinkRecognition/
     ├── QUICKSTART.md
     └── ...
 ```
+
+### Version sync
+
+The canonical version is the `version` field in `package.json`. Use `npm version patch|minor|major` to bump; the `version` lifecycle script runs `npm run sync-version`, which updates `extension/manifest.json`, `website/index.html`, and the Version badges in `README.md` / `README.zh-CN.md`. If you edit `package.json` manually, run `npm run sync-version` before committing (also runs from the pre-commit hook).
 
 ### Contributing Workflow
 
