@@ -24,7 +24,7 @@
 		"lint": "echo \"No linter configured yet\"",
 		"prepare": "node scripts/install-hooks.js",
 		"sync-version": "node scripts/sync-version.js",
-		"version": "npm run sync-version && git add website/index.html"
+		"version": "npm run sync-version && git add website/index.html extension/manifest.json README.md README.zh-CN.md"
 	},
 	"devDependencies": {},
 	"dependencies": {},
