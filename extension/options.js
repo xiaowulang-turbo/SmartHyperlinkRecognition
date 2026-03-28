@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	i18n.init()
 
 	const openInNewTab = document.getElementById('openInNewTab')
-	const blacklist = document.getElementById('blacklist')
+	const whitelist = document.getElementById('whitelist')
 	const excludedTags = document.getElementById('excludedTags')
 	const strictMode = document.getElementById('strictMode')
 	const excludeFileExt = document.getElementById('excludeFileExt')
@@ -32,9 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const themeRadios = document.querySelectorAll('input[name="theme"]')
 	const langRadios = document.querySelectorAll('input[name="lang"]')
 
-	// 默认配置
 	const defaultConfig = {
-		enabled: true,
 		openInNewTab: true,
 		excludedTags: [
 			'SCRIPT',
@@ -45,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			'CODE',
 			'A',
 		],
-		blacklist: [],
+		whitelist: [],
 		theme: 'auto',
 		lang: 'auto',
 		strictMode: true,
@@ -58,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			const config = result.config || defaultConfig
 
 			openInNewTab.checked = config.openInNewTab !== false
-			blacklist.value = (config.blacklist || []).join('\n')
+			whitelist.value = (config.whitelist || []).join('\n')
 			excludedTags.value = (
 				config.excludedTags || defaultConfig.excludedTags
 			).join(', ')
@@ -100,9 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	// 保存配置
 	function saveConfig() {
-		const blacklistArray = blacklist.value
+		const whitelistArray = whitelist.value
 			.split('\n')
 			.map((line) => line.trim())
 			.filter((line) => line.length > 0)
@@ -112,12 +109,10 @@ document.addEventListener('DOMContentLoaded', function () {
 			.map((tag) => tag.trim().toUpperCase())
 			.filter((tag) => tag.length > 0)
 
-		// 获取选中的主题
 		const selectedTheme =
 			document.querySelector('input[name="theme"]:checked')?.value ||
 			'auto'
 
-		// 获取选中的语言
 		const selectedLang =
 			document.querySelector('input[name="lang"]:checked')?.value ||
 			'auto'
@@ -126,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			const config = result.config || {}
 
 			config.openInNewTab = openInNewTab.checked
-			config.blacklist = blacklistArray
+			config.whitelist = whitelistArray
 			config.excludedTags =
 				excludedTagsArray.length > 0
 					? excludedTagsArray

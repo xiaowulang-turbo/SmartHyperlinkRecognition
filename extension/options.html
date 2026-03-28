@@ -152,18 +152,18 @@
 				</section>
 
 				<section class="section">
-					<h2 data-i18n="options.blacklist.title">🚫 网站黑名单</h2>
-					<p class="section-desc" data-i18n="options.blacklist.desc">
-						在以下网站上禁用插件功能（每行一个域名）
+					<h2 data-i18n="options.whitelist.title">✅ 已启用的网站</h2>
+					<p class="section-desc" data-i18n="options.whitelist.desc">
+						仅在以下网站上启用链接转换功能（每行一个域名）
 					</p>
 					<textarea
-						id="blacklist"
+						id="whitelist"
 						rows="6"
-						data-i18n-placeholder="options.blacklist.placeholder"
+						data-i18n-placeholder="options.whitelist.placeholder"
 						placeholder="例如：&#10;github.com&#10;stackoverflow.com&#10;example.com"
 					></textarea>
-					<p class="hint" data-i18n="options.blacklist.hint">
-						💡 提示：只需输入域名，不需要 http:// 或 https://
+					<p class="hint" data-i18n="options.whitelist.hint">
+						💡 提示：只需输入域名，子域名将自动包含（如输入 github.com 也会匹配 docs.github.com）
 					</p>
 				</section>
 

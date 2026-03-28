@@ -8,12 +8,13 @@ const i18n = {
 			'popup.title': '智能超链接识别',
 			'popup.subtitle': 'Smart Text-to-Link Converter',
 			'popup.status.enabled': '已启用',
-			'popup.status.disabled': '已禁用',
+			'popup.status.disabled': '未启用',
+			'popup.status.unsupported': '不支持',
 			'popup.info.convert': '🔗 自动将纯文本 URL 转换为可点击链接',
 			'popup.info.dynamic': '⚡ 支持动态内容实时处理',
-			'popup.page.status': '当前页面状态:',
-			'popup.page.active': '活动中',
-			'popup.page.paused': '已暂停',
+			'popup.hint.enable': '💡 点击开关为当前网站启用链接转换',
+			'popup.hint.unsupported': '⚠️ 此页面不支持链接转换',
+			'popup.stats.converted': '链接已转换',
 			'popup.btn.settings': '⚙️ 设置',
 			'popup.btn.refresh': '🔄 刷新页面',
 
@@ -42,14 +43,14 @@ const i18n = {
 			'options.appearance.lang.desc':
 				'选择插件界面语言，"自动检测"将根据浏览器语言自动选择',
 
-			// 黑名单
-			'options.blacklist.title': '🚫 网站黑名单',
-			'options.blacklist.desc':
-				'在以下网站上禁用插件功能（每行一个域名）',
-			'options.blacklist.placeholder':
+			// 白名单
+			'options.whitelist.title': '✅ 已启用的网站',
+			'options.whitelist.desc':
+				'仅在以下网站上启用链接转换功能（每行一个域名）',
+			'options.whitelist.placeholder':
 				'例如：\ngithub.com\nstackoverflow.com\nexample.com',
-			'options.blacklist.hint':
-				'💡 提示：只需输入域名，不需要 http:// 或 https://',
+			'options.whitelist.hint':
+				'💡 提示：只需输入域名，子域名将自动包含（如输入 github.com 也会匹配 docs.github.com）',
 
 			// 排除标签
 			'options.excludedTags.title': '🏷️ 排除的 HTML 标签',
@@ -113,14 +114,15 @@ const i18n = {
 			'popup.title': 'Smart Hyperlink',
 			'popup.subtitle': 'Smart Text-to-Link Converter',
 			'popup.status.enabled': 'Enabled',
-			'popup.status.disabled': 'Disabled',
+			'popup.status.disabled': 'Not Enabled',
+			'popup.status.unsupported': 'Not Supported',
 			'popup.info.convert':
 				'🔗 Auto-convert plain text URLs to clickable links',
 			'popup.info.dynamic':
 				'⚡ Support real-time processing of dynamic content',
-			'popup.page.status': 'Current page status:',
-			'popup.page.active': 'Active',
-			'popup.page.paused': 'Paused',
+			'popup.hint.enable': '💡 Toggle the switch to enable link conversion for this site',
+			'popup.hint.unsupported': '⚠️ Link conversion is not supported on this page',
+			'popup.stats.converted': 'Links Converted',
 			'popup.btn.settings': '⚙️ Settings',
 			'popup.btn.refresh': '🔄 Refresh Page',
 
@@ -149,14 +151,14 @@ const i18n = {
 			'options.appearance.lang.desc':
 				'Choose interface language. "Auto Detect" will follow browser language',
 
-		// 黑名单
-		'options.blacklist.title': 'Website Blacklist',
-			'options.blacklist.desc':
-				'Disable extension on these websites (one domain per line)',
-			'options.blacklist.placeholder':
+		// 白名单
+		'options.whitelist.title': 'Enabled Websites',
+			'options.whitelist.desc':
+				'Enable link conversion only on these websites (one domain per line)',
+			'options.whitelist.placeholder':
 				'Example:\ngithub.com\nstackoverflow.com\nexample.com',
-			'options.blacklist.hint':
-				'💡 Tip: Only enter domain name, no http:// or https://',
+			'options.whitelist.hint':
+				'💡 Tip: Enter domain name only. Subdomains are included automatically (e.g. github.com also matches docs.github.com)',
 
 		// 排除标签
 		'options.excludedTags.title': 'Excluded HTML Tags',

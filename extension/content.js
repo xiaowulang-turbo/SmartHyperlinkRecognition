@@ -4,7 +4,6 @@
 
 	// 默认配置
 	let config = {
-		enabled: true,
 		openInNewTab: true,
 		excludedTags: [
 			'SCRIPT',
@@ -15,12 +14,12 @@
 			'CODE',
 			'A',
 		],
-		// 优化后的URL正则：更精确，减少误匹配
-		// 要求：协议头 或 www前缀 或 有效的域名结构（至少一个字母开头）
 		urlPattern: /(?:https?:\/\/|ftp:\/\/|www\.)[a-zA-Z0-9][-a-zA-Z0-9]*(?:\.[a-zA-Z0-9][-a-zA-Z0-9]*)+\.[a-zA-Z]{2,}(?::\d+)?(?:\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?/gi,
 		emailPattern: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g,
-		blacklist: [],
+		whitelist: [],
 	}
+
+	let convertedCount = 0
 
 	// URL验证过滤器 - 排除误匹配
 	const URL_VALIDATORS = {
@@ -72,16 +71,16 @@
 			if (result.config) {
 				config = { ...config, ...result.config }
 			}
-			if (config.enabled && !isBlacklisted()) {
+			if (isWhitelisted()) {
 				init()
 			}
 		})
 	}
 
-	// 检查当前网站是否在黑名单中
-	function isBlacklisted() {
+	// 检查当前网站是否在白名单中
+	function isWhitelisted() {
 		const hostname = window.location.hostname
-		return config.blacklist.some((domain) => hostname.includes(domain))
+		return (config.whitelist || []).some((domain) => hostname.includes(domain))
 	}
 
 	// 初始化
@@ -243,8 +242,8 @@
 			)
 		}
 
-		// 只有在实际创建了链接时才替换节点
 		if (uniqueMatches.length > 0) {
+			convertedCount += uniqueMatches.length
 			textNode.parentNode.replaceChild(fragment, textNode)
 		}
 	}
@@ -273,14 +272,10 @@
 		sender,
 		sendResponse
 	) {
-		if (request.action === 'toggleEnabled') {
-			config.enabled = request.enabled
-			if (config.enabled) {
-				location.reload()
-			}
-			sendResponse({ success: true })
-		} else if (request.action === 'getStatus') {
-			sendResponse({ enabled: config.enabled })
+		if (request.action === 'getStatus') {
+			sendResponse({ active: isWhitelisted() })
+		} else if (request.action === 'getLinkCount') {
+			sendResponse({ count: convertedCount })
 		}
 	})
 
