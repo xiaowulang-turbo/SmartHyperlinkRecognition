@@ -4,48 +4,85 @@
 ;(function () {
 	chrome.storage.sync.get(['config'], function (result) {
 		const config = result.config || {}
-		// 默认跟随系统（auto），不设置 data-theme 属性
 		const theme = config.theme
 		if (theme === 'dark') {
 			document.documentElement.setAttribute('data-theme', 'dark')
 		} else if (theme === 'light') {
 			document.documentElement.setAttribute('data-theme', 'light')
 		}
-		// theme 为 undefined 或 'auto' 时不设置属性，跟随系统
 	})
 })()
 
 document.addEventListener('DOMContentLoaded', function () {
-	// 初始化国际化
 	i18n.init()
 
-	const enableToggle = document.getElementById('enableToggle')
+	const siteToggle = document.getElementById('siteToggle')
 	const statusText = document.getElementById('statusText')
-	const pageStatus = document.getElementById('pageStatus')
+	const currentDomainEl = document.getElementById('currentDomain')
+	const linkCountEl = document.getElementById('linkCount')
+	const linkCountCard = document.getElementById('linkCountCard')
+	const statsGrid = document.getElementById('statsGrid')
+	const infoActive = document.getElementById('infoActive')
+	const infoInactive = document.getElementById('infoInactive')
+	const infoUnsupported = document.getElementById('infoUnsupported')
 	const optionsBtn = document.getElementById('optionsBtn')
 	const refreshBtn = document.getElementById('refreshBtn')
 	const themeToggle = document.getElementById('themeToggle')
 	const langToggle = document.getElementById('langToggle')
+	const versionText = document.getElementById('versionText')
 
-	// 加载当前配置
-	chrome.storage.sync.get(['config'], function (result) {
-		const config = result.config || { enabled: true }
-		enableToggle.checked = config.enabled
-		updateStatusText(config.enabled)
-	})
+	const manifest = chrome.runtime.getManifest()
+	versionText.textContent = 'v' + manifest.version
 
-	// 监听开关变化
-	enableToggle.addEventListener('change', function () {
-		const enabled = this.checked
+	let currentHostname = ''
 
+	// 获取当前标签页信息并初始化 UI
+	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+		if (!tabs[0] || !tabs[0].url) return
+
+		const url = tabs[0].url
+		const isSpecialPage = /^(chrome|about|edge|brave|file):/.test(url)
+
+		if (isSpecialPage) {
+			showUnsupported()
+			return
+		}
+
+		try {
+			currentHostname = new URL(url).hostname
+			currentDomainEl.textContent = currentHostname
+		} catch {
+			showUnsupported()
+			return
+		}
+
+		// 检查当前站点是否在白名单中
 		chrome.storage.sync.get(['config'], function (result) {
 			const config = result.config || {}
-			config.enabled = enabled
+			const whitelist = config.whitelist || []
+			const isWhitelisted = whitelist.some(function (d) {
+				return currentHostname.includes(d)
+			})
 
-			chrome.storage.sync.set({ config: config }, function () {
-				updateStatusText(enabled)
+			siteToggle.checked = isWhitelisted
+			updateUI(isWhitelisted)
 
-				// 刷新当前标签页以应用更改
+			if (isWhitelisted) {
+				fetchLinkCount(tabs[0].id)
+			}
+		})
+	})
+
+	// per-site 开关
+	siteToggle.addEventListener('change', function () {
+		if (!currentHostname) return
+
+		chrome.runtime.sendMessage(
+			{ action: 'toggleWhitelist', domain: currentHostname },
+			function (response) {
+				if (!response) return
+				updateUI(response.whitelisted)
+
 				chrome.tabs.query(
 					{ active: true, currentWindow: true },
 					function (tabs) {
@@ -54,8 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
 						}
 					}
 				)
-			})
-		})
+			}
+		)
 	})
 
 	// 打开设置页面
@@ -76,19 +113,49 @@ document.addEventListener('DOMContentLoaded', function () {
 		)
 	})
 
-	// 更新状态文本
-	function updateStatusText(enabled) {
-		if (enabled) {
+	function fetchLinkCount(tabId) {
+		chrome.tabs.sendMessage(
+			tabId,
+			{ action: 'getLinkCount' },
+			function (response) {
+				if (chrome.runtime.lastError || !response) {
+					linkCountEl.textContent = '0'
+					return
+				}
+				linkCountEl.textContent = String(response.count || 0)
+			}
+		)
+	}
+
+	function updateUI(whitelisted) {
+		if (whitelisted) {
 			statusText.textContent = i18n.t('popup.status.enabled')
 			statusText.style.color = '#4CAF50'
-			pageStatus.textContent = i18n.t('popup.page.active')
-			pageStatus.style.color = '#4CAF50'
+			statsGrid.style.display = ''
+			infoActive.style.display = ''
+			infoInactive.style.display = 'none'
+			infoUnsupported.style.display = 'none'
+			linkCountCard.classList.remove('disabled')
 		} else {
 			statusText.textContent = i18n.t('popup.status.disabled')
 			statusText.style.color = '#F44336'
-			pageStatus.textContent = i18n.t('popup.page.paused')
-			pageStatus.style.color = '#F44336'
+			statsGrid.style.display = 'none'
+			infoActive.style.display = 'none'
+			infoInactive.style.display = ''
+			infoUnsupported.style.display = 'none'
+			linkCountEl.textContent = '—'
 		}
+	}
+
+	function showUnsupported() {
+		currentDomainEl.textContent = '—'
+		siteToggle.disabled = true
+		statusText.textContent = i18n.t('popup.status.unsupported')
+		statusText.style.color = '#999'
+		statsGrid.style.display = 'none'
+		infoActive.style.display = 'none'
+		infoInactive.style.display = 'none'
+		infoUnsupported.style.display = ''
 	}
 
 	// 主题切换
@@ -105,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			const newTheme = isDark ? 'light' : 'dark'
 			document.documentElement.setAttribute('data-theme', newTheme)
 			config.theme = newTheme
-
 			chrome.storage.sync.set({ config: config })
 		})
 	})
@@ -113,7 +179,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	// 语言切换
 	langToggle.addEventListener('click', function () {
 		i18n.toggle()
-		// 重新应用状态文本
-		updateStatusText(enableToggle.checked)
+		// 重新应用 UI 状态文本
+		if (siteToggle.disabled) {
+			statusText.textContent = i18n.t('popup.status.unsupported')
+		} else {
+			updateUI(siteToggle.checked)
+		}
 	})
 })

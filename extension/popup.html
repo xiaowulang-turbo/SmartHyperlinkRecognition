@@ -10,6 +10,14 @@
 		<div class="container">
 			<div class="header">
 				<button
+					class="lang-toggle"
+					id="langToggle"
+					data-i18n-title="common.switchLang"
+					title="切换语言"
+				>
+					EN
+				</button>
+				<button
 					class="theme-toggle"
 					id="themeToggle"
 					data-i18n-title="common.switchTheme"
@@ -18,30 +26,27 @@
 					<span class="icon-moon">🌙</span>
 					<span class="icon-sun">☀️</span>
 				</button>
-				<button
-					class="lang-toggle"
-					id="langToggle"
-					data-i18n-title="common.switchLang"
-					title="切换语言"
-				>
-					EN
-				</button>
-				<h1 data-i18n="popup.title">✍️ 智能超链接识别</h1>
+				<h1 data-i18n="popup.title">智能超链接识别</h1>
 				<p class="subtitle" data-i18n="popup.subtitle">
 					Smart Text-to-Link Converter
 				</p>
 			</div>
 
 			<div class="content">
-				<div class="toggle-section">
-					<label class="switch">
-						<input type="checkbox" id="enableToggle" />
-						<span class="slider"></span>
-					</label>
-					<span class="toggle-label" id="statusText">启用</span>
+				<div class="domain-section">
+					<span class="domain-icon">🌐</span>
+					<span class="domain-name" id="currentDomain">—</span>
 				</div>
 
-				<div class="info">
+				<div class="toggle-section">
+					<label class="switch">
+						<input type="checkbox" id="siteToggle" />
+						<span class="slider"></span>
+					</label>
+					<span class="toggle-label" id="statusText">未启用</span>
+				</div>
+
+				<div class="info" id="infoActive">
 					<p data-i18n="popup.info.convert">
 						🔗 自动将纯文本 URL 转换为可点击链接
 					</p>
@@ -50,13 +55,23 @@
 					</p>
 				</div>
 
-				<div class="stats" id="stats">
-					<p>
-						<span data-i18n="popup.page.status">当前页面状态:</span>
-						<span id="pageStatus" data-i18n="popup.page.active"
-							>活动中</span
-						>
+				<div class="info hint-inactive" id="infoInactive" style="display: none">
+					<p data-i18n="popup.hint.enable">
+						💡 点击开关为当前网站启用链接转换
 					</p>
+				</div>
+
+				<div class="info hint-inactive" id="infoUnsupported" style="display: none">
+					<p data-i18n="popup.hint.unsupported">
+						⚠️ 此页面不支持链接转换
+					</p>
+				</div>
+
+				<div class="stats-grid" id="statsGrid">
+					<div class="stat-card" id="linkCountCard">
+						<span class="stat-number" id="linkCount">—</span>
+						<span class="stat-label" data-i18n="popup.stats.converted">链接已转换</span>
+					</div>
 				</div>
 			</div>
 
@@ -76,6 +91,7 @@
 					🔄 刷新页面
 				</button>
 			</div>
+			<div class="version" id="versionText"></div>
 		</div>
 
 		<script src="i18n.js"></script>

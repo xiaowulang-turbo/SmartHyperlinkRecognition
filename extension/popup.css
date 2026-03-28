@@ -19,6 +19,7 @@ body {
 }
 
 .header {
+	position: relative;
 	background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
 	color: white;
 	padding: 20px;
@@ -40,6 +41,31 @@ body {
 	padding: 20px;
 }
 
+/* 域名显示 */
+.domain-section {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 15px;
+	background: #f0f5ff;
+	border-radius: 8px;
+	margin-bottom: 15px;
+	border: 1px solid #dbeafe;
+}
+
+.domain-icon {
+	font-size: 18px;
+	flex-shrink: 0;
+}
+
+.domain-name {
+	font-size: 15px;
+	font-weight: 600;
+	color: #2563eb;
+	word-break: break-all;
+}
+
+/* 开关区域 */
 .toggle-section {
 	display: flex;
 	align-items: center;
@@ -56,7 +82,6 @@ body {
 	color: #333;
 }
 
-/* 开关样式 */
 .switch {
 	position: relative;
 	display: inline-block;
@@ -102,6 +127,12 @@ input:checked + .slider:before {
 	transform: translateX(24px);
 }
 
+input:disabled + .slider {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+/* 信息文本 */
 .info {
 	margin-bottom: 15px;
 }
@@ -113,22 +144,66 @@ input:checked + .slider:before {
 	margin-bottom: 8px;
 }
 
-.stats {
-	padding: 12px;
-	background: #e8f5e9;
-	border-radius: 6px;
-	border-left: 3px solid #4caf50;
+.hint-inactive p {
+	text-align: center;
+	color: #999;
 }
 
-.stats p {
-	font-size: 13px;
-	color: #2e7d32;
+/* 统计卡片 */
+.stats-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
+	margin-bottom: 15px;
 }
 
-#pageStatus {
-	font-weight: 600;
+.stat-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 14px 8px;
+	background: #f0f5ff;
+	border-radius: 10px;
+	border: 1px solid #dbeafe;
+	transition: all 0.3s;
 }
 
+.stat-card:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+}
+
+.stat-number {
+	font-size: 22px;
+	font-weight: 700;
+	color: #2563eb;
+	line-height: 1.2;
+}
+
+.stat-label {
+	font-size: 11px;
+	color: #6b7280;
+	margin-top: 4px;
+}
+
+.stat-card.disabled .stat-number {
+	color: #F44336;
+}
+
+.stat-card.disabled {
+	background: #fef2f2;
+	border-color: #fecaca;
+}
+
+/* 版本号 */
+.version {
+	text-align: center;
+	padding: 6px;
+	font-size: 10px;
+	color: #9ca3af;
+}
+
+/* 底部按钮 */
 .footer {
 	display: flex;
 	gap: 10px;
@@ -201,10 +276,6 @@ input:checked + .slider:before {
 	transform: scale(1.1);
 }
 
-.header {
-	position: relative;
-}
-
 .theme-toggle .icon-sun {
 	display: none;
 }
@@ -213,7 +284,7 @@ input:checked + .slider:before {
 	display: block;
 }
 
-/* 暗黑主题样式 */
+/* 暗黑主题 */
 [data-theme='dark'] body {
 	background: #18181b;
 	color: #e4e4e7;
@@ -225,6 +296,15 @@ input:checked + .slider:before {
 
 [data-theme='dark'] .content {
 	background: #27272a;
+}
+
+[data-theme='dark'] .domain-section {
+	background: #1e293b;
+	border-color: #334155;
+}
+
+[data-theme='dark'] .domain-name {
+	color: #60a5fa;
 }
 
 [data-theme='dark'] .toggle-section {
@@ -239,13 +319,26 @@ input:checked + .slider:before {
 	color: #a1a1aa;
 }
 
-[data-theme='dark'] .stats {
-	background: #1a3a2a;
-	border-left-color: #4caf50;
+[data-theme='dark'] .stat-card {
+	background: #1e293b;
+	border-color: #334155;
 }
 
-[data-theme='dark'] .stats p {
-	color: #4ade80;
+[data-theme='dark'] .stat-number {
+	color: #60a5fa;
+}
+
+[data-theme='dark'] .stat-label {
+	color: #94a3b8;
+}
+
+[data-theme='dark'] .stat-card.disabled {
+	background: #2d1b1b;
+	border-color: #5c2626;
+}
+
+[data-theme='dark'] .version {
+	color: #52525b;
 }
 
 [data-theme='dark'] .footer {
@@ -286,6 +379,15 @@ input:checked + .slider:before {
 		background: #27272a;
 	}
 
+	html:not([data-theme='light']) .domain-section {
+		background: #1e293b;
+		border-color: #334155;
+	}
+
+	html:not([data-theme='light']) .domain-name {
+		color: #60a5fa;
+	}
+
 	html:not([data-theme='light']) .toggle-section {
 		background: #3f3f46;
 	}
@@ -298,13 +400,26 @@ input:checked + .slider:before {
 		color: #a1a1aa;
 	}
 
-	html:not([data-theme='light']) .stats {
-		background: #1a3a2a;
-		border-left-color: #4caf50;
+	html:not([data-theme='light']) .stat-card {
+		background: #1e293b;
+		border-color: #334155;
 	}
 
-	html:not([data-theme='light']) .stats p {
-		color: #4ade80;
+	html:not([data-theme='light']) .stat-number {
+		color: #60a5fa;
+	}
+
+	html:not([data-theme='light']) .stat-label {
+		color: #94a3b8;
+	}
+
+	html:not([data-theme='light']) .stat-card.disabled {
+		background: #2d1b1b;
+		border-color: #5c2626;
+	}
+
+	html:not([data-theme='light']) .version {
+		color: #52525b;
 	}
 
 	html:not([data-theme='light']) .footer {
