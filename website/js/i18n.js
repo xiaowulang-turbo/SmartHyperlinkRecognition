@@ -41,7 +41,7 @@ const i18n = {
 				'自动跳过代码块、已有链接等特殊区域，避免破坏页面结构',
 			'features.config.title': '高度可配置',
 			'features.config.desc':
-				'支持自定义排除规则、黑名单、链接打开方式等多项配置',
+				'支持自定义排除规则、白名单、链接打开方式等多项配置',
 			'features.privacy.title': '安全隐私',
 			'features.privacy.desc':
 				'所有操作在本地完成，不收集任何数据，保护您的隐私安全',
@@ -120,9 +120,9 @@ const i18n = {
 			'faq.q3': '插件会影响浏览速度吗？',
 			'faq.a3':
 				'不会。插件经过性能优化，使用高效的算法，对页面加载和浏览速度的影响微乎其微。',
-			'faq.q4': '如何禁用特定网站的转换？',
+			'faq.q4': '如何为特定网站启用转换？',
 			'faq.a4':
-				'在插件设置页面中，可以添加网站到黑名单。黑名单中的网站将不会进行链接转换。',
+				'在插件弹窗中点击开关即可为当前网站启用链接转换，或在设置页面的白名单中添加域名。子域名会自动包含。',
 			'faq.q5': '支持哪些浏览器？',
 			'faq.a5':
 				'目前支持 Chrome 88 及以上版本。未来计划支持 Edge、Firefox 等其他浏览器。',
@@ -141,13 +141,13 @@ const i18n = {
 			'footer.contribute': '贡献指南',
 			'footer.conduct': '行为准则',
 			'footer.copyright':
-				'© 2024 Smart Text-to-Link Converter. 保留所有权利。',
+				'© 2024-2026 Smart Text-to-Link Converter. 保留所有权利。',
 			'footer.mit': '基于 MIT 许可证发布',
 
 			// 隐私政策页面
 			'privacy.page.title': '隐私政策 - 智能超链接识别',
 			'privacy.title': '🔒 隐私政策',
-			'privacy.lastUpdated': '最后更新：2024年12月',
+			'privacy.lastUpdated': '最后更新：2026年3月',
 			'privacy.summary':
 				'<strong>简要说明：</strong>智能超链接识别扩展不会收集、存储或传输任何用户数据。所有功能完全在您的浏览器本地运行。',
 			'privacy.intro.title': '📋 概述',
@@ -164,9 +164,9 @@ const i18n = {
 			'privacy.storage.title': '💾 本地存储',
 			'privacy.storage.content':
 				'本扩展仅在您的浏览器本地存储以下设置信息：',
-			'privacy.storage.item1': '扩展启用/禁用状态',
+			'privacy.storage.item1': '网站白名单配置',
 			'privacy.storage.item2': '用户自定义的排除规则',
-			'privacy.storage.item3': '网站黑名单设置',
+			'privacy.storage.item3': '链接打开方式等用户偏好',
 			'privacy.storage.item4': '界面主题和语言偏好',
 			'privacy.storage.note':
 				'这些数据仅存储在您的本地设备上，不会被传输到任何外部服务器。您可以随时通过浏览器的扩展管理功能清除这些数据。',
@@ -236,7 +236,7 @@ const i18n = {
 				'Automatically skip code blocks, existing links to avoid breaking page structure',
 			'features.config.title': 'Highly Configurable',
 			'features.config.desc':
-				'Support custom exclusion rules, blacklist, link opening methods and more',
+				'Support custom exclusion rules, whitelist, link opening methods and more',
 			'features.privacy.title': 'Privacy & Security',
 			'features.privacy.desc':
 				'All operations are done locally, no data collection, protecting your privacy',
@@ -318,9 +318,9 @@ const i18n = {
 			'faq.q3': 'Will the extension slow down my browser?',
 			'faq.a3':
 				'No. The extension is optimized with efficient algorithms, with minimal impact on page loading and browsing speed.',
-			'faq.q4': 'How to disable conversion for specific websites?',
+			'faq.q4': 'How to enable conversion for specific websites?',
 			'faq.a4':
-				'In extension settings, you can add websites to blacklist. Websites in blacklist will not have link conversion.',
+				'Toggle the switch in the extension popup to enable link conversion for the current site, or add domains in the settings whitelist. Subdomains are included automatically.',
 			'faq.q5': 'Which browsers are supported?',
 			'faq.a5':
 				'Currently supports Chrome 88 and above. Future support for Edge, Firefox and other browsers is planned.',
@@ -339,14 +339,14 @@ const i18n = {
 			'footer.contribute': 'Contributing',
 			'footer.conduct': 'Code of Conduct',
 			'footer.copyright':
-				'© 2024 Smart Text-to-Link Converter. All rights reserved.',
+				'© 2024-2026 Smart Text-to-Link Converter. All rights reserved.',
 			'footer.mit': 'Released under the MIT License',
 
 			// Privacy Policy Page
 			'privacy.page.title':
 				'Privacy Policy - Smart Hyperlink Recognition',
 			'privacy.title': '🔒 Privacy Policy',
-			'privacy.lastUpdated': 'Last Updated: December 2024',
+			'privacy.lastUpdated': 'Last Updated: March 2026',
 			'privacy.summary':
 				'<strong>Summary:</strong> The Smart Hyperlink Recognition extension does not collect, store, or transmit any user data. All features run entirely locally in your browser.',
 			'privacy.intro.title': '📋 Overview',
@@ -367,9 +367,9 @@ const i18n = {
 			'privacy.storage.title': '💾 Local Storage',
 			'privacy.storage.content':
 				'This extension only stores the following settings locally in your browser:',
-			'privacy.storage.item1': 'Extension enabled/disabled status',
+			'privacy.storage.item1': 'Website whitelist configuration',
 			'privacy.storage.item2': 'User-defined exclusion rules',
-			'privacy.storage.item3': 'Website blacklist settings',
+			'privacy.storage.item3': 'Link opening preferences',
 			'privacy.storage.item4': 'Interface theme and language preferences',
 			'privacy.storage.note':
 				"This data is only stored on your local device and is never transmitted to any external servers. You can clear this data at any time through your browser's extension management.",
