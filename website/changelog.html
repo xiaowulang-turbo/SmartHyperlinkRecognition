@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="智能超链接识别 - 更新日志" />
+		<link rel="icon" href="./favicon.ico" type="image/x-icon" />
+		<title data-i18n="changelog.page.title">更新日志 - 智能超链接识别</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<style>
+			.changelog-page {
+				padding-top: 100px;
+				min-height: calc(100vh - 200px);
+			}
+
+			.changelog-content {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 2rem;
+			}
+
+			.changelog-header {
+				text-align: center;
+				margin-bottom: 2rem;
+			}
+
+			.changelog-header h1 {
+				font-size: 2.5rem;
+				margin-bottom: 0.75rem;
+				background: linear-gradient(135deg, #2563eb, #1e40af);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			.changelog-header .changelog-subtitle {
+				color: var(--text-secondary);
+				font-size: 0.95rem;
+			}
+
+			.changelog-source {
+				text-align: center;
+				margin-bottom: 2rem;
+			}
+
+			.changelog-source a {
+				color: var(--primary-color);
+				text-decoration: none;
+				font-size: 0.9rem;
+			}
+
+			.changelog-source a:hover {
+				text-decoration: underline;
+			}
+
+			#changelog-loading {
+				text-align: center;
+				padding: 3rem;
+				color: var(--text-secondary);
+			}
+
+			#changelog-error {
+				display: none;
+				background: var(--bg-secondary);
+				border-left: 4px solid #f44336;
+				padding: 1rem 1.5rem;
+				border-radius: 0 8px 8px 0;
+				margin-bottom: 1.5rem;
+				color: var(--text-primary);
+			}
+
+			#changelog-body {
+				display: none;
+			}
+
+			#changelog-body.markdown-body h1 {
+				font-size: 1.75rem;
+				color: var(--text-primary);
+				margin: 2rem 0 1rem;
+				padding-bottom: 0.35rem;
+				border-bottom: 1px solid var(--border-color, #e5e7eb);
+			}
+
+			#changelog-body.markdown-body h2 {
+				font-size: 1.35rem;
+				color: var(--text-primary);
+				margin: 1.75rem 0 0.75rem;
+			}
+
+			#changelog-body.markdown-body h3 {
+				font-size: 1.1rem;
+				color: var(--text-primary);
+				margin: 1.25rem 0 0.5rem;
+			}
+
+			#changelog-body.markdown-body p,
+			#changelog-body.markdown-body li {
+				color: var(--text-secondary);
+				line-height: 1.75;
+				margin-bottom: 0.5rem;
+			}
+
+			#changelog-body.markdown-body ul {
+				padding-left: 1.5rem;
+				margin: 0.75rem 0 1rem;
+			}
+
+			#changelog-body.markdown-body hr {
+				border: none;
+				border-top: 1px solid var(--border-color, #e5e7eb);
+				margin: 2rem 0;
+			}
+
+			#changelog-body.markdown-body code {
+				background: var(--bg-secondary);
+				padding: 2px 6px;
+				border-radius: 4px;
+				font-size: 0.88em;
+			}
+
+			#changelog-body.markdown-body pre {
+				background: var(--bg-secondary);
+				padding: 1rem;
+				border-radius: 8px;
+				overflow-x: auto;
+				margin: 1rem 0;
+			}
+
+			#changelog-body.markdown-body pre code {
+				background: none;
+				padding: 0;
+			}
+
+			#changelog-body.markdown-body a {
+				color: var(--primary-color);
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar">
+			<div class="container">
+				<div class="nav-brand">
+					<a
+						href="index.html"
+						style="
+							display: flex;
+							align-items: center;
+							text-decoration: none;
+							color: inherit;
+						"
+					>
+						<img
+							src="images/icon512.png"
+							alt="Logo"
+							class="logo-img"
+						/>
+						<span class="brand-name" data-i18n="nav.brand"
+							>智能超链接识别</span
+						>
+					</a>
+				</div>
+				<ul class="nav-menu">
+					<li><a href="index.html" data-i18n="nav.home">首页</a></li>
+					<li>
+						<a href="index.html#features" data-i18n="nav.features"
+							>功能</a
+						>
+					</li>
+					<li>
+						<a href="index.html#download" data-i18n="nav.download"
+							>下载</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
+							target="_blank"
+						>
+							<i class="fab fa-github"></i> GitHub
+						</a>
+					</li>
+					<li>
+						<button class="theme-toggle" title="切换主题">
+							<i class="fas fa-moon"></i>
+							<i class="fas fa-sun"></i>
+						</button>
+					</li>
+					<li>
+						<button
+							class="lang-toggle"
+							onclick="i18n.toggle()"
+							title="切换语言"
+						>
+							中
+						</button>
+					</li>
+				</ul>
+				<button class="mobile-menu-toggle">
+					<i class="fas fa-bars"></i>
+				</button>
+			</div>
+		</nav>
+
+		<main class="changelog-page">
+			<div class="container">
+				<div class="changelog-content">
+					<div class="changelog-header">
+						<h1 data-i18n="changelog.page.heading">更新日志</h1>
+						<p
+							class="changelog-subtitle"
+							data-i18n="changelog.page.subtitle"
+						>
+							内容与 GitHub 仓库 main 分支的 CHANGELOG.md 同步
+						</p>
+					</div>
+
+					<div class="changelog-source">
+						<a
+							id="changelog-source-link"
+							href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/blob/main/CHANGELOG.md"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<i class="fab fa-github"></i>
+							<span data-i18n="changelog.viewSource"
+								>在 GitHub 上查看源文件</span
+							>
+						</a>
+					</div>
+
+					<div id="changelog-error" role="alert">
+						<p data-changelog-error-msg=""></p>
+					</div>
+
+					<div id="changelog-loading" data-i18n="changelog.loading">
+						正在加载更新日志…
+					</div>
+
+					<div
+						id="changelog-body"
+						class="markdown-body"
+						aria-live="polite"
+					></div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-section">
+						<h3>
+							<img
+								src="images/icon512.png"
+								alt="Logo"
+								class="footer-logo"
+							/>
+							<span data-i18n="nav.brand">智能超链接识别</span>
+						</h3>
+						<p data-i18n="footer.tagline">让网页浏览更加便捷</p>
+					</div>
+					<div class="footer-section">
+						<h4 data-i18n="footer.quicklinks">快速链接</h4>
+						<ul>
+							<li>
+								<a href="index.html" data-i18n="nav.home">首页</a>
+							</li>
+							<li>
+								<a href="index.html#features" data-i18n="nav.features">功能</a>
+							</li>
+							<li>
+								<a href="index.html#download" data-i18n="nav.download">下载</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4 data-i18n="footer.resources">资源</h4>
+						<ul>
+							<li>
+								<a href="docs.html" data-i18n="footer.docs">项目文档</a>
+							</li>
+							<li>
+								<a href="changelog.html" data-i18n="footer.changelog">更新日志</a>
+							</li>
+							<li>
+								<a
+									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/issues"
+									data-i18n="footer.issues"
+								>问题反馈</a>
+							</li>
+							<li>
+								<a href="privacy.html" data-i18n="footer.privacy">隐私政策</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4 data-i18n="footer.about">关于</h4>
+						<ul>
+							<li>
+								<a
+									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
+									data-i18n="footer.github"
+								>GitHub 仓库</a>
+							</li>
+							<li>
+								<a
+									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/blob/main/LICENSE"
+									target="_blank"
+									data-i18n="footer.license"
+								>开源许可</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p data-i18n="footer.copyright">
+						&copy; 2024-2026 Smart Text-to-Link Converter. All rights
+						reserved.
+					</p>
+					<p>
+						<span data-i18n="footer.mit">基于</span>
+						<a href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/blob/main/LICENSE" target="_blank">MIT License</a>
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<script src="js/i18n.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+		<script src="js/changelog.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

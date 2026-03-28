@@ -245,6 +245,16 @@ const i18n = {
 			'docs.dev.contributing.title': '参与贡献',
 			'docs.dev.contributing.desc': '欢迎提交 Issue 和 Pull Request！请遵循 ES6+ 规范，保持代码简洁可读，并在不同网站上测试新功能。',
 			'docs.dev.contributing.link': '前往 GitHub 仓库',
+
+			// 更新日志页面（内容从 GitHub Raw 拉取 CHANGELOG.md）
+			'changelog.page.title': '更新日志 - 智能超链接识别',
+			'changelog.page.heading': '更新日志',
+			'changelog.page.subtitle':
+				'内容与 GitHub 仓库 main 分支的 CHANGELOG.md 同步',
+			'changelog.loading': '正在加载更新日志…',
+			'changelog.loadError':
+				'无法加载更新日志。请检查网络或直接在 GitHub 上查看 CHANGELOG.md。',
+			'changelog.viewSource': '在 GitHub 上查看源文件',
 		},
 		en: {
 			// 导航栏
@@ -498,6 +508,16 @@ const i18n = {
 			'docs.dev.contributing.title': 'Contributing',
 			'docs.dev.contributing.desc': 'Issues and pull requests are welcome! Follow ES6+ conventions, keep code clean and readable, and test new features across different websites.',
 			'docs.dev.contributing.link': 'Go to GitHub Repository',
+
+			// Changelog page (fetches CHANGELOG.md from GitHub Raw)
+			'changelog.page.title': 'Changelog - Smart Hyperlink Recognition',
+			'changelog.page.heading': 'Changelog',
+			'changelog.page.subtitle':
+				'Synced with CHANGELOG.md on the main branch of the GitHub repository',
+			'changelog.loading': 'Loading changelog…',
+			'changelog.loadError':
+				'Could not load the changelog. Check your network or view CHANGELOG.md on GitHub.',
+			'changelog.viewSource': 'View source file on GitHub',
 		},
 	},
 
