@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="智能超链接识别 - 使用文档" />
+		<link rel="icon" href="./favicon.ico" type="image/x-icon" />
+		<title data-i18n="docs.page.title">使用文档 - 智能超链接识别</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<style>
+			.docs-page {
+				padding-top: 100px;
+				min-height: calc(100vh - 200px);
+			}
+
+			.docs-content {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 2rem;
+			}
+
+			.docs-header {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+
+			.docs-header h1 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+				background: linear-gradient(135deg, #2563eb, #1e40af);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			.docs-header .docs-subtitle {
+				color: var(--text-secondary);
+				font-size: 0.95rem;
+			}
+
+			.docs-nav {
+				display: flex;
+				justify-content: center;
+				gap: 12px;
+				margin-bottom: 2.5rem;
+				flex-wrap: wrap;
+			}
+
+			.docs-nav a {
+				padding: 8px 18px;
+				border-radius: 20px;
+				background: var(--bg-secondary);
+				color: var(--text-primary);
+				text-decoration: none;
+				font-size: 0.9rem;
+				transition: all 0.2s;
+				border: 1px solid transparent;
+			}
+
+			.docs-nav a:hover {
+				border-color: var(--primary-color);
+				color: var(--primary-color);
+			}
+
+			.docs-section {
+				margin-bottom: 3rem;
+			}
+
+			.docs-section h2 {
+				font-size: 1.5rem;
+				color: var(--text-primary);
+				margin-bottom: 1rem;
+				padding-bottom: 0.5rem;
+				border-bottom: 2px solid var(--primary-color);
+				display: inline-block;
+			}
+
+			.docs-section h3 {
+				font-size: 1.15rem;
+				color: var(--text-primary);
+				margin: 1.5rem 0 0.75rem;
+			}
+
+			.docs-section p,
+			.docs-section li {
+				color: var(--text-secondary);
+				line-height: 1.8;
+				margin-bottom: 1rem;
+			}
+
+			.docs-section ul,
+			.docs-section ol {
+				padding-left: 1.5rem;
+				margin-bottom: 1rem;
+			}
+
+			.docs-section li {
+				margin-bottom: 0.5rem;
+			}
+
+			.docs-section code {
+				background: var(--bg-secondary);
+				padding: 2px 6px;
+				border-radius: 4px;
+				font-size: 0.9em;
+			}
+
+			.docs-section pre {
+				background: var(--bg-secondary);
+				padding: 1rem 1.25rem;
+				border-radius: 8px;
+				overflow-x: auto;
+				margin: 1rem 0;
+				font-size: 0.88rem;
+				line-height: 1.6;
+			}
+
+			.docs-section pre code {
+				background: none;
+				padding: 0;
+			}
+
+			.step-list {
+				counter-reset: step;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			.step-list li {
+				counter-increment: step;
+				padding-left: 2.5rem;
+				position: relative;
+			}
+
+			.step-list li::before {
+				content: counter(step);
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 1.8rem;
+				height: 1.8rem;
+				background: linear-gradient(135deg, #2563eb, #1e40af);
+				color: white;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 0.85rem;
+				font-weight: 600;
+			}
+
+			.highlight-box {
+				background: var(--bg-secondary);
+				border-left: 4px solid var(--primary-color);
+				padding: 1rem 1.5rem;
+				border-radius: 0 8px 8px 0;
+				margin: 1.5rem 0;
+			}
+
+			.highlight-box p {
+				margin: 0;
+				color: var(--text-primary);
+			}
+
+			.structure-tree {
+				font-family: 'Courier New', monospace;
+				font-size: 0.88rem;
+				line-height: 1.7;
+				color: var(--text-secondary);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 导航栏 -->
+		<nav class="navbar">
+			<div class="container">
+				<div class="nav-brand">
+					<a
+						href="index.html"
+						style="
+							display: flex;
+							align-items: center;
+							text-decoration: none;
+							color: inherit;
+						"
+					>
+						<img
+							src="images/icon512.png"
+							alt="Logo"
+							class="logo-img"
+						/>
+						<span class="brand-name" data-i18n="nav.brand"
+							>智能超链接识别</span
+						>
+					</a>
+				</div>
+				<ul class="nav-menu">
+					<li><a href="index.html" data-i18n="nav.home">首页</a></li>
+					<li>
+						<a href="index.html#features" data-i18n="nav.features"
+							>功能</a
+						>
+					</li>
+					<li>
+						<a href="index.html#download" data-i18n="nav.download"
+							>下载</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
+							target="_blank"
+						>
+							<i class="fab fa-github"></i> GitHub
+						</a>
+					</li>
+					<li>
+						<button class="theme-toggle" title="切换主题">
+							<i class="fas fa-moon"></i>
+							<i class="fas fa-sun"></i>
+						</button>
+					</li>
+					<li>
+						<button
+							class="lang-toggle"
+							onclick="i18n.toggle()"
+							title="切换语言"
+						>
+							中
+						</button>
+					</li>
+				</ul>
+				<button class="mobile-menu-toggle">
+					<i class="fas fa-bars"></i>
+				</button>
+			</div>
+		</nav>
+
+		<!-- 文档内容 -->
+		<main class="docs-page">
+			<div class="container">
+				<div class="docs-content">
+					<div class="docs-header">
+						<h1 data-i18n="docs.page.heading">📖 使用文档</h1>
+						<p class="docs-subtitle" data-i18n="docs.page.subtitle">
+							从安装到开发，一站式了解智能超链接识别
+						</p>
+					</div>
+
+					<div class="docs-nav">
+						<a href="#quickstart" data-i18n="docs.nav.quickstart">🚀 快速开始</a>
+						<a href="#install" data-i18n="docs.nav.install">📦 安装指南</a>
+						<a href="#development" data-i18n="docs.nav.development">🔧 开发指南</a>
+					</div>
+
+					<!-- 快速开始 -->
+					<section id="quickstart" class="docs-section">
+						<h2 data-i18n="docs.qs.title">🚀 快速开始</h2>
+						<p data-i18n="docs.qs.intro">
+							只需三步，即可开始使用智能超链接识别扩展。
+						</p>
+
+						<ol class="step-list">
+							<li data-i18n="docs.qs.step1">
+								访问 <a href="https://chromewebstore.google.com/detail/dcfgdgniapopldemehcepddjcfhakhfl" target="_blank">Chrome Web Store</a>，点击「添加至 Chrome」安装扩展。
+							</li>
+							<li data-i18n="docs.qs.step2">
+								打开任意网页，点击工具栏中的扩展图标，开启当前网站的开关。
+							</li>
+							<li data-i18n="docs.qs.step3">
+								页面中的纯文本 URL 和邮箱地址将自动转换为可点击的超链接，工具栏图标会显示转换数量。
+							</li>
+						</ol>
+
+						<div class="highlight-box">
+							<p data-i18n="docs.qs.tip">
+								<strong>提示：</strong>扩展采用白名单机制，需要手动为每个网站启用。在设置页面可以批量管理已启用的网站，子域名会自动包含。
+							</p>
+						</div>
+					</section>
+
+					<!-- 安装指南 -->
+					<section id="install" class="docs-section">
+						<h2 data-i18n="docs.install.title">📦 安装指南</h2>
+
+						<h3 data-i18n="docs.install.store.title">方式一：Chrome Web Store（推荐）</h3>
+						<ol class="step-list">
+							<li data-i18n="docs.install.store.step1">
+								访问 <a href="https://chromewebstore.google.com/detail/dcfgdgniapopldemehcepddjcfhakhfl" target="_blank">Chrome Web Store 页面</a>。
+							</li>
+							<li data-i18n="docs.install.store.step2">
+								点击「添加至 Chrome」按钮，在弹出的对话框中点击「添加扩展程序」。
+							</li>
+							<li data-i18n="docs.install.store.step3">
+								安装完成后，工具栏会出现扩展图标，后续版本将自动更新。
+							</li>
+						</ol>
+
+						<h3 data-i18n="docs.install.github.title">方式二：GitHub Release</h3>
+						<ol class="step-list">
+							<li data-i18n="docs.install.github.step1">
+								前往 <a href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/releases" target="_blank">GitHub Releases</a> 下载最新版本的 ZIP 文件并解压。
+							</li>
+							<li data-i18n="docs.install.github.step2">
+								在 Chrome 地址栏输入 <code>chrome://extensions</code>，开启右上角的「开发者模式」。
+							</li>
+							<li data-i18n="docs.install.github.step3">
+								点击「加载已解压的扩展程序」，选择解压后的 <code>extension</code> 文件夹。
+							</li>
+						</ol>
+
+						<h3 data-i18n="docs.install.dev.title">方式三：开发者模式</h3>
+						<pre><code>git clone https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition.git</code></pre>
+						<p data-i18n="docs.install.dev.desc">
+							克隆仓库后，按方式二的步骤 2-3 加载 <code>extension</code> 文件夹即可。修改代码后在扩展管理页面点击刷新按钮重新加载。
+						</p>
+
+						<h3 data-i18n="docs.install.requirements.title">系统要求</h3>
+						<ul>
+							<li data-i18n="docs.install.requirements.item1">Chrome 88 及以上版本（Manifest V3）</li>
+							<li data-i18n="docs.install.requirements.item2">兼容基于 Chromium 的浏览器（Edge、Brave 等）</li>
+						</ul>
+					</section>
+
+					<!-- 开发指南 -->
+					<section id="development" class="docs-section">
+						<h2 data-i18n="docs.dev.title">🔧 开发指南</h2>
+
+						<h3 data-i18n="docs.dev.structure.title">项目结构</h3>
+						<pre class="structure-tree">SmartHyperlinkRecognition/
+├── extension/              # Chrome 扩展核心
+│   ├── manifest.json       # Manifest V3 配置
+│   ├── background.js       # Service Worker
+│   ├── content.js          # 内容脚本（核心转换逻辑）
+│   ├── popup.html/css/js   # 弹窗界面
+│   ├── options.html/css/js # 设置页面
+│   ├── i18n.js             # 扩展内国际化
+│   ├── welcome.html/js     # 首次安装欢迎页
+│   └── icons/              # 图标资源
+├── website/                # 官方网站
+│   ├── index.html          # 首页
+│   ├── privacy.html        # 隐私政策
+│   ├── docs.html           # 使用文档
+│   ├── css/style.css       # 样式
+│   └── js/                 # 脚本与国际化
+└── scripts/                # 构建辅助脚本</pre>
+
+						<h3 data-i18n="docs.dev.arch.title">架构概览</h3>
+						<p data-i18n="docs.dev.arch.desc">
+							扩展基于 Manifest V3，由四个核心模块组成：
+						</p>
+						<ul>
+							<li data-i18n="docs.dev.arch.item1">
+								<strong>Service Worker</strong>（background.js）：管理配置、白名单切换、Badge 计数更新。
+							</li>
+							<li data-i18n="docs.dev.arch.item2">
+								<strong>Content Script</strong>（content.js）：使用 TreeWalker 遍历文本节点，正则匹配 URL/邮箱并转换为超链接；通过 MutationObserver 实时处理动态内容。
+							</li>
+							<li data-i18n="docs.dev.arch.item3">
+								<strong>Popup</strong>（popup.html/js）：显示当前域名、白名单开关和转换统计。
+							</li>
+							<li data-i18n="docs.dev.arch.item4">
+								<strong>Options</strong>（options.html/js）：白名单管理、排除标签、精确模式等高级设置。
+							</li>
+						</ul>
+
+						<h3 data-i18n="docs.dev.dataflow.title">数据流</h3>
+						<p data-i18n="docs.dev.dataflow.desc">
+							配置存储在 <code>chrome.storage.sync</code>。页面加载时 Content Script 读取配置，检查白名单后执行转换，并通过消息机制将链接计数上报给 Service Worker 更新 Badge。
+						</p>
+
+						<h3 data-i18n="docs.dev.workflow.title">本地开发流程</h3>
+						<ol class="step-list">
+							<li data-i18n="docs.dev.workflow.step1">
+								克隆仓库：<code>git clone</code> 并进入项目目录。
+							</li>
+							<li data-i18n="docs.dev.workflow.step2">
+								在 <code>chrome://extensions</code> 开启开发者模式，加载 <code>extension</code> 文件夹。
+							</li>
+							<li data-i18n="docs.dev.workflow.step3">
+								修改代码后，点击扩展管理页面的刷新按钮重新加载，或刷新目标网页查看效果。
+							</li>
+							<li data-i18n="docs.dev.workflow.step4">
+								调试时使用 DevTools：Service Worker 可在扩展详情页打开；Content Script 在目标页面的控制台查看；Popup 右键「检查」打开。
+							</li>
+						</ol>
+
+						<h3 data-i18n="docs.dev.contributing.title">参与贡献</h3>
+						<p data-i18n="docs.dev.contributing.desc">
+							欢迎提交 Issue 和 Pull Request！请遵循 ES6+ 规范，保持代码简洁可读，并在不同网站上测试新功能。
+						</p>
+						<p>
+							<a
+								href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
+								target="_blank"
+							>
+								<i class="fab fa-github"></i>
+								<span data-i18n="docs.dev.contributing.link">前往 GitHub 仓库</span>
+							</a>
+						</p>
+					</section>
+				</div>
+			</div>
+		</main>
+
+		<!-- 页脚 -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-section">
+						<h3>
+							<img
+								src="images/icon512.png"
+								alt="Logo"
+								class="footer-logo"
+							/>
+							<span data-i18n="nav.brand">智能超链接识别</span>
+						</h3>
+						<p data-i18n="footer.tagline">让网页浏览更加便捷</p>
+					</div>
+					<div class="footer-section">
+						<h4 data-i18n="footer.quicklinks">快速链接</h4>
+						<ul>
+							<li>
+								<a href="index.html" data-i18n="nav.home">首页</a>
+							</li>
+							<li>
+								<a href="index.html#features" data-i18n="nav.features">功能</a>
+							</li>
+							<li>
+								<a href="index.html#download" data-i18n="nav.download">下载</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4 data-i18n="footer.resources">资源</h4>
+						<ul>
+							<li>
+								<a href="docs.html" data-i18n="footer.docs">项目文档</a>
+							</li>
+							<li>
+								<a
+									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/blob/main/CHANGELOG.md"
+									target="_blank"
+									data-i18n="footer.changelog"
+								>更新日志</a>
+							</li>
+							<li>
+								<a
+									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/issues"
+									data-i18n="footer.issues"
+								>问题反馈</a>
+							</li>
+							<li>
+								<a href="privacy.html" data-i18n="footer.privacy">隐私政策</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4 data-i18n="footer.about">关于</h4>
+						<ul>
+							<li>
+								<a
+									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition"
+									data-i18n="footer.github"
+								>GitHub 仓库</a>
+							</li>
+							<li>
+								<a
+									href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/blob/main/LICENSE"
+									target="_blank"
+									data-i18n="footer.license"
+								>开源许可</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p data-i18n="footer.copyright">
+						&copy; 2024-2026 Smart Text-to-Link Converter. All rights
+						reserved.
+					</p>
+					<p>
+						<span data-i18n="footer.mit">基于</span>
+						<a href="https://github.com/xiaowulang-turbo/SmartHyperlinkRecognition/blob/main/LICENSE" target="_blank">MIT License</a>
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<script src="js/i18n.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
