@@ -20,6 +20,19 @@
 	}
 
 	let convertedCount = 0
+	let sendCountTimer = null
+
+	function sendLinkCount() {
+		chrome.runtime.sendMessage({
+			action: 'updateLinkCount',
+			count: convertedCount,
+		})
+	}
+
+	function scheduleSendLinkCount() {
+		clearTimeout(sendCountTimer)
+		sendCountTimer = setTimeout(sendLinkCount, 300)
+	}
 
 	// URL验证过滤器 - 排除误匹配
 	const URL_VALIDATORS = {
@@ -80,15 +93,13 @@
 	// 检查当前网站是否在白名单中
 	function isWhitelisted() {
 		const hostname = window.location.hostname
-		return (config.whitelist || []).some((domain) => hostname.includes(domain))
+		return (config.whitelist || []).some((domain) => hostname === domain || hostname.endsWith('.' + domain))
 	}
 
 	// 初始化
 	function init() {
-		// 处理现有内容
 		processNode(document.body)
-
-		// 监听动态内容变化
+		sendLinkCount()
 		observeDOMChanges()
 	}
 
@@ -258,6 +269,7 @@
 					}
 				})
 			})
+			scheduleSendLinkCount()
 		})
 
 		observer.observe(document.body, {

@@ -65,16 +65,19 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 		chrome.storage.sync.get(['config'], (result) => {
 			const config = result.config || { ...defaultConfig }
 			const list = config.whitelist || []
-			const index = list.findIndex((d) => d === domain)
+			const exactIndex = list.findIndex((d) => d === domain)
+			const matchIndex = exactIndex >= 0
+				? exactIndex
+				: list.findIndex((d) => domain.endsWith('.' + d))
 
-			if (index >= 0) {
-				list.splice(index, 1)
+			if (matchIndex >= 0) {
+				list.splice(matchIndex, 1)
 			} else {
 				list.push(domain)
 			}
 			config.whitelist = list
 			chrome.storage.sync.set({ config }, () => {
-				sendResponse({ whitelisted: index < 0, whitelist: list })
+				sendResponse({ whitelisted: matchIndex < 0, whitelist: list })
 			})
 		})
 		return true
@@ -91,36 +94,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 	}
 })
 
-// 根据当前 tab URL 更新徽章
-function updateBadgeForTab(tabId, url) {
-	if (!url) {
-		chrome.action.setBadgeText({ text: '', tabId })
-		return
-	}
-	try {
-		const hostname = new URL(url).hostname
-		chrome.storage.sync.get(['config'], (result) => {
-			const config = result.config || defaultConfig
-			const list = config.whitelist || []
-			const isWhitelisted = list.some((d) => hostname.includes(d))
-			if (!isWhitelisted) {
-				chrome.action.setBadgeText({ text: '', tabId })
-			}
-		})
-	} catch {
-		chrome.action.setBadgeText({ text: '', tabId })
-	}
+// 重置标签页徽章（content script 上报计数后会重新设置）
+function updateBadgeForTab(tabId) {
+	chrome.action.setBadgeText({ text: '', tabId })
 }
 
 // 标签页切换/更新时刷新徽章
 chrome.tabs.onActivated.addListener(({ tabId }) => {
-	chrome.tabs.get(tabId, (tab) => {
-		if (tab?.url) updateBadgeForTab(tabId, tab.url)
-	})
+	updateBadgeForTab(tabId)
 })
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-	if (changeInfo.status === 'loading' && tab.url) {
-		updateBadgeForTab(tabId, tab.url)
+chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
+	if (changeInfo.status === 'loading') {
+		updateBadgeForTab(tabId)
 	}
 })

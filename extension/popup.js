@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			const config = result.config || {}
 			const whitelist = config.whitelist || []
 			const isWhitelisted = whitelist.some(function (d) {
-				return currentHostname.includes(d)
+				return currentHostname === d || currentHostname.endsWith('.' + d)
 			})
 
 			siteToggle.checked = isWhitelisted
